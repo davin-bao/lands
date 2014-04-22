@@ -30,8 +30,9 @@ ClassLoader::addDirectories(array(
 | build a basic log file setup which creates a single file for logs.
 |
 */
+$logFile = 'log-'.php_sapi_name().'.txt';
 
-Log::useFiles(storage_path().'/logs/laravel.log');
+Log::useDailyFiles(storage_path().'/logs/'.$logFile);
 
 /*
 |--------------------------------------------------------------------------
@@ -49,6 +50,22 @@ Log::useFiles(storage_path().'/logs/laravel.log');
 App::error(function(Exception $exception, $code)
 {
 	Log::error($exception);
+
+  if (Config::get('app.debug')) {
+    return;
+  }
+
+  switch ($code)
+  {
+    case 403:
+      return Response::view('error/403', array(), 403);
+
+    case 500:
+      return Response::view('error/500', array(), 500);
+
+    default:
+      return Response::view('error/404', array(), $code);
+  }
 });
 
 /*

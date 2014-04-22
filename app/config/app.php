@@ -13,7 +13,7 @@ return array(
 	|
 	*/
 
-	'debug' => false,
+	'debug' => true,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -53,7 +53,7 @@ return array(
 	*/
 
 	'locale' => 'en',
-
+  'available_language' => array('en', 'zh'),
 	/*
 	|--------------------------------------------------------------------------
 	| Application Fallback Locale
@@ -186,6 +186,8 @@ return array(
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
 
+    'String'          => 'Helpers\String', // String
+    'Carbon'          => 'Carbon\Carbon', // Carbon
 	),
 
 );
