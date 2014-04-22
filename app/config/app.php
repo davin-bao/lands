@@ -119,6 +119,8 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
+        'Zizaco\Confide\ConfideServiceProvider',
+        'Zizaco\Entrust\EntrustServiceProvider',
 
 	),
 
@@ -186,8 +188,10 @@ return array(
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
 
-    'String'          => 'Helpers\String', // String
-    'Carbon'          => 'Carbon\Carbon', // Carbon
+        'String'          => 'Helpers\String', // String
+        'Carbon'          => 'Carbon\Carbon', // Carbon
+        'Confide'    => 'Zizaco\Confide\ConfideFacade',
+        'Entrust'    => 'Zizaco\Entrust\EntrustFacade',
 	),
 
 );
