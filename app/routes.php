@@ -11,6 +11,23 @@
 |
 */
 
+
+Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
+{
+
+
+    # User Management
+    Route::get('users/{user}/show', 'AdminUsersController@getShow');
+    Route::get('users/{user}/edit', 'AdminUsersController@getEdit');
+    Route::post('users/{user}/edit', 'AdminUsersController@postEdit');
+    Route::get('users/{user}/delete', 'AdminUsersController@getDelete');
+    Route::post('users/{user}/delete', 'AdminUsersController@postDelete');
+    Route::controller('users', 'AdminUsersController');
+
+    # Admin Dashboard
+    Route::controller('/', '\Admin\AdminDashboardController');
+});
+
 Route::get('/', function()
 {
     return View::make('hello');

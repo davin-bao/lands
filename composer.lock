@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "05b5a760e2d7dcd57ed0d2843a8e6fdc",
+    "hash": "e054b71692884dfd950f1a945b504c8a",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -1818,16 +1818,16 @@
         },
         {
             "name": "zizaco/entrust",
-            "version": "1.2.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Zizaco/entrust.git",
-                "reference": "48cbd45bd0a07997b1e883d44558ec9e809eacef"
+                "reference": "b580e422df43b5abf9f46069421123497487604b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Zizaco/entrust/zipball/48cbd45bd0a07997b1e883d44558ec9e809eacef",
-                "reference": "48cbd45bd0a07997b1e883d44558ec9e809eacef",
+                "url": "https://api.github.com/repos/Zizaco/entrust/zipball/b580e422df43b5abf9f46069421123497487604b",
+                "reference": "b580e422df43b5abf9f46069421123497487604b",
                 "shasum": ""
             },
             "require": {
@@ -1874,7 +1874,7 @@
                 "laravel",
                 "roles"
             ],
-            "time": "2014-03-07 06:22:46"
+            "time": "2014-03-28 04:58:33"
         }
     ],
     "packages-dev": [
@@ -1885,7 +1885,8 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "zizaco/confide": 20
+        "zizaco/confide": 20,
+        "zizaco/entrust": 20
     },
     "platform": [
 
