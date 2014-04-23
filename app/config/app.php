@@ -52,8 +52,8 @@ return array(
 	|
 	*/
 
-	'locale' => 'en',
-  'available_language' => array('en', 'zh'),
+	'locale' => 'zh_CN',
+  'available_language' => array('en', 'zh_CN'),
 	/*
 	|--------------------------------------------------------------------------
 	| Application Fallback Locale
@@ -188,10 +188,10 @@ return array(
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
 
-        'String'          => 'Helpers\String', // String
-        'Carbon'          => 'Carbon\Carbon', // Carbon
-        'Confide'    => 'Zizaco\Confide\ConfideFacade',
-        'Entrust'    => 'Zizaco\Entrust\EntrustFacade',
+    'String'          => 'Helpers\String', // String
+    'Carbon'          => 'Carbon\Carbon', // Carbon
+    'Confide'    => 'Zizaco\Confide\ConfideFacade',
+    'Entrust'    => 'Zizaco\Entrust\EntrustFacade',
 	),
 
 );

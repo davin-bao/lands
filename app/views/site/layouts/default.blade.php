@@ -19,8 +19,8 @@
 
 		<!-- CSS
 		================================================== -->
-        <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.min.css')}}">
-        <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap-theme.min.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/css/bootstrap.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/css/bootstrap-ie6.min.css')}}">
 
 		<style>
 		@section('styles')
@@ -45,37 +45,36 @@
 		<!-- To make sticky footer need to wrap in a div -->
 		<div id="wrap">
 		<!-- Navbar -->
-		<div class="navbar navbar-default navbar-inverse navbar-fixed-top">
-			 <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
-                <div class="collapse navbar-collapse navbar-ex1-collapse">
-                    <ul class="nav navbar-nav">
-						<li {{ (Request::is('/') ? ' class="active"' : '') }}><a href="{{{ URL::to('') }}}">Home</a></li>
-					</ul>
+      <div class="navbar navbar-inverse">
+        <div class="navbar-inner">
+          <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="./index.html">Bootstrap</a>
+            <div class="nav-collapse collapse">
+              <ul class="nav">
+                <li {{ (Request::is('/') ? ' class="active"' : '') }}><a href="{{{ URL::to('') }}}">Home</a></li>
+              </ul>
 
-                    <ul class="nav navbar-nav pull-right">
-                        @if (Auth::check())
-                        @if (Auth::user()->hasRole('admin'))
-                        <li><a href="{{{ URL::to('admin') }}}">Admin Panel</a></li>
-                        @endif
-                        <li><a href="{{{ URL::to('user') }}}">Logged in as {{{ Auth::user()->username }}}</a></li>
-                        <li><a href="{{{ URL::to('user/logout') }}}">Logout</a></li>
-                        @else
-                        <li {{ (Request::is('user/login') ? ' class="active"' : '') }}><a href="{{{ URL::to('user/login') }}}">Login</a></li>
-                        <li {{ (Request::is('user/register') ? ' class="active"' : '') }}><a href="{{{ URL::to('user/create') }}}">{{{ Lang::get('site.sign_up') }}}</a></li>
-                        @endif
-                    </ul>
-					<!-- ./ nav-collapse -->
-				</div>
-			</div>
-		</div>
+              <ul class="nav navbar-nav pull-right">
+                @if (Auth::check())
+                @if (Auth::user()->hasRole('admin'))
+                <li><a href="{{{ URL::to('admin') }}}">Admin Panel</a></li>
+                @endif
+                <li><a href="{{{ URL::to('user') }}}">Logged in as {{{ Auth::user()->username }}}</a></li>
+                <li><a href="{{{ URL::to('user/logout') }}}">Logout</a></li>
+                @else
+                <li {{ (Request::is('user/login') ? ' class="active"' : '') }}><a href="{{{ URL::to('user/login') }}}">Login</a></li>
+                <li {{ (Request::is('user/register') ? ' class="active"' : '') }}><a href="{{{ URL::to('user/create') }}}">{{{ Lang::get('site.sign_up') }}}</a></li>
+                @endif
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
 		<!-- ./ navbar -->
 
 		<!-- Container -->
@@ -105,19 +104,19 @@
 		<!-- Javascripts
 		================================================== -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-        <script src="{{asset('js/bootstrap.min.js')}}"></script>
-        <script src="{{asset('js/bootstrap-affix.js')}}"></script>
-        <script src="{{asset('js/bootstrap-alert.js')}}"></script>
-        <script src="{{asset('js/bootstrap-button.js')}}"></script>
-        <script src="{{asset('js/bootstrap-carousel.js')}}"></script>
-        <script src="{{asset('js/bootstrap-collapse.js')}}"></script>
-        <script src="{{asset('js/bootstrap-dropdown.js')}}"></script>
-        <script src="{{asset('js/bootstrap-modal.js')}}"></script>
-        <script src="{{asset('js/bootstrap-popover.js')}}"></script>
-        <script src="{{asset('js/bootstrap-scrollspy.js')}}"></script>
-        <script src="{{asset('js/bootstrap-tab.js')}}"></script>
-        <script src="{{asset('js/bootstrap-tooltip.js')}}"></script>
-        <script src="{{asset('js/bootstrap-transition.js')}}"></script>
+        <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
+        <script src="{{asset('assets/js/bootstrap-affix.js')}}"></script>
+        <script src="{{asset('assets/js/bootstrap-alert.js')}}"></script>
+        <script src="{{asset('assets/js/bootstrap-button.js')}}"></script>
+        <script src="{{asset('assets/js/bootstrap-carousel.js')}}"></script>
+        <script src="{{asset('assets/js/bootstrap-collapse.js')}}"></script>
+        <script src="{{asset('assets/js/bootstrap-dropdown.js')}}"></script>
+        <script src="{{asset('assets/js/bootstrap-modal.js')}}"></script>
+        <script src="{{asset('assets/js/bootstrap-popover.js')}}"></script>
+        <script src="{{asset('assets/js/bootstrap-scrollspy.js')}}"></script>
+        <script src="{{asset('assets/js/bootstrap-tab.js')}}"></script>
+        <script src="{{asset('assets/js/bootstrap-tooltip.js')}}"></script>
+        <script src="{{asset('assets/js/bootstrap-transition.js')}}"></script>
 
         @yield('scripts')
 	</body>

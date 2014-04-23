@@ -9,15 +9,22 @@
 |
 */
 
+
 class UserController extends BaseController {
 
+    private $repo;
+
+    public function __construct(User\UserRepository $userRepository)
+    {
+      $this->repo = $userRepository;
+    }
     /**
      * Displays the form for account creation
      *
      */
     public function create()
     {
-        return View::make(Config::get('confide::signup_form'));
+        return View::make('site/user/create');//Config::get('confide::signup_form'));
     }
 
     /**
@@ -26,7 +33,7 @@ class UserController extends BaseController {
      */
     public function store()
     {
-        $user = new User;
+        $user = new User\User;
 
         $user->username = Input::get( 'username' );
         $user->email = Input::get( 'email' );
@@ -73,7 +80,7 @@ class UserController extends BaseController {
         }
         else
         {
-            return View::make(Config::get('confide::login_form'));
+          return View::make("site/user/login");//Config::get('confide::login_form'));
         }
     }
 
@@ -104,7 +111,7 @@ class UserController extends BaseController {
         }
         else
         {
-            $user = new User;
+            $user = new User\User;
 
             // Check if there was too many login attempts
             if( Confide::isThrottled( $input ) )
@@ -198,9 +205,8 @@ class UserController extends BaseController {
             'password'=>Input::get( 'password' ),
             'password_confirmation'=>Input::get( 'password_confirmation' ),
         );
-
         // By passing an array with the token, password and confirmation
-        if( Confide::resetPassword( $input ) )
+        if( Confide::resetPassword( $input ) ) //$this->do_reset_password_action( $input ) )
         {
             $notice_msg = Lang::get('confide::confide.alerts.password_reset');
                         return Redirect::action('UserController@login')
@@ -214,6 +220,47 @@ class UserController extends BaseController {
                 ->with( 'error', $error_msg );
         }
     }
+//
+//    public function do_reset_password_action($params){
+//      $user = new User\User;
+//      $user->password = array_get($params, 'password', '');
+//      $user->password_confirmation = array_get($params, 'password_confirmation', '');
+//
+//      $passwordValidators = array(
+//        'password' => User\User::$rules['password'],
+//        'password_confirmation' => User\User::$rules['password_confirmation'],
+//      );
+//      $validationResult = $user->validate($passwordValidators);
+//
+//      if ( $validationResult )
+//      {
+//        $token = array_get($params, 'token', '');
+//        $email = $this->repo->getEmailByReminderToken( $token );
+//        $user = $this->repo->getUserByMail( $email );
+//
+//        if( $user )
+//        {
+//          if($user->resetPassword( $params ))
+//          {
+//            // Password reset success, remove token from database
+//            $this->repo->deleteEmailByReminderToken( $token );
+//
+//            return true;
+//          }
+//          else
+//          {
+//            return false;
+//          }
+//        }
+//        else
+//        {
+//          return false;
+//        }
+//      }
+//      else{
+//        return false;
+//      }
+//    }
 
     /**
      * Log the user out of the application.

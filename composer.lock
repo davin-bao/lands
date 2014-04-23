@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "57a091ad9661bc70630276ef28a848f0",
+    "hash": "05b5a760e2d7dcd57ed0d2843a8e6fdc",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -136,6 +136,51 @@
                 "zf2"
             ],
             "time": "2013-12-04 14:19:30"
+        },
+        {
+            "name": "ipunkt/laravel-repositories",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ipunkt/laravel-repositories.git",
+                "reference": "91091518a299a629269ccdb79d5fdf95d2555935"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ipunkt/laravel-repositories/zipball/91091518a299a629269ccdb79d5fdf95d2555935",
+                "reference": "91091518a299a629269ccdb79d5fdf95d2555935",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "~4.0",
+                "illuminate/support": "~4.0",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Ipunkt\\LaravelRepositories\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Robert Kummer",
+                    "email": "rok@ipunkt.biz"
+                }
+            ],
+            "description": "Base repository implementation for laravel 4.x",
+            "keywords": [
+                "eloquent",
+                "laravel",
+                "php",
+                "repository",
+                "repository pattern"
+            ],
+            "time": "2014-04-12 18:07:29"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -405,12 +450,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "97f79f7ed37c9253712eaa9c9a967199456a2f16"
+                "reference": "0b654cec865d66042161e3f584f0b18f9b444e18"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/97f79f7ed37c9253712eaa9c9a967199456a2f16",
-                "reference": "97f79f7ed37c9253712eaa9c9a967199456a2f16",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/0b654cec865d66042161e3f584f0b18f9b444e18",
+                "reference": "0b654cec865d66042161e3f584f0b18f9b444e18",
                 "shasum": ""
             },
             "require": {
@@ -465,7 +510,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2014-04-21 18:22:17"
+            "time": "2014-04-23 07:20:48"
         },
         {
             "name": "nesbot/carbon",
@@ -1468,12 +1513,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Process.git",
-                "reference": "63d82c4aedd0970d5e7c6089d79a3901fe10b599"
+                "reference": "42423066956ae1edbb0dcd9fbcf42fa087395454"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Process/zipball/63d82c4aedd0970d5e7c6089d79a3901fe10b599",
-                "reference": "63d82c4aedd0970d5e7c6089d79a3901fe10b599",
+                "url": "https://api.github.com/repos/symfony/Process/zipball/42423066956ae1edbb0dcd9fbcf42fa087395454",
+                "reference": "42423066956ae1edbb0dcd9fbcf42fa087395454",
                 "shasum": ""
             },
             "require": {
@@ -1508,7 +1553,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "http://symfony.com",
-            "time": "2014-04-22 08:11:06"
+            "time": "2014-04-23 06:33:25"
         },
         {
             "name": "symfony/routing",
