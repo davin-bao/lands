@@ -5,7 +5,6 @@
  * Date: 14-4-23
  * Time: 下午5:02
  */
-namespace User;
 use Ipunkt\LaravelRepositories\EloquentRepository;
 
 class UserRepository extends EloquentRepository implements UserRepositoryInterface

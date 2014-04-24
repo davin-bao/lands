@@ -1,10 +1,10 @@
-@extends('admin.layouts.modal')
+@extends('admin.layouts.default')
 
 {{-- Content --}}
 @section('content')
 	<!-- Tabs -->
 		<ul class="nav nav-tabs">
-			<li class="active"><a href="#tab-general" data-toggle="tab">General</a></li>
+			<li class="active"><a href="#tab-general" data-toggle="tab">{{{ Lang::get('admin/general.general_info') }}}</a></li>
 		</ul>
 	<!-- ./ tabs -->
 
@@ -20,8 +20,8 @@
 			<div class="tab-pane active" id="tab-general">
 				<!-- username -->
 				<div class="form-group {{{ $errors->has('username') ? 'error' : '' }}}">
-					<label class="col-md-2 control-label" for="username">Username</label>
-					<div class="col-md-10">
+					<label class="span2 control-label" for="username">{{{ Lang::get('admin/users/table.username') }}}</label>
+          <div class="span6">
 						<input class="form-control" type="text" name="username" id="username" value="{{{ Input::old('username', isset($user) ? $user->username : null) }}}" />
 						{{{ $errors->first('username', '<span class="help-inline">:message</span>') }}}
 					</div>
@@ -30,8 +30,8 @@
 
 				<!-- Email -->
 				<div class="form-group {{{ $errors->has('email') ? 'error' : '' }}}">
-					<label class="col-md-2 control-label" for="email">Email</label>
-					<div class="col-md-10">
+					<label class="span2 control-label" for="email">{{{ Lang::get('admin/users/table.email') }}}</label>
+          <div class="span6">
 						<input class="form-control" type="text" name="email" id="email" value="{{{ Input::old('email', isset($user) ? $user->email : null) }}}" />
 						{{{ $errors->first('email', '<span class="help-inline">:message</span>') }}}
 					</div>
@@ -40,8 +40,8 @@
 
 				<!-- Password -->
 				<div class="form-group {{{ $errors->has('password') ? 'error' : '' }}}">
-					<label class="col-md-2 control-label" for="password">Password</label>
-					<div class="col-md-10">
+					<label class="span2 control-label" for="password">{{{ Lang::get('admin/users/table.password') }}}</label>
+          <div class="span6">
 						<input class="form-control" type="password" name="password" id="password" value="" />
 						{{{ $errors->first('password', '<span class="help-inline">:message</span>') }}}
 					</div>
@@ -50,8 +50,8 @@
 
 				<!-- Password Confirm -->
 				<div class="form-group {{{ $errors->has('password_confirmation') ? 'error' : '' }}}">
-					<label class="col-md-2 control-label" for="password_confirmation">Password Confirm</label>
-					<div class="col-md-10">
+					<label class="span2 control-label" for="password_confirmation">{{{ Lang::get('admin/users/table.password_confirmation') }}}</label>
+          <div class="span6">
 						<input class="form-control" type="password" name="password_confirmation" id="password_confirmation" value="" />
 						{{{ $errors->first('password_confirmation', '<span class="help-inline">:message</span>') }}}
 					</div>
@@ -60,8 +60,8 @@
 
 				<!-- Activation Status -->
 				<div class="form-group {{{ $errors->has('activated') || $errors->has('confirm') ? 'error' : '' }}}">
-					<label class="col-md-2 control-label" for="confirm">Activate User?</label>
-					<div class="col-md-6">
+					<label class="span2 control-label" for="confirm">{{{ Lang::get('admin/users/table.activate_user') }}}?</label>
+					<div class="span6">
 						@if ($mode == 'create')
 							<select class="form-control" name="confirm" id="confirm">
 								<option value="1"{{{ (Input::old('confirm', 0) === 1 ? ' selected="selected"' : '') }}}>{{{ Lang::get('general.yes') }}}</option>
@@ -80,8 +80,8 @@
 
 				<!-- Groups -->
 				<div class="form-group {{{ $errors->has('roles') ? 'error' : '' }}}">
-	                <label class="col-md-2 control-label" for="roles">Roles</label>
-	                <div class="col-md-6">
+	                <label class="span2 control-label" for="roles">{{{ Lang::get('admin/users/table.roles') }}}</label>
+	                <div class="span6">
 		                <select class="form-control" name="roles[]" id="roles[]" multiple>
 		                        @foreach ($roles as $role)
 									@if ($mode == 'create')
@@ -93,7 +93,7 @@
 						</select>
 
 						<span class="help-block">
-							Select a group to assign to the user, remember that a user takes on the permissions of the group they are assigned.
+							{{{ Lang::get('admin/users/messages.create.help_block') }}}
 						</span>
 	            	</div>
 				</div>
@@ -106,10 +106,9 @@
 
 		<!-- Form Actions -->
 		<div class="form-group">
-			<div class="col-md-offset-2 col-md-10">
-				<element class="btn-cancel close_popup">Cancel</element>
-				<button type="reset" class="btn btn-default">Reset</button>
-				<button type="submit" class="btn btn-success">OK</button>
+			<div class="span6 offset2">
+        <a type="reset" class="btn btn-default" href="{{{ URL::to('admin/users') }}}">{{{ Lang::get('button.return') }}}</a>
+        <button type="submit" class="btn btn-success">{{{ Lang::get('button.submit') }}}</button>
 			</div>
 		</div>
 		<!-- ./ form actions -->

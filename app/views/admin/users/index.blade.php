@@ -12,7 +12,7 @@
 			{{{ $title }}}
 
 			<div class="pull-right">
-				<a href="{{{ URL::to('admin/users/create') }}}" class="btn btn-small btn-info iframe"><span class="glyphicon glyphicon-plus-sign"></span> Create</a>
+				<a href="{{{ URL::to('admin/users/create') }}}" class="btn btn-small btn-info iframe"><i class="icon-plus-sign"></i> {{{ Lang::get('button.create') }}}</a>
 			</div>
 		</h3>
 	</div>
@@ -29,28 +29,54 @@
 			</tr>
 		</thead>
 		<tbody>
+    @foreach ($users as $user)
+      <tr>
+        <th class="col-md-2">{{ $user->username }}</th>
+        <th class="col-md-2">{{ $user->email }}</th>
+        <th class="col-md-2">{{ $user->rolename }}</th>
+        <th class="col-md-2">{{ $user->confirmed }}</th>
+        <th class="col-md-2">{{ $user->created_at }}</th>
+        <th class="col-md-2">
+          <a href="{{{ URL::to(sprintf('admin/users/%d/edit', $user->id)) }}}" class="iframe btn btn-xs btn-default"><i class="icon-edit"></i> {{{ Lang::get('button.edit') }}}</a>
+          @if($user->username == 'admin')
+          @else
+          <a href="#deleteModal" data-id="{{ $user->id }}" data-toggle="modal" class="iframe btn btn-xs btn-danger"><i class="icon-trash"></i> {{{ Lang::get('button.delete') }}}</a>
+          @endif
+        </th>
+      </tr>
+    @endforeach
 		</tbody>
 	</table>
+<!-- Modal -->
+<div id="deleteModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">{{{ Lang::get('admin/users/title.user_delete') }}}</h3>
+  </div>
+  <div class="modal-body">
+    <p>{{{ Lang::get('admin/users/messages.delete.message') }}}</p>
+  </div>
+  <div class="modal-footer">
+    <form id="deleteForm" class="form-horizontal" method="post" action="" autocomplete="off">
+      <!-- CSRF Token -->
+      <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+      <input type="hidden" name="id" value="{{ $user->id }}" />
+      <button class="btn" data-dismiss="modal" aria-hidden="true">{{{ Lang::get('button.cancel') }}}</button>
+      <button type="submit" class="btn btn-primary">{{{ Lang::get('button.ok') }}}</button>
+    </form>
+  </div>
+</div>
+<!-- Modal End -->
 @stop
 
 {{-- Scripts --}}
 @section('scripts')
-	<script type="text/javascript">
-		var oTable;
-		$(document).ready(function() {
-				oTable = $('#users').dataTable( {
-				"sDom": "<'row'<'col-md-6'l><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
-				"sPaginationType": "bootstrap",
-				"oLanguage": {
-					"sLengthMenu": "_MENU_ records per page"
-				},
-				"bProcessing": true,
-		        "bServerSide": true,
-		        "sAjaxSource": "{{ URL::to('admin/users/data') }}",
-		        "fnDrawCallback": function ( oSettings ) {
-	           		$(".iframe").colorbox({iframe:true, width:"80%", height:"80%"});
-	     		}
-			});
-		});
+<script type="text/javascript">
+  var deleteAction = "@if (isset($user)){{ URL::to('admin/users') }}@endif";
+  $('a[data-toggle="modal"]').click(function(){
+    if(deleteAction){
+      $('form#deleteForm').attr('action',  deleteAction + '/' + $(this).attr('data-id') + '/delete');
+    }
+  });
 	</script>
 @stop

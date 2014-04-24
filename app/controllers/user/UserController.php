@@ -14,7 +14,7 @@ class UserController extends BaseController {
 
     private $repo;
 
-    public function __construct(User\UserRepository $userRepository)
+    public function __construct(UserRepository $userRepository)
     {
       $this->repo = $userRepository;
     }
@@ -33,7 +33,7 @@ class UserController extends BaseController {
      */
     public function store()
     {
-        $user = new User\User;
+        $user = new User;
 
         $user->username = Input::get( 'username' );
         $user->email = Input::get( 'email' );
@@ -76,7 +76,7 @@ class UserController extends BaseController {
         {
             // If user is logged, redirect to internal 
             // page, change it to '/admin', '/dashboard' or something
-            return Redirect::to('/admin/dashboard');
+            return Redirect::to('/admin');
         }
         else
         {
@@ -107,11 +107,11 @@ class UserController extends BaseController {
             // caught by the authentication filter IE Redirect::guest('user/login').
             // Otherwise fallback to '/'
             // Fix pull #145
-            return Redirect::intended('/admin/dashboard'); // change it to '/admin', '/dashboard' or something
+            return Redirect::intended('/admin'); // change it to '/admin', '/dashboard' or something
         }
         else
         {
-            $user = new User\User;
+            $user = new User;
 
             // Check if there was too many login attempts
             if( Confide::isThrottled( $input ) )
@@ -222,13 +222,13 @@ class UserController extends BaseController {
     }
 //
 //    public function do_reset_password_action($params){
-//      $user = new User\User;
+//      $user = new User;
 //      $user->password = array_get($params, 'password', '');
 //      $user->password_confirmation = array_get($params, 'password_confirmation', '');
 //
 //      $passwordValidators = array(
-//        'password' => User\User::$rules['password'],
-//        'password_confirmation' => User\User::$rules['password_confirmation'],
+//        'password' => User::$rules['password'],
+//        'password_confirmation' => User::$rules['password_confirmation'],
 //      );
 //      $validationResult = $user->validate($passwordValidators);
 //

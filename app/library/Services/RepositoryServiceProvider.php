@@ -14,7 +14,7 @@ class RepositoryServiceProvider extends ServiceProvider
     $this->app->bind(
       'UserRepository',
       function () {
-        return new \User\UserRepository(new \User\User());
+        return new \UserRepository(new \User());
       }
     );
   }

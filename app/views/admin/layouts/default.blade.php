@@ -44,20 +44,19 @@
 	<link rel="apple-touch-icon-precomposed" href="{{{ asset('assets/ico/apple-touch-icon-57-precomposed.png') }}}">
 
 	<!-- CSS -->
-    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/bootstrap-ie6.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/wysihtml5/prettify.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/wysihtml5/bootstrap-wysihtml5.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/datatables-bootstrap.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/colorbox.css')}}">
+  <!-- Bootstrap css file v2.3.2 -->
+  <link rel="stylesheet" type="text/css" href="{{{ asset('assets/css/bootstrap-2.3.2.min.css') }}}">
+  <link rel="stylesheet" type="text/css" href="{{{ asset('assets/css/bootstrap-responsive-2.3.2.min.css') }}}">
+  <!--[if lte IE 6]>
+  <link rel="stylesheet" type="text/css" href="{{{ asset('assets/css/bootstrap-ie6.css') }}}">
+  <link rel="stylesheet" type="text/css" href="{{{ asset('assets/css/ie.css') }}}">
+  <![endif]-->
+  <link rel="stylesheet" type="text/css" href="{{{ asset('assets/css/admin-main.css') }}}">
 
-	<style>
-	body {
-		padding: 60px 0;
-	}
-	</style>
-
-	@yield('styles')
+  <style>
+    @section('styles')
+    @show
+  </style>
 
 	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>
@@ -67,60 +66,99 @@
 </head>
 
 <body>
-	<!-- Container -->
-	<div class="container">
-		<!-- Navbar -->
-		<div class="navbar navbar-default navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
-    			<div class="collapse navbar-collapse navbar-ex1-collapse">
-    				<ul class="nav navbar-nav">
-    					<li{{ (Request::is('admin') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin') }}}"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-    					<li{{ (Request::is('admin/blogs*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/blogs') }}}"><span class="glyphicon glyphicon-list-alt"></span> Blog</a></li>
-    					<li{{ (Request::is('admin/comments*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/comments') }}}"><span class="glyphicon glyphicon-bullhorn"></span> Comments</a></li>
-    					<li class="dropdown{{ (Request::is('admin/users*|admin/roles*') ? ' active' : '') }}">
-    						<a class="dropdown-toggle" data-toggle="dropdown" href="{{{ URL::to('admin/users') }}}">
-    							<span class="glyphicon glyphicon-user"></span> Users <span class="caret"></span>
-    						</a>
-    						<ul class="dropdown-menu">
-    							<li{{ (Request::is('admin/users*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/users') }}}"><span class="glyphicon glyphicon-user"></span> Users</a></li>
-    							<li{{ (Request::is('admin/roles*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/roles') }}}"><span class="glyphicon glyphicon-user"></span> Roles</a></li>
-    						</ul>
-    					</li>
-    				</ul>
-    				<ul class="nav navbar-nav pull-right">
-    					<li><a href="{{{ URL::to('/') }}}">View Homepage</a></li>
-    					<li class="divider-vertical"></li>
-    					<li class="dropdown">
-    							<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-    								<span class="glyphicon glyphicon-user"></span> {{{ Auth::user()->username }}}	<span class="caret"></span>
-    							</a>
-    							<ul class="dropdown-menu">
-    								<li><a href="{{{ URL::to('user/settings') }}}"><span class="glyphicon glyphicon-wrench"></span> Settings</a></li>
-    								<li class="divider"></li>
-    								<li><a href="{{{ URL::to('user/logout') }}}"><span class="glyphicon glyphicon-share"></span> Logout</a></li>
-    							</ul>
-    					</li>
-    				</ul>
-    			</div>
-            </div>
-		</div>
+
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="./index.html">{{{ Lang::get('general.title') }}}</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li{{ (Request::is('admin') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin') }}}"><i class="icon-home"></i> Home</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav pull-right">
+              <li><a href="{{{ URL::to('/') }}}">View Homepage</a></li>
+              <li class="divider-vertical"></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> {{{ Auth::user()->username }}}<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="{{{ URL::to('user/settings') }}}"><i class="icon-wrench"></i> Settings</a></li>
+                  <li class="divider"></li>
+                  <li><a href="{{{ URL::to('user/logout') }}}"><i class="icon-share"></i> Logout</a></li>
+                </ul>
+              </li>
+
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
 		<!-- ./ navbar -->
 
-		<!-- Notifications -->
-        @include('site.common.notifications')
-		<!-- ./ notifications -->
+    <!-- Container -->
+    <div class="container">
+    <div class="row">
+      <div class="span3">
+        <div class="accordion" id="accordion2">
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                <i class="icon-user"></i> {{{ Lang::get('admin/menu.title_users') }}}
+              </a>
+            </div>
+            <div id="collapseOne" class="accordion-body collapse in">
+              <div class="accordion-inner">
+                <ul class="nav left-menu-nav">
+                  <li{{ (Request::is('admin/users*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/users') }}}"> {{{ Lang::get('admin/menu.users') }}}<i class=" icon-play"></i></a></li>
+                  <li{{ (Request::is('admin/roles*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/roles') }}}"> {{{ Lang::get('admin/menu.roles') }}}<i class=" icon-play"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+                Collapsible Group Item #2
+              </a>
+            </div>
+            <div id="collapseTwo" class="accordion-body collapse">
+              <div class="accordion-inner">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+                Collapsible Group Item #3
+              </a>
+            </div>
+            <div id="collapseThree" class="accordion-body collapse">
+              <div class="accordion-inner">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="span9">
 
-		<!-- Content -->
-		@yield('content')
-		<!-- ./ content -->
+        <!-- Notifications -->
+        @include('site.common.notifications')
+        <!-- ./ notifications -->
+
+        <!-- Content -->
+        @yield('content')
+        <!-- ./ content -->
+      </div>
+    </div>
 
 		<!-- Footer -->
 		<footer class="clearfix">
@@ -133,31 +171,23 @@
 
 	<!-- Javascripts -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-    <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('assets/js/affix.js')}}"></script>
-    <script src="{{asset('assets/js/alert.js')}}"></script>
-    <script src="{{asset('assets/js/button.js')}}"></script>
-    <script src="{{asset('assets/js/carousel.js')}}"></script>
-    <script src="{{asset('assets/js/collapse.js')}}"></script>
-    <script src="{{asset('assets/js/dropdown.js')}}"></script>
-    <script src="{{asset('assets/js/modal.js')}}"></script>
-    <script src="{{asset('assets/js/popover.js')}}"></script>
-    <script src="{{asset('assets/js/scrollspy.js')}}"></script>
-    <script src="{{asset('assets/js/tab.js')}}"></script>
-    <script src="{{asset('assets/js/tooltip.js')}}"></script>
-    <script src="{{asset('assets/js/transition.js')}}"></script>
-    <script src="{{asset('assets/js/wysihtml5/wysihtml5-0.3.0.js')}}"></script>
-    <script src="{{asset('assets/js/wysihtml5/bootstrap-wysihtml5.js')}}"></script>
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
-    <script src="{{asset('assets/js/datatables-bootstrap.js')}}"></script>
-    <script src="{{asset('assets/js/datatables.fnReloadAjax.js')}}"></script>
-    <script src="{{asset('assets/js/jquery.colorbox.js')}}"></script>
-    <script src="{{asset('assets/js/prettify.js')}}"></script>
+    <!--script src="{{asset('assets/js/bootstrap.min.js')}}"></script-->
+    <script src="{{asset('assets/js/bootstrap-affix.js')}}"></script>
+    <script src="{{asset('assets/js/bootstrap-alert.js')}}"></script>
+    <script src="{{asset('assets/js/bootstrap-button.js')}}"></script>
+    <script src="{{asset('assets/js/bootstrap-carousel.js')}}"></script>
+    <script src="{{asset('assets/js/bootstrap-collapse.js')}}"></script>
+    <script src="{{asset('assets/js/bootstrap-dropdown.js')}}"></script>
+    <script src="{{asset('assets/js/bootstrap-modal.js')}}"></script>
+    <script src="{{asset('assets/js/bootstrap-popover.js')}}"></script>
+    <script src="{{asset('assets/js/bootstrap-scrollspy.js')}}"></script>
+    <script src="{{asset('assets/js/bootstrap-tab.js')}}"></script>
+    <script src="{{asset('assets/js/bootstrap-tooltip.js')}}"></script>
+    <script src="{{asset('assets/js/bootstrap-transition.js')}}"></script>
+    <!--[if lte IE 6]>
+    <script type="text/javascript" src="{{asset('assets/js/bootstrap-ie.js') }}"></script>
+    <![endif]-->
 
-    <script type="text/javascript">
-    	$('.wysihtml5').wysihtml5();
-        $(prettyPrint);
-    </script>
 
     @yield('scripts')
 

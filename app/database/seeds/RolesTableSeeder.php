@@ -1,8 +1,5 @@
 <?php
 
-use \User\Role;
-use \User\User;
-
 class RolesTableSeeder extends Seeder {
 
     public function run()

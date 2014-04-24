@@ -46,7 +46,10 @@ class AdminUsersController extends AdminController {
         $title = Lang::get('admin/users/title.user_management');
 
         // Grab all the users
-        $users = $this->user;
+        $users = User::leftjoin('assigned_roles', 'assigned_roles.user_id', '=', 'users.id')
+          ->leftjoin('roles', 'roles.id', '=', 'assigned_roles.role_id')
+          ->select(array('users.id', 'users.username','users.email', 'roles.name as rolename', 'users.confirmed', 'users.created_at'))
+          ->get();
 
         // Show the page
         return View::make('admin/users/index', compact('users', 'title'));
@@ -166,64 +169,128 @@ class AdminUsersController extends AdminController {
      * @param $user
      * @return Response
      */
-    public function postEdit($user)
+//    public function postEdit($user)
+//    {
+//        $user = User::find($id);
+//        // Validate the inputs
+//        $validator = Validator::make(Input::all(), $user->getUpdateRules());
+//
+//
+//        if ($validator->passes())
+//        {
+//            $oldUser = clone $user;
+//            $user->username = Input::get( 'username' );
+//            $user->email = Input::get( 'email' );
+//            $user->confirmed = Input::get( 'confirm' );
+//
+//            $password = Input::get( 'password' );
+//            $passwordConfirmation = Input::get( 'password_confirmation' );
+//
+//            if(!empty($password)) {
+//                if($password === $passwordConfirmation) {
+//                    $user->password = $password;
+//                    // The password confirmation will be removed from model
+//                    // before saving. This field will be used in Ardent's
+//                    // auto validation.
+//                    $user->password_confirmation = $passwordConfirmation;
+//                } else {
+//                    // Redirect to the new user page
+//                    return Redirect::to('admin/users/' . $user->id . '/edit')->with('error', Lang::get('admin/users/messages.password_does_not_match'));
+//                }
+//            } else {
+//                unset($user->password);
+//                unset($user->password_confirmation);
+//            }
+//
+//            if($user->confirmed == null) {
+//                $user->confirmed = $oldUser->confirmed;
+//            }
+//
+//            $user->prepareRules($oldUser, $user);
+//
+//            // Save if valid. Password field will be hashed before save
+//            $user->amend();
+//
+//            // Save roles. Handles updating.
+//            $user->saveRoles(Input::get( 'roles' ));
+//        } else {
+//            return Redirect::to('admin/users/' . $user->id . '/edit')->with('error', Lang::get('admin/users/messages.edit.error'));
+//        }
+//
+//        // Get validation errors (see Ardent package)
+//        $error = $user->errors()->all();
+//
+//        if(empty($error)) {
+//            // Redirect to the new user page
+//            return Redirect::to('admin/users/' . $user->id . '/edit')->with('success', Lang::get('admin/users/messages.edit.success'));
+//        } else {
+//            return Redirect::to('admin/users/' . $user->id . '/edit')->with('error', Lang::get('admin/users/messages.edit.error'));
+//        }
+//    }
+
+  /**
+   * Update the specified resource in storage.
+   *
+   * @param $user
+   * @return Response
+   */
+  public function postEdit($user)
+  {
+    // Validate the inputs
+    $validator = Validator::make(Input::all(), $user->getUpdateRules());
+
+
+    if ($validator->passes())
     {
-        // Validate the inputs
-        $validator = Validator::make(Input::all(), $user->getUpdateRules());
+      $oldUser = clone $user;
+      $user->username = Input::get( 'username' );
+      $user->email = Input::get( 'email' );
+      $user->confirmed = Input::get( 'confirm' );
 
+      $password = Input::get( 'password' );
+      $passwordConfirmation = Input::get( 'password_confirmation' );
 
-        if ($validator->passes())
-        {
-            $oldUser = clone $user;
-            $user->username = Input::get( 'username' );
-            $user->email = Input::get( 'email' );
-            $user->confirmed = Input::get( 'confirm' );
-
-            $password = Input::get( 'password' );
-            $passwordConfirmation = Input::get( 'password_confirmation' );
-
-            if(!empty($password)) {
-                if($password === $passwordConfirmation) {
-                    $user->password = $password;
-                    // The password confirmation will be removed from model
-                    // before saving. This field will be used in Ardent's
-                    // auto validation.
-                    $user->password_confirmation = $passwordConfirmation;
-                } else {
-                    // Redirect to the new user page
-                    return Redirect::to('admin/users/' . $user->id . '/edit')->with('error', Lang::get('admin/users/messages.password_does_not_match'));
-                }
-            } else {
-                unset($user->password);
-                unset($user->password_confirmation);
-            }
-            
-            if($user->confirmed == null) {
-                $user->confirmed = $oldUser->confirmed;
-            }
-
-            $user->prepareRules($oldUser, $user);
-
-            // Save if valid. Password field will be hashed before save
-            $user->amend();
-
-            // Save roles. Handles updating.
-            $user->saveRoles(Input::get( 'roles' ));
+      if(!empty($password)) {
+        if($password === $passwordConfirmation) {
+          $user->password = $password;
+          // The password confirmation will be removed from model
+          // before saving. This field will be used in Ardent's
+          // auto validation.
+          $user->password_confirmation = $passwordConfirmation;
         } else {
-            return Redirect::to('admin/users/' . $user->id . '/edit')->with('error', Lang::get('admin/users/messages.edit.error'));
+          // Redirect to the new user page
+          return Redirect::to('admin/users/' . $user->id . '/edit')->with('error', Lang::get('admin/users/messages.password_does_not_match'));
         }
+      } else {
+        unset($user->password);
+        unset($user->password_confirmation);
+      }
 
-        // Get validation errors (see Ardent package)
-        $error = $user->errors()->all();
+      if($user->confirmed == null) {
+        $user->confirmed = $oldUser->confirmed;
+      }
 
-        if(empty($error)) {
-            // Redirect to the new user page
-            return Redirect::to('admin/users/' . $user->id . '/edit')->with('success', Lang::get('admin/users/messages.edit.success'));
-        } else {
-            return Redirect::to('admin/users/' . $user->id . '/edit')->with('error', Lang::get('admin/users/messages.edit.error'));
-        }
+      $user->prepareRules($oldUser, $user);
+
+      // Save if valid. Password field will be hashed before save
+      $user->amend();
+
+      // Save roles. Handles updating.
+      $user->saveRoles(Input::get( 'roles' ));
+    } else {
+      return Redirect::to('admin/users/' . $user->id . '/edit')->with('error', Lang::get('admin/users/messages.edit.error'));
     }
 
+    // Get validation errors (see Ardent package)
+    $error = $user->errors()->all();
+
+    if(empty($error)) {
+      // Redirect to the new user page
+      return Redirect::to('admin/users/' . $user->id . '/edit')->with('success', Lang::get('admin/users/messages.edit.success'));
+    } else {
+      return Redirect::to('admin/users/' . $user->id . '/edit')->with('error', Lang::get('admin/users/messages.edit.error'));
+    }
+  }
     /**
      * Remove user page.
      *
@@ -271,37 +338,5 @@ class AdminUsersController extends AdminController {
             // There was a problem deleting the user
             return Redirect::to('admin/users')->with('error', Lang::get('admin/users/messages.delete.error'));
         }
-    }
-
-    /**
-     * Show a list of all the users formatted for Datatables.
-     *
-     * @return Datatables JSON
-     */
-    public function getData()
-    {
-        $users = User::leftjoin('assigned_roles', 'assigned_roles.user_id', '=', 'users.id')
-                    ->leftjoin('roles', 'roles.id', '=', 'assigned_roles.role_id')
-                    ->select(array('users.id', 'users.username','users.email', 'roles.name as rolename', 'users.confirmed', 'users.created_at'));
-
-        return Datatables::of($users)
-        // ->edit_column('created_at','{{{ Carbon::now()->diffForHumans(Carbon::createFromFormat(\'Y-m-d H\', $test)) }}}')
-
-        ->edit_column('confirmed','@if($confirmed)
-                            Yes
-                        @else
-                            No
-                        @endif')
-
-        ->add_column('actions', '<a href="{{{ URL::to(\'admin/users/\' . $id . \'/edit\' ) }}}" class="iframe btn btn-xs btn-default">{{{ Lang::get(\'button.edit\') }}}</a>
-                                @if($username == \'admin\')
-                                @else
-                                    <a href="{{{ URL::to(\'admin/users/\' . $id . \'/delete\' ) }}}" class="iframe btn btn-xs btn-danger">{{{ Lang::get(\'button.delete\') }}}</a>
-                                @endif
-            ')
-
-        ->remove_column('id')
-
-        ->make();
     }
 }

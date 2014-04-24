@@ -1,8 +1,5 @@
 <?php
 
-use \User\Role;
-use \User\Permission;
-
 class PermissionsTableSeeder extends Seeder {
 
     public function run()

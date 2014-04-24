@@ -2,7 +2,7 @@
 
 return array(
 
-    'title' => '地源网络',
+    'title' => 'LAND',
 	'yes' => '是',
 	'no'  => '否',
     'must_login' => '请登录.'

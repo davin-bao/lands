@@ -1,11 +1,11 @@
-@extends('admin.layouts.modal')
+@extends('admin.layouts.default')
 
 {{-- Content --}}
 @section('content')
 	<!-- Tabs -->
 		<ul class="nav nav-tabs">
-			<li class="active"><a href="#tab-general" data-toggle="tab">General</a></li>
-			<li><a href="#tab-permissions" data-toggle="tab">Permissions</a></li>
+      <li class="active"><a href="#tab-general" data-toggle="tab">{{{ Lang::get('admin/general.general_info') }}}</a></li>
+      <li><a href="#tab-permissions" data-toggle="tab">{{{ Lang::get('admin/roles/title.tab_permissions') }}}</a></li>
 		</ul>
 	<!-- ./ tabs -->
 
@@ -21,8 +21,8 @@
 			<div class="tab-pane active" id="tab-general">
 				<!-- Name -->
 				<div class="form-group {{{ $errors->has('name') ? 'error' : '' }}}">
-					<label class="col-md-2 control-label" for="name">Name</label>
-					<div class="col-md-10">
+					<label class="span2 control-label" for="name">{{{ Lang::get('admin/roles/table.name') }}}</label>
+					<div class="span6">
 						<input class="form-control" type="text" name="name" id="name" value="{{{ Input::old('name', $role->name) }}}" />
 						{{{ $errors->first('name', '<span class="help-inline">:message</span>') }}}
 					</div>
@@ -49,10 +49,9 @@
 
 		<!-- Form Actions -->
 		<div class="form-group">
-			<div class="col-md-offset-2 col-md-10">
-				<element class="btn-cancel close_popup">Cancel</element>
-				<button type="reset" class="btn btn-default">Reset</button>
-				<button type="submit" class="btn btn-success">Update Role</button>
+			<div class="offset2 span6">
+        <a type="reset" class="btn btn-default" href="{{{ URL::to('admin/roles') }}}">{{{ Lang::get('button.return') }}}</a>
+        <button type="submit" class="btn btn-success">{{{ Lang::get('button.submit') }}}</button>
 			</div>
 		</div>
 		<!-- ./ form actions -->

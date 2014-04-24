@@ -12,6 +12,13 @@
 */
 
 
+Route::model('user', 'User');
+Route::model('role', 'Role');
+
+
+Route::pattern('user', '[0-9]+');
+Route::pattern('role', '[0-9]+');
+
 Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
 {
 
@@ -23,6 +30,13 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     Route::get('users/{user}/delete', 'AdminUsersController@getDelete');
     Route::post('users/{user}/delete', 'AdminUsersController@postDelete');
     Route::controller('users', 'AdminUsersController');
+
+    # User Role Management
+    Route::get('roles/{role}/show', 'AdminRolesController@getShow');
+    Route::get('roles/{role}/edit', 'AdminRolesController@getEdit');
+    Route::post('roles/{role}/edit', 'AdminRolesController@postEdit');
+    Route::post('roles/{role}/delete', 'AdminRolesController@postDelete');
+    Route::controller('roles', 'AdminRolesController');
 
     # Admin Dashboard
     Route::controller('/', '\Admin\AdminDashboardController');
