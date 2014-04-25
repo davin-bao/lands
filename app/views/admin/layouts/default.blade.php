@@ -107,6 +107,7 @@
     <div class="row">
       <div class="span3">
         <div class="accordion" id="accordion2">
+          @if (Auth::user()->can('manage_users') || Auth::user()->can('manage_roles'))
           <div class="accordion-group">
             <div class="accordion-heading">
               <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
@@ -116,12 +117,17 @@
             <div id="collapseOne" class="accordion-body collapse in">
               <div class="accordion-inner">
                 <ul class="nav left-menu-nav">
+                  @if (Auth::user()->can('manage_users'))
                   <li{{ (Request::is('admin/users*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/users') }}}"> {{{ Lang::get('admin/menu.users') }}}<i class=" icon-play"></i></a></li>
+                  @endif
+                  @if (Auth::user()->can('manage_roles'))
                   <li{{ (Request::is('admin/roles*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/roles') }}}"> {{{ Lang::get('admin/menu.roles') }}}<i class=" icon-play"></i></a></li>
+                  @endif
                 </ul>
               </div>
             </div>
           </div>
+          @endif
           <div class="accordion-group">
             <div class="accordion-heading">
               <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">

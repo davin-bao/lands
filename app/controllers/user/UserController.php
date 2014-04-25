@@ -22,49 +22,49 @@ class UserController extends BaseController {
      * Displays the form for account creation
      *
      */
-    public function create()
-    {
-        return View::make('site/user/create');//Config::get('confide::signup_form'));
-    }
-
-    /**
-     * Stores new account
-     *
-     */
-    public function store()
-    {
-        $user = new User;
-
-        $user->username = Input::get( 'username' );
-        $user->email = Input::get( 'email' );
-        $user->password = Input::get( 'password' );
-
-        // The password confirmation will be removed from model
-        // before saving. This field will be used in Ardent's
-        // auto validation.
-        $user->password_confirmation = Input::get( 'password_confirmation' );
-
-        // Save if valid. Password field will be hashed before save
-        $user->save();
-
-        if ( $user->id )
-        {
-                        $notice = Lang::get('confide::confide.alerts.account_created') . ' ' . Lang::get('confide::confide.alerts.instructions_sent'); 
-                    
-            // Redirect with success message, You may replace "Lang::get(..." for your custom message.
-                        return Redirect::action('UserController@login')
-                            ->with( 'notice', $notice );
-        }
-        else
-        {
-            // Get validation errors (see Ardent package)
-            $error = $user->errors()->all(':message');
-
-                        return Redirect::action('UserController@create')
-                            ->withInput(Input::except('password'))
-                ->with( 'error', $error );
-        }
-    }
+//    public function create()
+//    {
+//        return View::make('site/user/create');//Config::get('confide::signup_form'));
+//    }
+//
+//    /**
+//     * Stores new account
+//     *
+//     */
+//    public function store()
+//    {
+//        $user = new User;
+//
+//        $user->username = Input::get( 'username' );
+//        $user->email = Input::get( 'email' );
+//        $user->password = Input::get( 'password' );
+//
+//        // The password confirmation will be removed from model
+//        // before saving. This field will be used in Ardent's
+//        // auto validation.
+//        $user->password_confirmation = Input::get( 'password_confirmation' );
+//
+//        // Save if valid. Password field will be hashed before save
+//        $user->save();
+//
+//        if ( $user->id )
+//        {
+//                        $notice = Lang::get('confide::confide.alerts.account_created') . ' ' . Lang::get('confide::confide.alerts.instructions_sent');
+//
+//            // Redirect with success message, You may replace "Lang::get(..." for your custom message.
+//                        return Redirect::action('UserController@login')
+//                            ->with( 'notice', $notice );
+//        }
+//        else
+//        {
+//            // Get validation errors (see Ardent package)
+//            $error = $user->errors()->all(':message');
+//
+//                        return Redirect::action('UserController@create')
+//                            ->withInput(Input::except('password'))
+//                ->with( 'error', $error );
+//        }
+//    }
 
     /**
      * Displays the login form

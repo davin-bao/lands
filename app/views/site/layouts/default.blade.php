@@ -1,123 +1,161 @@
 <!DOCTYPE html>
+
 <html lang="en">
-	<head>
-		<!-- Basic Page Needs
-		================================================== -->
-		<meta charset="utf-8" />
-		<title>
-			@section('title')
-			Lands
-			@show
-		</title>
-		<meta name="keywords" content="your, awesome, keywords, here" />
-		<meta name="author" content="Jon Doe" />
-		<meta name="description" content="Lorem ipsum dolor sit amet, nihil fabulas et sea, nam posse menandri scripserit no, mei." />
 
-		<!-- Mobile Specific Metas
-		================================================== -->
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head id="Starter-Site">
 
-		<!-- CSS
-		================================================== -->
-        <link rel="stylesheet" href="{{asset('assets/css/bootstrap.css')}}">
-        <link rel="stylesheet" href="{{asset('assets/css/bootstrap-ie6.min.css')}}">
+  <meta charset="UTF-8">
 
-		<style>
-		@section('styles')
-		@show
-		</style>
+  <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-		<!--[if lt IE 9]>
-		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
+  <title>
+    @section('title')
+    Administration
+    @show
+  </title>
 
-		<!-- Favicons
-		================================================== -->
-		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{{ asset('assets/ico/apple-touch-icon-144-precomposed.png') }}}">
-		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{{ asset('assets/ico/apple-touch-icon-114-precomposed.png') }}}">
-		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{{ asset('assets/ico/apple-touch-icon-72-precomposed.png') }}}">
-		<link rel="apple-touch-icon-precomposed" href="{{{ asset('assets/ico/apple-touch-icon-57-precomposed.png') }}}">
-		<link rel="shortcut icon" href="{{{ asset('assets/ico/favicon.png') }}}">
-	</head>
+  <meta name="keywords" content="@yield('keywords')" />
+  <meta name="author" content="@yield('author')" />
+  <!-- Google will often use this as its description of your page/site. Make it good. -->
+  <meta name="description" content="@yield('description')" />
 
-	<body>
-		<!-- To make sticky footer need to wrap in a div -->
-		<div id="wrap">
-		<!-- Navbar -->
-      <div class="navbar navbar-inverse">
-        <div class="navbar-inner">
-          <div class="container">
-            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="brand" href="./index.html">Bootstrap</a>
-            <div class="nav-collapse collapse">
-              <ul class="nav">
-                <li {{ (Request::is('/') ? ' class="active"' : '') }}><a href="{{{ URL::to('') }}}">Home</a></li>
-              </ul>
+  <!-- Speaking of Google, don't forget to set your site up: http://google.com/webmasters -->
+  <meta name="google-site-verification" content="">
 
-              <ul class="nav navbar-nav pull-right">
-                @if (Auth::check())
-                @if (Auth::user()->hasRole('admin'))
-                <li><a href="{{{ URL::to('admin') }}}">Admin Panel</a></li>
-                @endif
-                <li><a href="{{{ URL::to('user') }}}">Logged in as {{{ Auth::user()->username }}}</a></li>
-                <li><a href="{{{ URL::to('user/logout') }}}">Logout</a></li>
-                @else
-                <li {{ (Request::is('user/login') ? ' class="active"' : '') }}><a href="{{{ URL::to('user/login') }}}">Login</a></li>
-                <li {{ (Request::is('user/register') ? ' class="active"' : '') }}><a href="{{{ URL::to('user/create') }}}">{{{ Lang::get('site.sign_up') }}}</a></li>
-                @endif
-              </ul>
-            </div>
-          </div>
-        </div>
+  <!-- Dublin Core Metadata : http://dublincore.org/ -->
+  <meta name="DC.title" content="Project Name">
+  <meta name="DC.subject" content="@yield('description')">
+  <meta name="DC.creator" content="@yield('author')">
+
+  <!--  Mobile Viewport Fix -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <!-- This is the traditional favicon.
+   - size: 16x16 or 32x32
+   - transparency is OK
+   - see wikipedia for info on browser support: http://mky.be/favicon/ -->
+  <link rel="shortcut icon" href="{{{ asset('assets/ico/favicon.png') }}}">
+
+  <!-- iOS favicons. -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{{ asset('assets/ico/apple-touch-icon-144-precomposed.png') }}}">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{{ asset('assets/ico/apple-touch-icon-114-precomposed.png') }}}">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{{ asset('assets/ico/apple-touch-icon-72-precomposed.png') }}}">
+  <link rel="apple-touch-icon-precomposed" href="{{{ asset('assets/ico/apple-touch-icon-57-precomposed.png') }}}">
+
+  <!-- CSS -->
+  <!-- Bootstrap css file v2.3.2 -->
+  <link rel="stylesheet" type="text/css" href="{{{ asset('assets/css/bootstrap-2.3.2.min.css') }}}">
+  <link rel="stylesheet" type="text/css" href="{{{ asset('assets/css/bootstrap-responsive-2.3.2.min.css') }}}">
+  <!--[if lte IE 6]>
+  <link rel="stylesheet" type="text/css" href="{{{ asset('assets/css/bootstrap-ie6.css') }}}">
+  <link rel="stylesheet" type="text/css" href="{{{ asset('assets/css/ie.css') }}}">
+  <![endif]-->
+  <link rel="stylesheet" type="text/css" href="{{{ asset('assets/css/admin-main.css') }}}">
+
+  <style>
+    @section('styles')
+    @show
+  </style>
+
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+</head>
+
+<body>
+
+
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="brand" href="{{{ URL::to('/') }}}">{{{ Lang::get('general.title') }}}</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li><a href="{{{ URL::to('/') }}}"><i class="icon-home"></i> Home</a></li>
+        </ul>
+
+        <ul class="nav navbar-nav pull-right">
+          @if (Auth::check())
+          @if (Auth::user()->hasRole('admin'))
+          <li><a href="{{{ URL::to('admin') }}}">Admin Panel</a></li>
+          @endif
+          <li class="divider-vertical"></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> {{{ Auth::user()->username }}}<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="{{{ URL::to('user/settings') }}}"><i class="icon-wrench"></i> Settings</a></li>
+              <li class="divider"></li>
+              <li><a href="{{{ URL::to('user/logout') }}}"><i class="icon-share"></i> Logout</a></li>
+            </ul>
+          </li>
+          @else
+          <li {{ (Request::is('user/login') ? ' class="active"' : '') }}><a href="{{{ URL::to('user/login') }}}">Login</a></li>
+          @endif
+
+        </ul>
       </div>
-		<!-- ./ navbar -->
+    </div>
+  </div>
+</div>
+<!-- ./ navbar -->
 
-		<!-- Container -->
-		<div class="container">
-			<!-- Notifications -->
-			@include('site.common.notifications')
-			<!-- ./ notifications -->
+<!-- Container -->
+<div class="container">
+  <div class="row">
+    <div class="span3">
 
-			<!-- Content -->
-			@yield('content')
-			<!-- ./ content -->
-		</div>
-		<!-- ./ container -->
+    </div>
+    <div class="span9">
 
-		<!-- the following div is needed to make a sticky footer -->
-		<div id="push"></div>
-		</div>
-		<!-- ./wrap -->
+      <!-- Notifications -->
+      @include('site.common.notifications')
+      <!-- ./ notifications -->
+
+      <!-- Content -->
+      @yield('content')
+      <!-- ./ content -->
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="clearfix">
+    @yield('footer')
+  </footer>
+  <!-- ./ Footer -->
+
+</div>
+<!-- ./ container -->
+
+<!-- Javascripts -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<!--script src="{{asset('assets/js/bootstrap.min.js')}}"></script-->
+<script src="{{asset('assets/js/bootstrap-affix.js')}}"></script>
+<script src="{{asset('assets/js/bootstrap-alert.js')}}"></script>
+<script src="{{asset('assets/js/bootstrap-button.js')}}"></script>
+<script src="{{asset('assets/js/bootstrap-carousel.js')}}"></script>
+<script src="{{asset('assets/js/bootstrap-collapse.js')}}"></script>
+<script src="{{asset('assets/js/bootstrap-dropdown.js')}}"></script>
+<script src="{{asset('assets/js/bootstrap-modal.js')}}"></script>
+<script src="{{asset('assets/js/bootstrap-popover.js')}}"></script>
+<script src="{{asset('assets/js/bootstrap-scrollspy.js')}}"></script>
+<script src="{{asset('assets/js/bootstrap-tab.js')}}"></script>
+<script src="{{asset('assets/js/bootstrap-tooltip.js')}}"></script>
+<script src="{{asset('assets/js/bootstrap-transition.js')}}"></script>
+<!--[if lte IE 6]>
+<script type="text/javascript" src="{{asset('assets/js/bootstrap-ie.js') }}"></script>
+<![endif]-->
 
 
-	    <div id="footer">
-	      <div class="container">
-	        <p class="muted credit">Laravel 4 Starter Site on <a href="https://github.com/andrew13/Laravel-4-Bootstrap-Starter-Site">Github</a>.</p>
-	      </div>
-	    </div>
+@yield('scripts')
 
-		<!-- Javascripts
-		================================================== -->
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-        <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
-        <script src="{{asset('assets/js/bootstrap-affix.js')}}"></script>
-        <script src="{{asset('assets/js/bootstrap-alert.js')}}"></script>
-        <script src="{{asset('assets/js/bootstrap-button.js')}}"></script>
-        <script src="{{asset('assets/js/bootstrap-carousel.js')}}"></script>
-        <script src="{{asset('assets/js/bootstrap-collapse.js')}}"></script>
-        <script src="{{asset('assets/js/bootstrap-dropdown.js')}}"></script>
-        <script src="{{asset('assets/js/bootstrap-modal.js')}}"></script>
-        <script src="{{asset('assets/js/bootstrap-popover.js')}}"></script>
-        <script src="{{asset('assets/js/bootstrap-scrollspy.js')}}"></script>
-        <script src="{{asset('assets/js/bootstrap-tab.js')}}"></script>
-        <script src="{{asset('assets/js/bootstrap-tooltip.js')}}"></script>
-        <script src="{{asset('assets/js/bootstrap-transition.js')}}"></script>
+</body>
 
-        @yield('scripts')
-	</body>
 </html>

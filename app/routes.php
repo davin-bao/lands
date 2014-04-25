@@ -11,18 +11,14 @@
 |
 */
 
-
 Route::model('user', 'User');
 Route::model('role', 'Role');
-
 
 Route::pattern('user', '[0-9]+');
 Route::pattern('role', '[0-9]+');
 
 Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
 {
-
-
     # User Management
     Route::get('users/{user}/show', 'AdminUsersController@getShow');
     Route::get('users/{user}/edit', 'AdminUsersController@getEdit');
@@ -42,18 +38,9 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     Route::controller('/', '\Admin\AdminDashboardController');
 });
 
-Route::get('/', function()
-{
-    return View::make('hello');
-});
-
-Route::get('users', function()
-{
-    return 'Users!';
-});
 // Confide routes
-Route::get( 'user/create',                 'UserController@create');
-Route::post('user',                        'UserController@store');
+//Route::get( 'user/create',                 'UserController@create');
+//Route::post('user',                        'UserController@store');
 Route::get( 'user/login',                  'UserController@login');
 Route::post('user/login',                  'UserController@do_login');
 Route::get( 'user/confirm/{code}',         'UserController@confirm');
@@ -62,3 +49,6 @@ Route::post('user/forgot_password',        'UserController@do_forgot_password');
 Route::get( 'user/reset_password/{token}', 'UserController@reset_password');
 Route::post('user/reset_password',         'UserController@do_reset_password');
 Route::get( 'user/logout',                 'UserController@logout');
+
+
+Route::get( '/',                 'HomeController@getIndex');
