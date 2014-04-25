@@ -25,6 +25,11 @@ return array(
         'impossible' => 'You cannot delete yourself.',
         'error'      => 'There was an issue deleting the user. Please try again.',
         'success'    => 'The user was deleted successfully.'
-    )
+    ),
+
+  'validation' => array(
+    'required' => ' :attribute 不能为空.',
+    'numeric' => ' :attribute 必须为数字.',
+  )
 
 );

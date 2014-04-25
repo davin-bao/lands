@@ -51,16 +51,16 @@
         <!-- ./ recruit_content -->
 
 				<!-- freeze -->
-				<div class="form-group {{{ $errors->has('freeze') || $errors->has('confirm') ? 'error' : '' }}}">
-					<label class="span2 control-label" for="confirm">{{{ Lang::get('admin/recruits/table.freeze') }}}?</label>
+				<div class="form-group {{{ $errors->has('freeze') || $errors->has('freeze') ? 'error' : '' }}}">
+					<label class="span2 control-label" for="freeze">{{{ Lang::get('admin/recruits/table.freeze') }}}?</label>
 					<div class="span6">
 						@if ($mode == 'create')
-							<select class="form-control" name="confirm" id="confirm">
+							<select class="form-control" name="freeze" id="freeze">
 								<option value="1"{{{ (Input::old('freeze', 0) === 1 ? ' selected="selected"' : '') }}}>{{{ Lang::get('general.yes') }}}</option>
 								<option value="0"{{{ (Input::old('freeze', 0) === 0 ? ' selected="selected"' : '') }}}>{{{ Lang::get('general.no') }}}</option>
 							</select>
 						@else
-							<select class="form-control" name="confirm" id="confirm">
+							<select class="form-control" name="freeze" id="freeze">
 								<option value="1"{{{ ($recruit->freeze ? ' selected="selected"' : '') }}}>{{{ Lang::get('general.yes') }}}</option>
 								<option value="0"{{{ ( ! $recruit->freeze ? ' selected="selected"' : '') }}}>{{{ Lang::get('general.no') }}}</option>
 							</select>
