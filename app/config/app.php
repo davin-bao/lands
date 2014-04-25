@@ -26,7 +26,7 @@ return array(
 	|
 	*/
 
-	'url' => 'http://localhost',
+	'url' => 'http://git.localhost/lands',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -54,6 +54,7 @@ return array(
 
 	'locale' => 'zh_CN',
   'available_language' => array('en', 'zh_CN'),
+  'upload_image_max_size' => 262144,  //2M
 	/*
 	|--------------------------------------------------------------------------
 	| Application Fallback Locale

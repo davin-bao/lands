@@ -131,12 +131,16 @@
           <div class="accordion-group">
             <div class="accordion-heading">
               <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-                Collapsible Group Item #2
+                <i class="icon-list"></i> {{{ Lang::get('admin/menu.title_messages') }}}
               </a>
             </div>
             <div id="collapseTwo" class="accordion-body collapse">
               <div class="accordion-inner">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                <ul class="nav left-menu-nav">
+                  @if (Auth::user()->can('manage_recruits'))
+                  <li{{ (Request::is('admin/recruits*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/recruits') }}}"> {{{ Lang::get('admin/menu.recruits') }}}<i class=" icon-play"></i></a></li>
+                  @endif
+                </ul>
               </div>
             </div>
           </div>
@@ -193,7 +197,6 @@
     <!--[if lte IE 6]>
     <script type="text/javascript" src="{{asset('assets/js/bootstrap-ie.js') }}"></script>
     <![endif]-->
-
 
     @yield('scripts')
 

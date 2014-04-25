@@ -13,12 +13,23 @@
 
 Route::model('user', 'User');
 Route::model('role', 'Role');
+Route::model('recruit', 'Recruit');
 
 Route::pattern('user', '[0-9]+');
 Route::pattern('role', '[0-9]+');
+Route::pattern('recruit', '[0-9]+');
 
 Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
 {
+
+  # Recruit Management
+  Route::get('recruits/{recruit}/show', 'AdminRecruitsController@getShow');
+  Route::get('recruits/{recruit}/edit', 'AdminRecruitsController@getEdit');
+  Route::post('recruits/{recruit}/edit', 'AdminRecruitsController@postEdit');
+  Route::get('recruits/{recruit}/delete', 'AdminRecruitsController@getDelete');
+  Route::post('recruits/{recruit}/delete', 'AdminRecruitsController@postDelete');
+  Route::controller('recruits', 'AdminRecruitsController');
+
     # User Management
     Route::get('users/{user}/show', 'AdminUsersController@getShow');
     Route::get('users/{user}/edit', 'AdminUsersController@getEdit');
@@ -34,8 +45,11 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     Route::post('roles/{role}/delete', 'AdminRolesController@postDelete');
     Route::controller('roles', 'AdminRolesController');
 
+
+    Route::post('images/upload', 'AdminImagesController@postUpload');
+    Route::controller('images', 'AdminImagesController');
     # Admin Dashboard
-    Route::controller('/', '\Admin\AdminDashboardController');
+    Route::controller('/', 'AdminDashboardController');
 });
 
 // Confide routes
@@ -50,5 +64,8 @@ Route::get( 'user/reset_password/{token}', 'UserController@reset_password');
 Route::post('user/reset_password',         'UserController@do_reset_password');
 Route::get( 'user/logout',                 'UserController@logout');
 
+
+Route::get( '/files/imageSrc',                 'FilesController@getImageSrc');
+Route::get( '/files/image',                 'FilesController@getImage');
 
 Route::get( '/',                 'HomeController@getIndex');

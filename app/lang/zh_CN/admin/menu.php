@@ -7,6 +7,9 @@
  */
 
 return array(
+  'title_messages' => 'Messages',
+  'recruits' => 'Recruits',
+
   'title_users' => '管理员与权限',
   'users' => '管理员列表',
   'roles' => '权限列表'

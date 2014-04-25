@@ -12,16 +12,16 @@ class PermissionsTableSeeder extends Seeder {
                 'display_name' => 'manage news'
             ),
             array( // 2
-                'name'         => 'manage_introduction',
-                'display_name' => 'manage introduction'
+                'name'         => 'manage_introductions',
+                'display_name' => 'manage introductions'
             ),
             array( // 3
-                'name'         => 'manage_bussiness',
-                'display_name' => 'manage bussiness'
+                'name'         => 'manage_businesses',
+                'display_name' => 'manage businesses'
             ),
             array( // 4
-                'name'         => 'manage_recruit',
-                'display_name' => 'manage recruit'
+                'name'         => 'manage_recruits',
+                'display_name' => 'manage recruits'
             ),
             array( // 5
                 'name'         => 'manage_users',

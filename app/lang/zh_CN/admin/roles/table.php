@@ -7,9 +7,9 @@ return array(
 	'created_at' => 'Created at',
 
   'manage_news'  => 'manage news',
-  'manage_introduction' => 'manage introduction',
-  'manage_bussiness' => 'manage bussiness',
-  'manage_recruit' => 'manage recruit',
+  'manage_introductions' => 'manage introductions',
+  'manage_businesses' => 'manage businesses',
+  'manage_recruits' => 'manage recruits',
   'manage_users' => 'manage users',
   'manage_roles' => 'manage roles',
 );

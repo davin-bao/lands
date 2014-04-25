@@ -1,7 +1,6 @@
 <?php
-namespace Admin;
 
-class AdminDashboardController extends \AdminController {
+class AdminDashboardController extends AdminController {
 
     /**
      * Admin dashboard
