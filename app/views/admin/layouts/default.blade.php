@@ -106,14 +106,14 @@
     <div class="container">
     <div class="row">
       <div class="span3">
-        <div class="accordion" id="accordion2">
-          <div class="accordion-group">
+        <div class="accordion" id="accordionOne">
+            <div class="accordion-group">
                 <div class="accordion-heading">
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionOne" href="#collapseOne">
                         <i class="icon-list"></i> {{{ Lang::get('admin/menu.title_messages') }}}
                     </a>
                 </div>
-                <div id="collapseTwo" class="accordion-body collapse">
+                <div id="collapseOne" class="accordion-body collapse">
                     <div class="accordion-inner">
                         <ul class="nav left-menu-nav">
                             @if (Auth::user()->can('manage_infos'))
@@ -128,6 +128,9 @@
                             @if (Auth::user()->can('manage_businesses'))
                             <li{{ (Request::is('admin/businesses*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/businesses/1/edit') }}}"> {{{ Lang::get('admin/menu.businesses') }}}<i class=" icon-play"></i></a></li>
                             @endif
+                            @if (Auth::user()->can('manage_carousels'))
+                            <li{{ (Request::is('admin/carousels*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/carousels') }}}"> {{{ Lang::get('admin/menu.carousels') }}}<i class=" icon-play"></i></a></li>
+                            @endif
                         </ul>
                     </div>
                 </div>
@@ -135,11 +138,11 @@
           @if (Auth::user()->can('manage_users') || Auth::user()->can('manage_roles'))
           <div class="accordion-group">
             <div class="accordion-heading">
-              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionOne" href="#collapseThree">
                 <i class="icon-user"></i> {{{ Lang::get('admin/menu.title_users') }}}
               </a>
             </div>
-            <div id="collapseOne" class="accordion-body collapse in">
+            <div id="collapseThree" class="accordion-body collapse in">
               <div class="accordion-inner">
                 <ul class="nav left-menu-nav">
                   @if (Auth::user()->can('manage_users'))
