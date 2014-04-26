@@ -55,7 +55,7 @@ return array(
 	"not_in"               => "The selected :attribute is invalid.",
 	"numeric"              => "The :attribute must be a number.",
 	"regex"                => "The :attribute format is invalid.",
-	"required"             => " :attribute 为必填项.",
+	"required"             => " :attribute 不能为空.",
 	"required_if"          => "The :attribute field is required when :other is :value.",
 	"required_with"        => "The :attribute field is required when :values is present.",
 	"required_with_all"    => "The :attribute field is required when :values is present.",
@@ -99,6 +99,11 @@ return array(
 	|
 	*/
 
-	'attributes' => array(),
+	'attributes' => array(
+        'recruit_name' => '职位名称',
+        'recruit_count'  => '招聘人数',
+        'recruit_content'  => '职位描述',
+        'freeze'  => '是否冻结',
+    ),
 
 );

@@ -88,7 +88,7 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"> {{{ Auth::user()->username }}}<b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                  <li><a href="{{{ URL::to('user/settings') }}}"><i class="icon-wrench"></i> Settings</a></li>
+                  <li><a href="{{{ URL::to(sprintf('admin/users/%d/edit',  Auth::user()->id)) }}}"><i class="icon-wrench"></i> Settings</a></li>
                   <li class="divider"></li>
                   <li><a href="{{{ URL::to('user/logout') }}}"><i class="icon-share"></i> Logout</a></li>
                 </ul>
@@ -180,9 +180,9 @@
 	<!-- ./ container -->
 
 	<!-- Javascripts -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-    <!--script src="{{asset('assets/js/bootstrap.min.js')}}"></script-->
-    <script src="{{asset('assets/js/bootstrap-affix.js')}}"></script>
+    <script src="{{asset('assets/js/jquery.min.js')}}"></script>
+    <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
+    <!--script src="{{asset('assets/js/bootstrap-affix.js')}}"></script>
     <script src="{{asset('assets/js/bootstrap-alert.js')}}"></script>
     <script src="{{asset('assets/js/bootstrap-button.js')}}"></script>
     <script src="{{asset('assets/js/bootstrap-carousel.js')}}"></script>
@@ -193,10 +193,12 @@
     <script src="{{asset('assets/js/bootstrap-scrollspy.js')}}"></script>
     <script src="{{asset('assets/js/bootstrap-tab.js')}}"></script>
     <script src="{{asset('assets/js/bootstrap-tooltip.js')}}"></script>
-    <script src="{{asset('assets/js/bootstrap-transition.js')}}"></script>
+    <script src="{{asset('assets/js/bootstrap-transition.js')}}"></script-->
     <!--[if lte IE 6]>
     <script type="text/javascript" src="{{asset('assets/js/bootstrap-ie.js') }}"></script>
     <![endif]-->
+
+    <script type="text/javascript" src="{{asset('assets/js/admin-main.js') }}"></script>
 
     @yield('scripts')
 

@@ -50,20 +50,11 @@ class AdminRecruitsController extends AdminController {
     $this->recruit->recruit_count = Input::get( 'recruit_count' );
     $this->recruit->recruit_content = Input::get( 'recruit_content' );
 
-    // The password confirmation will be removed from model
     // before saving. This field will be used in Ardent's
     // auto validation.
     $this->recruit->freeze = Input::get( 'freeze' );
 
-    // Permissions are currently tied to roles. Can't do this yet.
-    //$user->permissions = $user->roles()->preparePermissionsForSave(Input::get( 'permissions' ));
-
-    // Save if valid. Password field will be hashed before save
-    if($this->recruit->validate(Recruit::$rules, Recruit::$customMessages)) {
-      $this->recruit->save();
-    }
-
-    if ( $this->recruit->id )
+    if ($this->recruit->save(Recruit::$rules) )
     {
       // Redirect to the new user page
       return Redirect::to('admin/recruits/' . $this->recruit->id . '/edit')->with('success', Lang::get('admin/recruits/messages.create.success'));
@@ -77,4 +68,81 @@ class AdminRecruitsController extends AdminController {
         ->with( 'error', $error );
     }
   }
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param $user
+     * @return Response
+     */
+    public function getEdit($recruit)
+    {
+        if ( $recruit->id )
+        {
+            // Title
+            $title = Lang::get('admin/recruits/title.update');
+            // mode
+            $mode = 'edit';
+
+            return View::make('admin/recruits/create_edit', compact('recruit', 'mode'));
+        }
+        else
+        {
+            return Redirect::to('admin/recruits')->with('error', Lang::get('admin/recruits/messages.does_not_exist'));
+        }
+    }
+
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param $recruit
+     * @return Response
+     */
+    public function postEdit($recruit)
+    {
+
+        // Validate the inputs
+        $validator = Validator::make(Input::all(), Recruit::$rules);
+
+        // Check if the form validates with success
+        if ($validator->passes())
+        {
+
+            $recruit->recruit_name = Input::get( 'recruit_name' );
+            $recruit->recruit_count = Input::get( 'recruit_count' );
+            $recruit->recruit_content = Input::get( 'recruit_content' );
+            // Was the role updated?
+            if ($recruit->save())
+            {
+                // Redirect to the role page
+                return Redirect::to('admin/recruits/' . $recruit->id . '/edit')->with('success', Lang::get('admin/recruits/messages.update.success'));
+            }
+            else
+            {
+                // Redirect to the role page
+                return Redirect::to('admin/recruits/' . $recruit->id . '/edit')->with('error', Lang::get('admin/recruits/messages.update.error'));
+            }
+        }
+
+        // Form validation failed
+        return Redirect::to('admin/recruits/' . $recruit->id . '/edit')->withInput()->withErrors($validator);
+    }
+    /**
+     * Remove the specified user from storage.
+     *
+     * @param $recruit
+     * @internal param $id
+     * @return Response
+     */
+    public function postDelete($recruit)
+    {
+        // Was the role deleted?
+        if($recruit->delete()) {
+            // Redirect to the role management page
+            return Redirect::to('admin/recruits')->with('success', Lang::get('admin/recruits/messages.delete.success'));
+        }
+
+        // There was a problem deleting the role
+        return Redirect::to('admin/recruits')->with('error', Lang::get('admin/recruits/messages.delete.error'));
+    }
 }

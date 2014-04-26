@@ -20,18 +20,7 @@ class Recruit extends \LaravelBook\Ardent\Ardent {
     'recruit_count' => 'required|numeric',
     'recruit_content' => 'required',
   );
-  public static $customMessages = array(
-    'required' => 'The :attribute field is required.',
-    'numeric' => 'The :attribute must be a number.',
-  );
 
-  public function __construct(){
-    $str_required = Lang::get('admin/recruits/messages.validation.required');
-    $this->customMessages = array(
-      'required' => $str_required,
-      'numeric' => $str_required,
-    );
-  }
   /**
    * Returns the date of the Recruit creation,
    * on a good and more readable format :)

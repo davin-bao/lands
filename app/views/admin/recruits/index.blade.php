@@ -22,7 +22,6 @@
 			<tr>
 				<th class="col-md-2">{{{ Lang::get('admin/recruits/table.recruit_name') }}}</th>
 				<th class="col-md-2">{{{ Lang::get('admin/recruits/table.recruit_count') }}}</th>
-				<th class="col-md-2">{{{ Lang::get('admin/recruits/table.recruit_content') }}}</th>
 				<th class="col-md-2">{{{ Lang::get('admin/recruits/table.freeze') }}}</th>
         <th class="col-md-2">{{{ Lang::get('admin/recruits/table.updated_at') }}}</th>
 				<th class="col-md-2">{{{ Lang::get('table.actions') }}}</th>
@@ -33,7 +32,6 @@
       <tr>
         <th class="col-md-2">{{ $user->recruit_name }}</th>
         <th class="col-md-2">{{ $user->recruit_count }}</th>
-        <th class="col-md-2">{{ $user->recruit_content }}</th>
         <th class="col-md-2">{{ $user->freeze }}</th>
         <th class="col-md-2">{{ $user->updated_at }}</th>
         <th class="col-md-2">
