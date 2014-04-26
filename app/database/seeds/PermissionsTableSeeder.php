@@ -8,8 +8,8 @@ class PermissionsTableSeeder extends Seeder {
 
         $permissions = array(
             array( // 1
-                'name'         => 'manage_news',
-                'display_name' => 'manage news'
+                'name'         => 'manage_infos',
+                'display_name' => 'manage infos'
             ),
             array( // 2
                 'name'         => 'manage_introductions',

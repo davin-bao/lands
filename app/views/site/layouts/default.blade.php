@@ -68,42 +68,59 @@
 <body>
 
 
-<div class="navbar navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container">
-      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="brand" href="{{{ URL::to('/') }}}">{{{ Lang::get('general.title') }}}</a>
-      <div class="nav-collapse collapse">
-        <ul class="nav">
-          <li><a href="{{{ URL::to('/') }}}"><i class="icon-home"></i> Home</a></li>
-        </ul>
+<div class="container">
+    <div class="row">
+        <div class="span1"></div>
+        <div class="span10">
+            <div class="navbar">
+              <div class="navbar-inner">
+                <div class="container">
+                  <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a class="brand" href="{{{ URL::to('/') }}}">{{{ Lang::get('general.title') }}}</a>
+                  <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li class="divider-vertical"></li>
+                        <li><a href="{{{ URL::to('/') }}}"><i class="icon-home"></i> {{{ Lang::get('site/default.home') }}}</a></li>
+                      <li class="divider-vertical"></li>
+                        <li><a href="{{{ URL::to('/') }}}"><i class="icon-tags"></i> {{{ Lang::get('site/default.news') }}}</a></li>
+                        <li class="divider-vertical"></li>
+                        <li><a href="{{{ URL::to('/') }}}"><i class="icon-exclamation-sign"></i> {{{ Lang::get('site/default.introductions') }}}</a></li>
+                        <li class="divider-vertical"></li>
+                        <li><a href="{{{ URL::to('/') }}}"><i class="icon-eye-open"></i> {{{ Lang::get('site/default.businesses') }}}</a></li>
+                        <li class="divider-vertical"></li>
+                        <li><a href="{{{ URL::to('/') }}}"><i class="icon-glass"></i> {{{ Lang::get('site/default.recruits') }}}</a></li>
+                    </ul>
 
-        <ul class="nav navbar-nav pull-right">
-          @if (Auth::check())
-          @if (Auth::user()->hasRole('admin'))
-          <li><a href="{{{ URL::to('admin') }}}">Admin Panel</a></li>
-          @endif
-          <li class="divider-vertical"></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> {{{ Auth::user()->username }}}<b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><a href="{{{ URL::to('user/settings') }}}"><i class="icon-wrench"></i> Settings</a></li>
-              <li class="divider"></li>
-              <li><a href="{{{ URL::to('user/logout') }}}"><i class="icon-share"></i> Logout</a></li>
-            </ul>
-          </li>
-          @else
-          <li {{ (Request::is('user/login') ? ' class="active"' : '') }}><a href="{{{ URL::to('user/login') }}}">Login</a></li>
-          @endif
+                    <ul class="nav navbar-nav pull-right">
+                      @if (Auth::check())
+                      @if (Auth::user()->hasRole('admin'))
+                      <li><a href="{{{ URL::to('admin') }}}"><i class="icon-wrench"></i> {{{ Lang::get('general.admin_panel') }}}</a></li>
+                      @endif
+                      <li class="divider-vertical"></li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i> {{{ Auth::user()->username }}}<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="{{{ URL::to('user/settings') }}}"><i class="icon-wrench"></i> {{{ Lang::get('general.settings') }}}</a></li>
+                          <li class="divider"></li>
+                          <li><a href="{{{ URL::to('user/logout') }}}"><i class="icon-share"></i> {{{ Lang::get('general.logout') }}}</a></li>
+                        </ul>
+                      </li>
+                      @else
+                      <li {{ (Request::is('user/login') ? ' class="active"' : '') }}><a href="{{{ URL::to('user/login') }}}"><i class="icon-user"></i> {{{ Lang::get('general.login') }}}</a></li>
+                      @endif
 
-        </ul>
-      </div>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="span1"></div>
     </div>
-  </div>
 </div>
 <!-- ./ navbar -->
 

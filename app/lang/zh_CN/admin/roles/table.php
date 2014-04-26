@@ -6,7 +6,7 @@ return array(
 	'users'      => '# of Users',
 	'created_at' => 'Created at',
 
-  'manage_news'  => 'manage news',
+  'manage_infos'  => 'manage news',
   'manage_introductions' => 'manage introductions',
   'manage_businesses' => 'manage businesses',
   'manage_recruits' => 'manage recruits',
