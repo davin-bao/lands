@@ -21,17 +21,18 @@ class FilesController extends BaseController {
   |
   */
 
-  public function getImageSrc()
-  {
-    $mFile = new Mfile();
-    return $mFile->getUrl('image',Input::get('name'));
-  }
+    public function getImage(){
+        $imgsrc = storage_path().'\\uploads\\images\\'.Input::get('name');
+        $info=getimagesize($imgsrc);
+        header("content-type:".$info['mime']);
+        echo fread(fopen($imgsrc,'rb'),filesize($imgsrc));
+    }
 
-  public function getImage(){
-    $imgsrc = storage_path().'\\uploads\\image\\'.Input::get('name');
-    $info=getimagesize($imgsrc);
-    header("content-type:".$info['mime']);
-    echo fread(fopen($imgsrc,'rb'),filesize($imgsrc));
-  }
+    public function getThumbnail(){
+        $imgsrc = storage_path().'\\uploads\\images\\thumbnail\\'.Input::get('name');
+        $info=getimagesize($imgsrc);
+        header("content-type:".$info['mime']);
+        echo fread(fopen($imgsrc,'rb'),filesize($imgsrc));
+    }
 
 }

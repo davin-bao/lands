@@ -14,6 +14,7 @@
 Route::model('user', 'User');
 Route::model('role', 'Role');
 Route::model('recruit', 'Recruit');
+Route::model('carousel', 'Carousel');
 Route::model('info', 'Info');
 Route::model('introduction', 'Introduction');
 Route::model('business', 'Business');
@@ -21,6 +22,7 @@ Route::model('business', 'Business');
 Route::pattern('user', '[0-9]+');
 Route::pattern('role', '[0-9]+');
 Route::pattern('recruit', '[0-9]+');
+Route::pattern('carousel', '[0-9]+');
 Route::pattern('info', '[0-9]+');
 Route::pattern('introduction', '[0-9]+');
 Route::pattern('business', '[0-9]+');
@@ -41,6 +43,13 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
 //    Route::get('introductions/{introduction}/delete', 'AdminIntroductionsController@getDelete');
 //    Route::post('introductions/{introduction}/delete', 'AdminIntroductionsController@postDelete');
     Route::controller('introductions', 'AdminIntroductionsController');
+
+    # Carousels Management
+    Route::get('carousels/{carousel}/edit', 'AdminCarouselsController@getEdit');
+    Route::post('carousels/{carousel}/edit', 'AdminCarouselsController@postEdit');
+    Route::get('carousels/{carousel}/delete', 'AdminCarouselsController@getDelete');
+    Route::post('carousels/{carousel}/delete', 'AdminCarouselsController@postDelete');
+    Route::controller('carousels', 'AdminCarouselsController');
 
     # Infos Management
     Route::get('infos/{info}/edit', 'AdminInfosController@getEdit');
@@ -74,7 +83,11 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
 
 
     Route::post('images/upload', 'AdminImagesController@postUpload');
-    Route::controller('images', 'AdminImagesController');
+    Route::get('files/image', 'AdminImagesController@getImageUpload');
+    Route::post('files/image', 'AdminImagesController@postImageUpload');
+    Route::delete('files/image', 'AdminImagesController@deleteImageUpload');
+    Route::controller('files', 'AdminImagesController');
+
     # Admin Dashboard
     Route::controller('/', 'AdminDashboardController');
 });
@@ -92,7 +105,7 @@ Route::post('user/reset_password',         'UserController@do_reset_password');
 Route::get( 'user/logout',                 'UserController@logout');
 
 
-Route::get( '/files/imageSrc',                 'FilesController@getImageSrc');
+Route::get( '/files/thumbnail',                 'FilesController@getThumbnail');
 Route::get( '/files/image',                 'FilesController@getImage');
 
 Route::get( '/',                 'HomeController@getIndex');

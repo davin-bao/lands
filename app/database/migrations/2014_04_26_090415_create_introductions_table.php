@@ -18,7 +18,6 @@ class CreateIntroductionsTable extends Migration {
             $table->increments('id');
             $table->string('introduction_name');
             $table->text('introduction_content');
-            $table->boolean('freeze')->default(false);
             $table->timestamps();
         });
 	}

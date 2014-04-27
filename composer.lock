@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "e054b71692884dfd950f1a945b504c8a",
+    "hash": "045e79e1e985ce6264f7e881846a374b",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -136,6 +136,36 @@
                 "zf2"
             ],
             "time": "2013-12-04 14:19:30"
+        },
+        {
+            "name": "gargron/fileupload",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Gargron/fileupload.git",
+                "reference": "0883a61b614fff96ddc5b1d39b646eafe470e7f2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Gargron/fileupload/zipball/0883a61b614fff96ddc5b1d39b646eafe470e7f2",
+                "reference": "0883a61b614fff96ddc5b1d39b646eafe470e7f2",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "FileUpload\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "File uploading library capable of handling large/chunked/multiple file uploads",
+            "time": "2014-02-20 14:23:50"
         },
         {
             "name": "ipunkt/laravel-repositories",
@@ -275,12 +305,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "a8297d82813827b6ca72866d334226d6697ea828"
+                "reference": "e3c1584d2a6fbd428db2a135b28bf082fdfb20f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/a8297d82813827b6ca72866d334226d6697ea828",
-                "reference": "a8297d82813827b6ca72866d334226d6697ea828",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/e3c1584d2a6fbd428db2a135b28bf082fdfb20f5",
+                "reference": "e3c1584d2a6fbd428db2a135b28bf082fdfb20f5",
                 "shasum": ""
             },
             "require": {
@@ -383,7 +413,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-04-19 18:02:02"
+            "time": "2014-04-25 02:05:17"
         },
         {
             "name": "laravelbook/ardent",
@@ -450,12 +480,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "0b654cec865d66042161e3f584f0b18f9b444e18"
+                "reference": "65026b610f8c19e61d7242f600530677b0466aac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/0b654cec865d66042161e3f584f0b18f9b444e18",
-                "reference": "0b654cec865d66042161e3f584f0b18f9b444e18",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/65026b610f8c19e61d7242f600530677b0466aac",
+                "reference": "65026b610f8c19e61d7242f600530677b0466aac",
                 "shasum": ""
             },
             "require": {
@@ -510,7 +540,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2014-04-23 07:20:48"
+            "time": "2014-04-24 13:29:03"
         },
         {
             "name": "nesbot/carbon",
@@ -660,12 +690,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "b90deb5e835be55dfe109f9806395b29499e726a"
+                "reference": "60a9631219ff799e96b2b529db6a796d58f8ce77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/b90deb5e835be55dfe109f9806395b29499e726a",
-                "reference": "b90deb5e835be55dfe109f9806395b29499e726a",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/60a9631219ff799e96b2b529db6a796d58f8ce77",
+                "reference": "60a9631219ff799e96b2b529db6a796d58f8ce77",
                 "shasum": ""
             },
             "require": {
@@ -749,7 +779,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2014-04-19 13:44:29"
+            "time": "2014-04-23 22:41:16"
         },
         {
             "name": "predis/predis",
@@ -1562,12 +1592,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Routing.git",
-                "reference": "916bad70c99e6e66487ebaa3efb335808b13830d"
+                "reference": "74229f66e16bce6d2415ca44d4756f8e7ea880f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Routing/zipball/916bad70c99e6e66487ebaa3efb335808b13830d",
-                "reference": "916bad70c99e6e66487ebaa3efb335808b13830d",
+                "url": "https://api.github.com/repos/symfony/Routing/zipball/74229f66e16bce6d2415ca44d4756f8e7ea880f8",
+                "reference": "74229f66e16bce6d2415ca44d4756f8e7ea880f8",
                 "shasum": ""
             },
             "require": {
@@ -1621,7 +1651,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2014-04-18 20:37:09"
+            "time": "2014-04-23 14:04:21"
         },
         {
             "name": "symfony/security",
@@ -1630,12 +1660,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Security.git",
-                "reference": "013e84fe863ea6de2f314ae5b813e9fc51aabe55"
+                "reference": "1f2b6d8dfea39071748becf040c8d8a23288e725"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Security/zipball/013e84fe863ea6de2f314ae5b813e9fc51aabe55",
-                "reference": "013e84fe863ea6de2f314ae5b813e9fc51aabe55",
+                "url": "https://api.github.com/repos/symfony/Security/zipball/1f2b6d8dfea39071748becf040c8d8a23288e725",
+                "reference": "1f2b6d8dfea39071748becf040c8d8a23288e725",
                 "shasum": ""
             },
             "require": {
@@ -1697,7 +1727,7 @@
             ],
             "description": "Symfony Security Component",
             "homepage": "http://symfony.com",
-            "time": "2014-04-22 08:11:06"
+            "time": "2014-04-25 07:06:20"
         },
         {
             "name": "symfony/translation",
@@ -1762,12 +1792,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Zizaco/confide.git",
-                "reference": "e0e67e42b7c02ff458963a869da146c8f1809b6d"
+                "reference": "c03d302b008571f417e84c72cb80e295ba5cc2fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Zizaco/confide/zipball/e0e67e42b7c02ff458963a869da146c8f1809b6d",
-                "reference": "e0e67e42b7c02ff458963a869da146c8f1809b6d",
+                "url": "https://api.github.com/repos/Zizaco/confide/zipball/c03d302b008571f417e84c72cb80e295ba5cc2fb",
+                "reference": "c03d302b008571f417e84c72cb80e295ba5cc2fb",
                 "shasum": ""
             },
             "require": {
@@ -1814,7 +1844,7 @@
                 "illuminate",
                 "laravel"
             ],
-            "time": "2014-04-16 10:06:16"
+            "time": "2014-04-25 02:23:52"
         },
         {
             "name": "zizaco/entrust",

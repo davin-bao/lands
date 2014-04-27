@@ -51,7 +51,7 @@
   <link rel="stylesheet" type="text/css" href="{{{ asset('assets/css/bootstrap-ie6.css') }}}">
   <link rel="stylesheet" type="text/css" href="{{{ asset('assets/css/ie.css') }}}">
   <![endif]-->
-  <link rel="stylesheet" type="text/css" href="{{{ asset('assets/css/admin-main.css') }}}">
+  <link rel="stylesheet" type="text/css" href="{{{ asset('assets/css/site-main.css') }}}">
 
   <style>
     @section('styles')

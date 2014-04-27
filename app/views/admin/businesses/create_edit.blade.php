@@ -23,7 +23,7 @@
 					<label class="span2 control-label" for="business_name">{{{ Lang::get('admin/businesses/table.business_name') }}}</label>
           <div class="span6">
 						<input class="form-control" type="text" name="business_name" id="business_name" value="{{{ Input::old('business_name', isset($business) ? $business->business_name : null) }}}" />
-						{{{ $errors->first('business_name', '<span class="help-inline">:message</span>') }}}
+						{{ $errors->first('business_name', '<span class="help-inline">:message</span>') }}
 					</div>
 				</div>
 				<!-- ./ business_name -->
@@ -35,7 +35,7 @@
             <textarea class="form-control ckeditor" cols="80" id="business_content" name="business_content" rows="10">
             {{{ Input::old('business_content', isset($business) ? $business->business_content : null) }}}
             </textarea>
-            {{{ $errors->first('business_content', '<span class="help-inline">:message</span>') }}}
+            {{ $errors->first('business_content', '<span class="help-inline">:message</span>') }}
           </div>
         </div>
         <!-- ./ business_content -->

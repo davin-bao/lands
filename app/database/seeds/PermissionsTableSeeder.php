@@ -8,28 +8,32 @@ class PermissionsTableSeeder extends Seeder {
 
         $permissions = array(
             array( // 1
-                'name'         => 'manage_infos',
-                'display_name' => 'manage infos'
-            ),
-            array( // 2
-                'name'         => 'manage_introductions',
-                'display_name' => 'manage introductions'
-            ),
-            array( // 3
-                'name'         => 'manage_businesses',
-                'display_name' => 'manage businesses'
-            ),
-            array( // 4
-                'name'         => 'manage_recruits',
-                'display_name' => 'manage recruits'
-            ),
-            array( // 5
                 'name'         => 'manage_users',
                 'display_name' => 'manage users'
             ),
-            array( // 6
+            array( // 2
                 'name'         => 'manage_roles',
                 'display_name' => 'manage roles'
+            ),
+            array( // 3
+                'name'         => 'manage_infos',
+                'display_name' => 'manage infos'
+            ),
+            array( // 4
+                'name'         => 'manage_introductions',
+                'display_name' => 'manage introductions'
+            ),
+            array( // 5
+                'name'         => 'manage_businesses',
+                'display_name' => 'manage businesses'
+            ),
+            array( // 6
+                'name'         => 'manage_recruits',
+                'display_name' => 'manage recruits'
+            ),
+            array( // 7
+                'name'         => 'manage_carousels',
+                'display_name' => 'manage carousels'
             ),
         );
 
@@ -64,6 +68,10 @@ class PermissionsTableSeeder extends Seeder {
             array(
                 'role_id'       => $role_id_admin,
                 'permission_id' => $permission_base + 6
+            ),
+            array(
+                'role_id'       => $role_id_admin,
+                'permission_id' => $permission_base + 7
             ),
         );
 

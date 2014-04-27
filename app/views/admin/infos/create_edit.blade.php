@@ -23,7 +23,7 @@
 					<label class="span2 control-label" for="info_name">{{{ Lang::get('admin/infos/table.info_name') }}}</label>
           <div class="span6">
 						<input class="form-control" type="text" name="info_name" id="info_name" value="{{{ Input::old('info_name', isset($info) ? $info->info_name : null) }}}" />
-						{{{ $errors->first('info_name', '<span class="help-inline">:message</span>') }}}
+						{{ $errors->first('info_name', '<span class="help-inline">:message</span>') }}
 					</div>
 				</div>
 				<!-- ./ info_name -->
@@ -35,7 +35,7 @@
             <textarea class="form-control ckeditor" cols="80" id="info_content" name="info_content" rows="10">
             {{{ Input::old('info_content', isset($info) ? $info->info_content : null) }}}
             </textarea>
-            {{{ $errors->first('info_content', '<span class="help-inline">:message</span>') }}}
+            {{ $errors->first('info_content', '<span class="help-inline">:message</span>') }}
           </div>
         </div>
         <!-- ./ info_content -->
@@ -55,7 +55,7 @@
 								<option value="0"{{{ ( ! $info->freeze ? ' selected="selected"' : '') }}}>{{{ Lang::get('general.no') }}}</option>
 							</select>
 						@endif
-						{{{ $errors->first('freeze', '<span class="help-inline">:message</span>') }}}
+						{{ $errors->first('freeze', '<span class="help-inline">:message</span>') }}
 					</div>
 				</div>
 				<!-- ./ freeze -->

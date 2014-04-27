@@ -23,7 +23,7 @@
 					<label class="span2 control-label" for="recruit_name">{{{ Lang::get('admin/recruits/table.recruit_name') }}}</label>
           <div class="span6">
 						<input class="form-control" type="text" name="recruit_name" id="recruit_name" value="{{{ Input::old('recruit_name', isset($recruit) ? $recruit->recruit_name : null) }}}" />
-						{{{ $errors->first('recruit_name', '<span class="help-inline">:message</span>') }}}
+						{{ $errors->first('recruit_name', '<span class="help-inline">:message</span>') }}
 					</div>
 				</div>
 				<!-- ./ recruit_name -->
@@ -33,7 +33,7 @@
           <label class="span2 control-label" for="recruit_count">{{{ Lang::get('admin/recruits/table.recruit_count') }}}</label>
           <div class="span6">
             <input class="form-control" type="text" name="recruit_count" id="recruit_count" value="{{{ Input::old('recruit_count', isset($recruit) ? $recruit->recruit_count : null) }}}" />
-            {{{ $errors->first('recruit_count', '<span class="help-inline">:message</span>') }}}
+            {{ $errors->first('recruit_count', '<span class="help-inline">:message</span>') }}
           </div>
         </div>
         <!-- ./ recruit_count -->
@@ -45,7 +45,7 @@
             <textarea class="form-control ckeditor" cols="80" id="recruit_content" name="recruit_content" rows="10">
             {{{ Input::old('recruit_content', isset($recruit) ? $recruit->recruit_content : null) }}}
             </textarea>
-            {{{ $errors->first('recruit_content', '<span class="help-inline">:message</span>') }}}
+            {{ $errors->first('recruit_content', '<span class="help-inline">:message</span>') }}
           </div>
         </div>
         <!-- ./ recruit_content -->
@@ -65,7 +65,7 @@
 								<option value="0"{{{ ( ! $recruit->freeze ? ' selected="selected"' : '') }}}>{{{ Lang::get('general.no') }}}</option>
 							</select>
 						@endif
-						{{{ $errors->first('freeze', '<span class="help-inline">:message</span>') }}}
+						{{ $errors->first('freeze', '<span class="help-inline">:message</span>') }}
 					</div>
 				</div>
 				<!-- ./ freeze -->

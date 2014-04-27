@@ -13,6 +13,7 @@ ssage":"Class 'EntwwwrustSetupTables' not found","file":"D:\\github\\lands\\vend
 or\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php","li
 ne":297}}
 
+** Delete all database
 **Go to `D:\github\lands\vendor\composer\autoload_classmap.php` to update the real database files names OR run `composer dump-autoload`
 
 ### License

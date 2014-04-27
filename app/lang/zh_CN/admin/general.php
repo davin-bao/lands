@@ -9,6 +9,8 @@
 return array(
   'general_info' => '基本信息',
 
+    'delete_fail' => 'Delete this file failed.',
+
   'users' => array(
     'title' => array(
       'user_management' => '管理员列表',
@@ -20,7 +22,7 @@ return array(
     'password' => '密码',
     'password_confirmation' => '确认密码',
     'e_mail' => '电子邮件',
-    'username_e_mail' => '用户名或者电子邮件'
+    'username_e_mail' => '用户名或者电子邮件',
   )
 );
 

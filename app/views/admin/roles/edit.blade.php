@@ -24,7 +24,7 @@
 					<label class="span2 control-label" for="name">{{{ Lang::get('admin/roles/table.name') }}}</label>
 					<div class="span6">
 						<input class="form-control" type="text" name="name" id="name" value="{{{ Input::old('name', $role->name) }}}" />
-						{{{ $errors->first('name', '<span class="help-inline">:message</span>') }}}
+						{{ $errors->first('name', '<span class="help-inline">:message</span>') }}
 					</div>
 				</div>
 				<!-- ./ name -->

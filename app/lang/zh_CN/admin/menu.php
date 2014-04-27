@@ -12,6 +12,7 @@ return array(
     'infos' => 'News',
     'introductions' => 'Introductions',
     'businesses' => 'Business',
+    'carousels' => 'Carousels',
 
   'title_users' => '管理员与权限',
   'users' => '管理员列表',
