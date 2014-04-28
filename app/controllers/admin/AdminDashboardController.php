@@ -9,7 +9,7 @@ class AdminDashboardController extends AdminController {
     public function getIndex()
     {
 
-        return \View::make('admin/dashboard');
+        return \View::make(Config::get('app.admin_template').'/dashboard');
     }
 
 }

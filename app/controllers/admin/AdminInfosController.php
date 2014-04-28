@@ -26,7 +26,7 @@ class AdminInfosController extends AdminController {
         $infos = Info::all();
 
         // Show the page
-        return View::make('admin/infos/index', compact('infos', 'title'));
+        return View::make(Config::get('app.admin_template').'/infos/index', compact('infos', 'title'));
     }
 
     /**
@@ -41,7 +41,7 @@ class AdminInfosController extends AdminController {
         // Mode
         $mode = 'create';
         // Show the page
-        return View::make('admin/infos/create_edit', compact('title', 'mode'));
+        return View::make(Config::get('app.admin_template').'/infos/create_edit', compact('title', 'mode'));
     }
 
     public function postCreate()
@@ -82,7 +82,7 @@ class AdminInfosController extends AdminController {
             // mode
             $mode = 'edit';
 
-            return View::make('admin/infos/create_edit', compact('info', 'mode'));
+            return View::make(Config::get('app.admin_template').'/infos/create_edit', compact('info', 'mode'));
         }
         else
         {

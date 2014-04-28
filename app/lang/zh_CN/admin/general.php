@@ -9,7 +9,9 @@
 return array(
   'general_info' => '基本信息',
 
-    'delete_fail' => 'Delete this file failed.',
+  'edit'   => '编辑',
+
+  'delete_fail' => 'Delete this file failed.',
 
   'users' => array(
     'title' => array(

@@ -7,7 +7,10 @@
  */
 
 return array(
-  'title_messages' => 'Messages',
+    'home' => 'Home',
+    'dashboard' => 'Dashboard',
+    'dashborad_desc' => 'Control panel',
+    'title_messages' => 'Messages',
     'recruits' => 'Recruits',
     'infos' => 'News',
     'settings' => 'Settings',

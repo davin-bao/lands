@@ -22,11 +22,11 @@ class AdminCarouselsController extends AdminController {
     // Title
     $title = Lang::get('admin/carousels/title.management');
 
-    // Grab all the users
-    $carousels = Carousel::all();
+    // Grab all
+    $carousels = Carousel::paginate(Config::get('app.pagenate_num'));
 
     // Show the page
-    return View::make('admin/carousels/index', compact('carousels', 'title'));
+    return View::make(Config::get('app.admin_template').'/carousels/index', compact('carousels', 'title'));
   }
 
   /**
@@ -41,7 +41,7 @@ class AdminCarouselsController extends AdminController {
     // Mode
     $mode = 'create';
     // Show the page
-    return View::make('admin/carousels/create_edit', compact('title', 'mode'));
+    return View::make(Config::get('app.admin_template').'/carousels/create_edit', compact('title', 'mode'));
   }
 
   public function postCreate()
@@ -79,7 +79,7 @@ class AdminCarouselsController extends AdminController {
             // mode
             $mode = 'edit';
 
-            return View::make('admin/carousels/create_edit', compact('carousel', 'mode'));
+            return View::make(Config::get('app.admin_template').'/carousels/create_edit', compact('carousel', 'mode'));
         }
         else
         {

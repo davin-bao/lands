@@ -50,7 +50,7 @@ class AdminRolesController extends AdminController {
           ->get();
 
         // Show the page
-        return View::make('admin/roles/index', compact('roles', 'title'));
+        return View::make(Config::get('app.admin_template').'/roles/index', compact('roles', 'title'));
     }
 
     /**
@@ -70,7 +70,7 @@ class AdminRolesController extends AdminController {
         $title = Lang::get('admin/roles/title.create_a_new_role');
 
         // Show the page
-        return View::make('admin/roles/create', compact('permissions', 'selectedPermissions', 'title'));
+        return View::make(Config::get('app.admin_template').'/roles/create', compact('permissions', 'selectedPermissions', 'title'));
     }
 
     /**
@@ -156,7 +156,7 @@ class AdminRolesController extends AdminController {
         // Title
         $title = Lang::get('admin/roles/title.role_update');
         // Show the page
-        return View::make('admin/roles/edit', compact('role', 'permissions', 'title'));
+        return View::make(Config::get('app.admin_template').'/roles/edit', compact('role', 'permissions', 'title'));
     }
 
     /**

@@ -26,7 +26,7 @@ class AdminBusinessesController extends AdminController {
     $businesses = Business::all();
 
     // Show the page
-    return View::make('admin/businesses/index', compact('businesses', 'title'));
+    return View::make(Config::get('app.admin_template').'/businesses/index', compact('businesses', 'title'));
   }
 
   /**
@@ -41,7 +41,7 @@ class AdminBusinessesController extends AdminController {
     // Mode
     $mode = 'create';
     // Show the page
-    return View::make('admin/businesses/create_edit', compact('title', 'mode'));
+    return View::make(Config::get('app.admin_template').'/businesses/create_edit', compact('title', 'mode'));
   }
 
   public function postCreate()
@@ -78,7 +78,7 @@ class AdminBusinessesController extends AdminController {
             // mode
             $mode = 'edit';
 
-            return View::make('admin/businesses/create_edit', compact('business', 'mode'));
+            return View::make(Config::get('app.admin_template').'/businesses/create_edit', compact('business', 'mode'));
         }
         else
         {

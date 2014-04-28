@@ -23,10 +23,10 @@ class AdminRecruitsController extends AdminController {
     $title = Lang::get('admin/recruits/title.management');
 
     // Grab all the users
-    $recruits = Recruit::all();
+    $recruits = Recruit::paginate(Config::get('app.pagenate_num'));
 
     // Show the page
-    return View::make('admin/recruits/index', compact('recruits', 'title'));
+    return View::make(Config::get('app.admin_template').'/recruits/index', compact('recruits', 'title'));
   }
 
   /**
@@ -41,7 +41,7 @@ class AdminRecruitsController extends AdminController {
     // Mode
     $mode = 'create';
     // Show the page
-    return View::make('admin/recruits/create_edit', compact('title', 'mode'));
+    return View::make(Config::get('app.admin_template').'/recruits/create_edit', compact('title', 'mode'));
   }
 
   public function postCreate()
@@ -83,7 +83,7 @@ class AdminRecruitsController extends AdminController {
             // mode
             $mode = 'edit';
 
-            return View::make('admin/recruits/create_edit', compact('recruit', 'mode'));
+            return View::make(Config::get('app.admin_template').'/recruits/create_edit', compact('recruit', 'mode'));
         }
         else
         {

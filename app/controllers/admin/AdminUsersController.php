@@ -52,7 +52,7 @@ class AdminUsersController extends AdminController {
           ->get();
 
         // Show the page
-        return View::make('admin/users/index', compact('users', 'title'));
+        return View::make(Config::get('app.admin_template').'/users/index', compact('users', 'title'));
     }
 
     /**
@@ -81,7 +81,7 @@ class AdminUsersController extends AdminController {
 		$mode = 'create';
 
 		// Show the page
-		return View::make('admin/users/create_edit', compact('roles', 'permissions', 'selectedRoles', 'selectedPermissions', 'title', 'mode'));
+		return View::make(Config::get('app.admin_template').'/users/create_edit', compact('roles', 'permissions', 'selectedRoles', 'selectedPermissions', 'title', 'mode'));
     }
 
     /**
@@ -155,7 +155,7 @@ class AdminUsersController extends AdminController {
         	// mode
         	$mode = 'edit';
 
-        	return View::make('admin/users/create_edit', compact('user', 'roles', 'permissions', 'title', 'mode'));
+        	return View::make(Config::get('app.admin_template').'/users/create_edit', compact('user', 'roles', 'permissions', 'title', 'mode'));
         }
         else
         {
@@ -303,7 +303,7 @@ class AdminUsersController extends AdminController {
         $title = Lang::get('admin/users/title.user_delete');
 
         // Show the page
-        return View::make('admin/users/delete', compact('user', 'title'));
+        return View::make(Config::get('app.admin_template').'/users/delete', compact('user', 'title'));
     }
 
     /**
