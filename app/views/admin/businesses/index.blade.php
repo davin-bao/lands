@@ -22,6 +22,7 @@
 			<tr>
 				<th class="col-md-2">{{{ Lang::get('admin/businesses/table.business_name') }}}</th>
 				<th class="col-md-2">{{{ Lang::get('admin/businesses/table.freeze') }}}</th>
+                <th class="col-md-2">{{{ Lang::get('admin/businesses/table.order') }}}</th>
         <th class="col-md-2">{{{ Lang::get('admin/businesses/table.updated_at') }}}</th>
 				<th class="col-md-2">{{{ Lang::get('table.actions') }}}</th>
 			</tr>
@@ -31,6 +32,7 @@
       <tr>
         <th class="col-md-2">{{ $business->business_name }}</th>
         <th class="col-md-2">{{ $business->freeze }}</th>
+          <th class="col-md-2">{{ $business->order }}</th>
         <th class="col-md-2">{{ $business->updated_at }}</th>
         <th class="col-md-2">
           <a href="{{{ URL::to(sprintf('admin/businesses/%d/edit', $business->id)) }}}" class="iframe btn btn-xs btn-default"><i class="icon-edit"></i> {{{ Lang::get('button.edit') }}}</a>

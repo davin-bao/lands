@@ -98,6 +98,12 @@
 <div class="navbar-right">
 <ul class="nav navbar-nav">
   <!-- User Account: style can be found in dropdown.less -->
+    <!-- Tasks: style can be found in dropdown.less -->
+    <li>
+        <a href="{{{ URL::to('/') }}}" target="_blank">
+            <i class="fa fa-home"></i> {{ Lang::get('admin/menu.front_page') }}
+        </a>
+    </li>
   <li class="dropdown user user-menu">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
       <i class="glyphicon glyphicon-user"></i>
@@ -133,7 +139,7 @@
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <ul class="sidebar-menu">
       <li class="active">
-        <a href="index.html">
+        <a href="{{{ URL::to('admin') }}}">
           <i class="fa fa-dashboard"></i> <span>Dashboard</span>
         </a>
       </li>
@@ -157,7 +163,7 @@
           <li{{ (Request::is('admin/recruits*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/recruits') }}}"><i class="fa fa-angle-double-right"></i> {{{ Lang::get('admin/menu.recruits') }}}</a></li>
           @endif
           @if (Auth::user()->can('manage_businesses'))
-          <li{{ (Request::is('admin/businesses*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/businesses/1/edit') }}}"><i class="fa fa-angle-double-right"></i> {{{ Lang::get('admin/menu.businesses') }}}</a></li>
+          <li{{ (Request::is('admin/businesses*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/businesses') }}}"><i class="fa fa-angle-double-right"></i> {{{ Lang::get('admin/menu.businesses') }}}</a></li>
           @endif
           @if (Auth::user()->can('manage_carousels'))
           <li{{ (Request::is('admin/carousels*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/carousels') }}}"><i class="fa fa-angle-double-right"></i> {{{ Lang::get('admin/menu.carousels') }}}</a></li>

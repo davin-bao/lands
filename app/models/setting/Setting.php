@@ -9,7 +9,8 @@
 class Setting extends \LaravelBook\Ardent\Ardent {
 
   protected $table = 'settings';
-
+    //关闭自动维护 created_at 和 updated_at 字段
+  public $timestamps = false;
   /**
    * Ardent validation rules
    *

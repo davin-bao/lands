@@ -25,6 +25,7 @@ class CreateSettingsTable extends Migration {
             $table->text('company_instroductions');
             $table->text('services');
             $table->text('contact');
+            $table->timestamps();
         });
 	}
 

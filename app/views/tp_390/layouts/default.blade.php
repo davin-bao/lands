@@ -66,7 +66,7 @@
             <div class="row">
                 <div class="hidden-xs hidden-sm col-md-6">
                     <div class="mailme">
-                        <a href="mailto:info@company.com"><i class="fa fa-envelope"></i>info@company.com</a>
+                        <a href="mailto:info@company.com"><i class="fa fa-envelope"></i>{{ $setting->master_email }}</a>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-6">
@@ -104,7 +104,7 @@
                     <ul class="nav">
                         <li><a href="#templatemo_top"><i class="icon-home"></i> {{{ Lang::get('site/default.home') }}}</a></li>
                         <li><a href="#templatemo_business"><i class="icon-exclamation-sign"></i> {{{ Lang::get('site/default.businesses') }}}</a></a></li>
-                        <li><a href="#templatemo_portfolio"><i class="icon-tags"></i> {{{ Lang::get('site/default.news') }}}</a></li>
+                        <li><a href="#templatemo_infos"><i class="icon-tags"></i> {{{ Lang::get('site/default.news') }}}</a></li>
                         <li><a href="#templatemo_about"><i class="icon-eye-open"></i> {{{ Lang::get('site/default.introductions') }}}</a></li>
                         <li><a href="#templatemo_contact"><i class="icon-glass"></i> {{{ Lang::get('site/default.recruits') }}}</a></li>
                     </ul>
@@ -113,63 +113,6 @@
         </div>
     </div>
 </div>
-
-<!--div class="container">
-    <div class="row">
-        <div class="span1"></div>
-        <div class="span10">
-            <div class="navbar">
-              <div class="navbar-inner">
-                <div class="container">
-                  <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                  </button>
-                  <a class="brand" href="{{{ URL::to('/') }}}">{{{ Lang::get('general.title') }}}</a>
-                  <div class="nav-collapse collapse">
-                    <ul class="nav">
-                        <li class="divider-vertical"></li>
-                        <li><a href="{{{ URL::to('/') }}}"><i class="icon-home"></i> {{{ Lang::get('site/default.home') }}}</a></li>
-                      <li class="divider-vertical"></li>
-                        <li><a href="{{{ URL::to('/') }}}"><i class="icon-tags"></i> {{{ Lang::get('site/default.news') }}}</a></li>
-                        <li class="divider-vertical"></li>
-                        <li><a href="{{{ URL::to('/') }}}"><i class="icon-exclamation-sign"></i> {{{ Lang::get('site/default.introductions') }}}</a></li>
-                        <li class="divider-vertical"></li>
-                        <li><a href="{{{ URL::to('/') }}}"><i class="icon-eye-open"></i> {{{ Lang::get('site/default.businesses') }}}</a></li>
-                        <li class="divider-vertical"></li>
-                        <li><a href="{{{ URL::to('/') }}}"><i class="icon-glass"></i> {{{ Lang::get('site/default.recruits') }}}</a></li>
-                    </ul>
-
-                    <ul class="nav navbar-nav pull-right">
-                      @if (Auth::check())
-                      @if (Auth::user()->hasRole('admin'))
-                      <li><a href="{{{ URL::to('admin') }}}"><i class="icon-wrench"></i> {{{ Lang::get('general.admin_panel') }}}</a></li>
-                      @endif
-                      <li class="divider-vertical"></li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i> {{{ Auth::user()->username }}}<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                          <li><a href="{{{ URL::to('user/settings') }}}"><i class="icon-wrench"></i> {{{ Lang::get('general.settings') }}}</a></li>
-                          <li class="divider"></li>
-                          <li><a href="{{{ URL::to('user/logout') }}}"><i class="icon-share"></i> {{{ Lang::get('general.logout') }}}</a></li>
-                        </ul>
-                      </li>
-                      @else
-                      <li {{ (Request::is('user/login') ? ' class="active"' : '') }}><a href="{{{ URL::to('user/login') }}}"><i class="icon-user"></i> {{{ Lang::get('general.login') }}}</a></li>
-                      @endif
-
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-        </div>
-        <div class="span1"></div>
-    </div>
-</div>
-<!-- ./ navbar -->
-
       <!-- Notifications -->
       @include('tp_390.common.notifications')
       <!-- ./ notifications -->

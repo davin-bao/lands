@@ -40,6 +40,15 @@
         </div>
         <!-- ./ business_content -->
 
+                <!-- order -->
+                <div class="form-group {{{ $errors->has('order') ? 'error' : '' }}}">
+                    <label class="span2 control-label" for="order">{{{ Lang::get('admin/businesses/table.order') }}}</label>
+                    <div class="span6">
+                        <input class="form-control" type="text" name="order" id="order" value="{{{ Input::old('order', isset($business) ? $business->order : null) }}}" />
+                        {{ $errors->first('order', '<div class="help-inline">:message</div>') }}
+                    </div>
+                </div>
+                <!-- ./ order -->
 			</div>
 			<!-- ./ general tab -->
 

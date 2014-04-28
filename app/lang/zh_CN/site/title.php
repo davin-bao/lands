@@ -9,9 +9,11 @@
 return array(
 
     'service_title' => 'Our Services',
+    'info_title' => 'News',
     'news' => 'News',
-    'introductions'  => 'Introductions',
+    'introductions'  => 'Company Introductions',
     'businesses' => 'Services',
     'recruits' => 'Recruits',
+    'contact' => 'Contact Us'
 
 );

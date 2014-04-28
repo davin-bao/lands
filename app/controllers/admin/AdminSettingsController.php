@@ -109,15 +109,15 @@ class AdminSettingsController extends AdminController {
         // Check if the form validates with success
         if ($validator->passes())
         {
-            $this->setting->site_url = Input::get( 'site_url' );
-            $this->setting->company_name = Input::get( 'company_name' );
-            $this->setting->master_email = Input::get( 'master_email' );
-            $this->setting->address = Input::get( 'address' );
-            $this->setting->service_phone = Input::get( 'service_phone' );
-            $this->setting->mobile = Input::get( 'mobile' );
-            $this->setting->company_instroductions = Input::get( 'company_instroductions' );
-            $this->setting->services = Input::get( 'services' );
-            $this->setting->contact = Input::get( 'contact' );
+            $setting->site_url = Input::get( 'site_url' );
+            $setting->company_name = Input::get( 'company_name' );
+            $setting->master_email = Input::get( 'master_email' );
+            $setting->address = Input::get( 'address' );
+            $setting->service_phone = Input::get( 'service_phone' );
+            $setting->mobile = Input::get( 'mobile' );
+            $setting->company_instroductions = Input::get( 'company_instroductions' );
+            $setting->services = Input::get( 'services' );
+            $setting->contact = Input::get( 'contact' );
             // Was the role updated?
             if ($setting->save())
             {

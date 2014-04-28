@@ -23,7 +23,7 @@ class AdminBusinessesController extends AdminController {
     $title = Lang::get('admin/businesses/title.management');
 
     // Grab all the users
-    $businesses = Business::all();
+    $businesses = Business::paginate(Config::get('app.pagenate_num'));
 
     // Show the page
     return View::make(Config::get('app.admin_template').'/businesses/index', compact('businesses', 'title'));
@@ -48,6 +48,7 @@ class AdminBusinessesController extends AdminController {
   {
     $this->business->business_name = Input::get( 'business_name' );
     $this->business->business_content = Input::get( 'business_content' );
+    $this->carousel->order = Input::get( 'order' );
 
     if ($this->business->save(Business::$rules) )
     {
@@ -105,6 +106,7 @@ class AdminBusinessesController extends AdminController {
 
             $business->business_name = Input::get( 'business_name' );
             $business->business_content = Input::get( 'business_content' );
+            $business->carousel->order = Input::get( 'order' );
             // Was the role updated?
             if ($business->save())
             {

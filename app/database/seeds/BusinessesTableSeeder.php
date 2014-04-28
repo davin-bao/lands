@@ -10,6 +10,18 @@ class BusinessesTableSeeder extends Seeder {
             array( // 1
                 'business_name' => '业务介绍',
                 'business_content'=>'内容详情'
+            ),
+            array( // 1
+                'business_name' => '业务介绍',
+                'business_content'=>'内容详情'
+            ),
+            array( // 1
+                'business_name' => '业务介绍',
+                'business_content'=>'内容详情'
+            ),
+            array( // 1
+                'business_name' => '业务介绍',
+                'business_content'=>'内容详情'
             )
         );
 

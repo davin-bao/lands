@@ -18,6 +18,7 @@ class CreateBusinessesTable extends Migration {
             $table->increments('id');
             $table->string('business_name');
             $table->text('business_content');
+            $table->integer('order');
             $table->boolean('freeze')->default(false);
             $table->timestamps();
         });

@@ -18,6 +18,7 @@ class Business extends \LaravelBook\Ardent\Ardent {
   public static $rules = array(
     'business_name' => 'required|alpha_dash',
     'business_content' => 'required',
+    'order' => 'required|numeric',
   );
 
   /**

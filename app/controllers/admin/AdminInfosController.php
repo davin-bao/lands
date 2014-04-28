@@ -23,7 +23,7 @@ class AdminInfosController extends AdminController {
         $title = Lang::get('admin/infos/title.management');
 
         // Grab all the users
-        $infos = Info::all();
+        $infos = Info::paginate(Config::get('app.pagenate_num'));
 
         // Show the page
         return View::make(Config::get('app.admin_template').'/infos/index', compact('infos', 'title'));
@@ -48,6 +48,7 @@ class AdminInfosController extends AdminController {
     {
         $this->info->info_name = Input::get( 'info_name' );
         $this->info->info_content = Input::get( 'info_content' );
+        $this->info->freeze = Input::get( 'freeze' );
 
         // before saving. This field will be used in Ardent's
         // auto validation.
@@ -109,6 +110,7 @@ class AdminInfosController extends AdminController {
 
             $info->info_name = Input::get( 'info_name' );
             $info->info_content = Input::get( 'info_content' );
+            $info->freeze = Input::get( 'freeze' );
             // Was the role updated?
             if ($info->save())
             {

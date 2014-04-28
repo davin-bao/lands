@@ -7,6 +7,7 @@
  */
 
 return array(
+    'front_page' => 'Front Page',
     'home' => 'Home',
     'dashboard' => 'Dashboard',
     'dashborad_desc' => 'Control panel',

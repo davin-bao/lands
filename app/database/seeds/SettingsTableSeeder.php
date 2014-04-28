@@ -6,12 +6,12 @@ class SettingsTableSeeder extends Seeder {
     {
         DB::table('settings')->delete();
 
-        $introductions = array(
+        $settings = array(
             array( // 1
                 'site_url' => 'www.example.com',
                 'company_name'=>'公司名称',
                 'master_email'=>'master@example.com',
-                'address'=>'公司地址',
+                'address'=>'厦门软件园二期',
                 'service_phone'=>'400-8000-1234',
                 'mobile'=>'+86 13988888888',
                 'company_instroductions'=>'地缘网络是全球第一家也是最大的土地信息综合服务机构，是一个24小时在线的土地信息门户网站。土流网提供土地信息服务以及各种与土地相关的配套服务、发展土地服务产业链、发展连锁加盟店，是一个综合性的土地服务平台。',
@@ -20,7 +20,7 @@ class SettingsTableSeeder extends Seeder {
             )
         );
 
-        DB::table('settings')->insert( $introductions );
+        DB::table('settings')->insert( $settings );
     }
 
 }

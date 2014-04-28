@@ -16,7 +16,7 @@ class Info extends \LaravelBook\Ardent\Ardent {
    * @var array
    */
   public static $rules = array(
-    'info_name' => 'required|alpha_dash',
+    'info_name' => 'required',
     'info_content' => 'required',
   );
 
