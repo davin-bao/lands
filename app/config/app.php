@@ -27,7 +27,9 @@ return array(
 	*/
 
 	'url' => 'http://git.localhost/lands',
-    'image_save_url' => '/app/storage/uploads/',
+
+
+    'front_template' => 'tp_390/',
 
 	/*
 	|--------------------------------------------------------------------------

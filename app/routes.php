@@ -18,6 +18,7 @@ Route::model('carousel', 'Carousel');
 Route::model('info', 'Info');
 Route::model('introduction', 'Introduction');
 Route::model('business', 'Business');
+Route::model('setting', 'Setting');
 
 Route::pattern('user', '[0-9]+');
 Route::pattern('role', '[0-9]+');
@@ -26,6 +27,7 @@ Route::pattern('carousel', '[0-9]+');
 Route::pattern('info', '[0-9]+');
 Route::pattern('introduction', '[0-9]+');
 Route::pattern('business', '[0-9]+');
+Route::pattern('setting', '[0-9]+');
 
 Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
 {
@@ -34,15 +36,13 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     Route::get('businesses/{business}/edit', 'AdminBusinessesController@getEdit');
     Route::post('businesses/{business}/edit', 'AdminBusinessesController@postEdit');
 //    Route::get('businesses/{business}/delete', 'AdminBusinessesController@getDelete');
-//    Route::post('businesses/{business}/delete', 'AdminBusinessesController@postDelete');
+    Route::post('businesses/{business}/delete', 'AdminBusinessesController@postDelete');
     Route::controller('businesses', 'AdminBusinessesController');
 
-    # Introductions Management
-    Route::get('introductions/{introduction}/edit', 'AdminIntroductionsController@getEdit');
-    Route::post('introductions/{introduction}/edit', 'AdminIntroductionsController@postEdit');
-//    Route::get('introductions/{introduction}/delete', 'AdminIntroductionsController@getDelete');
-//    Route::post('introductions/{introduction}/delete', 'AdminIntroductionsController@postDelete');
-    Route::controller('introductions', 'AdminIntroductionsController');
+    # Settings
+    Route::get('settings/{setting}/edit', 'AdminSettingsController@getEdit');
+    Route::post('settings/{setting}/edit', 'AdminSettingsController@postEdit');
+    Route::controller('settings', 'AdminSettingsController');
 
     # Carousels Management
     Route::get('carousels/{carousel}/edit', 'AdminCarouselsController@getEdit');

@@ -20,8 +20,8 @@ class PermissionsTableSeeder extends Seeder {
                 'display_name' => 'manage infos'
             ),
             array( // 4
-                'name'         => 'manage_introductions',
-                'display_name' => 'manage introductions'
+                'name'         => 'manage_settings',
+                'display_name' => 'manage settings'
             ),
             array( // 5
                 'name'         => 'manage_businesses',

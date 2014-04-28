@@ -122,11 +122,8 @@
                             @if (Auth::user()->can('manage_recruits'))
                             <li{{ (Request::is('admin/recruits*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/recruits') }}}"> {{{ Lang::get('admin/menu.recruits') }}}<i class=" icon-play"></i></a></li>
                             @endif
-                            @if (Auth::user()->can('manage_introductions'))
-                            <li{{ (Request::is('admin/introductions*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/introductions/1/edit') }}}"> {{{ Lang::get('admin/menu.introductions') }}}<i class=" icon-play"></i></a></li>
-                            @endif
                             @if (Auth::user()->can('manage_businesses'))
-                            <li{{ (Request::is('admin/businesses*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/businesses/1/edit') }}}"> {{{ Lang::get('admin/menu.businesses') }}}<i class=" icon-play"></i></a></li>
+                            <li{{ (Request::is('admin/businesses*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/businesses') }}}"> {{{ Lang::get('admin/menu.businesses') }}}<i class=" icon-play"></i></a></li>
                             @endif
                             @if (Auth::user()->can('manage_carousels'))
                             <li{{ (Request::is('admin/carousels*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/carousels') }}}"> {{{ Lang::get('admin/menu.carousels') }}}<i class=" icon-play"></i></a></li>
@@ -145,6 +142,9 @@
             <div id="collapseThree" class="accordion-body collapse in">
               <div class="accordion-inner">
                 <ul class="nav left-menu-nav">
+                    @if (Auth::user()->can('manage_settings'))
+                    <li{{ (Request::is('admin/settings*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/settings/1/edit') }}}"> {{{ Lang::get('admin/menu.settings') }}}<i class=" icon-play"></i></a></li>
+                    @endif
                   @if (Auth::user()->can('manage_users'))
                   <li{{ (Request::is('admin/users*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/users') }}}"> {{{ Lang::get('admin/menu.users') }}}<i class=" icon-play"></i></a></li>
                   @endif

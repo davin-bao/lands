@@ -4,7 +4,7 @@ return array(
     'home' => 'Home',
     'news' => 'News',
     'introductions'  => 'Introductions',
-    'businesses' => 'Business',
+    'businesses' => 'Services',
     'recruits' => 'Recruits',
 
 );

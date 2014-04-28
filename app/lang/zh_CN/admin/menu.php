@@ -10,7 +10,7 @@ return array(
   'title_messages' => 'Messages',
     'recruits' => 'Recruits',
     'infos' => 'News',
-    'introductions' => 'Introductions',
+    'settings' => 'Settings',
     'businesses' => 'Business',
     'carousels' => 'Carousels',
 
