@@ -111,7 +111,7 @@
       <i class="ion ion-clipboard"></i>
       <h3 class="box-title">{{{ Lang::get('admin/menu.recruits') }}}</h3>
       <div class="box-tools pull-right">
-        <?php echo $infos->links(); ?>
+          &nbsp;
       </div>
     </div><!-- /.box-header -->
     <div class="box-body">
@@ -143,7 +143,7 @@
       <i class="ion ion-clipboard"></i>
       <h3 class="box-title">{{{ Lang::get('admin/menu.infos') }}}</h3>
       <div class="box-tools pull-right">
-        <?php echo $infos->links(); ?>
+        &nbsp;
       </div>
     </div><!-- /.box-header -->
     <div class="box-body">

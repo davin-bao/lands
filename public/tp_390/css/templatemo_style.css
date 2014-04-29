@@ -160,7 +160,8 @@ img {
   	z-index: 900;
 }
 .logo {
-	padding: 0;
+    height: 58px;
+    padding-top: 15px;
 }
 .mainMenu {
 
@@ -900,7 +901,7 @@ and (max-width : 480px) {
 }
 @media(min-width:992px){
 	.mainMenu li a {
-		padding: 20px;
+		padding: 19px;
 	}
   .imgWrp {
     height: 190px;

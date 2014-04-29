@@ -8,14 +8,14 @@
 
 return array(
 
-    'service_title' => 'Our Services',
-    'info_title' => 'News',
-    'recruits_title' => 'Recruits',
-    'introductions_title'  => 'Company Introductions',
+    'service_title' => '我们的服务',
+    'info_title' => '新闻',
+    'recruits_title' => '招聘英才',
+    'introductions_title'  => '公司简介',
 
-    'news' => 'News',
-    'businesses' => 'Services',
-    'recruits' => 'Recruits',
-    'contact' => 'Contact Us'
+    'news' => '新闻',
+    'businesses' => '服务',
+    'recruits' => '招聘英才',
+    'contact' => '联系我们'
 
 );

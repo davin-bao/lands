@@ -22,4 +22,18 @@ class RecruitsController extends BaseController {
     echo json_encode($res);
   }
 
+    public function getMoreAJAX(){
+        $pageCount = intval(Config::get("app.pagenate_num"));
+        $offset = intval(Input::get( 'offset' ));
+
+        $recruits =  Recruit::where('freeze','=','0')->orderBy('updated_at', 'DESC')->skip($offset*$pageCount)->take($pageCount)->get();
+
+        $new_recruits = array();
+        foreach( $recruits as $recruit) {
+            $new_recruits[] = array('id' => $recruit->id, 'title' => $recruit->recruit_name, 'count' => $recruit->recruit_count, 'content' => String::tidy(Str::limit(strip_tags($recruit->recruit_content, '<p><a>'), 100)));
+        }
+        $res = Array('result'=>true,'list'=>$new_recruits);
+        echo json_encode($res);
+    }
+
 }

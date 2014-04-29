@@ -48,8 +48,8 @@
                     </a>
                   </div>
                   <h4>{{{ $service->business_name }}}</h4>
-                  <p><small>{{{ String::tidy(Str::limit($service->business_content, 100)) }}}</small></p>
-                  <a class="btn btn-primary read-more" data-id="{{{ $service->id }}}" href="#">Read More</a>
+                  <p><small>{{ String::tidy(Str::limit($service->business_content, 120)) }}</small></p>
+                  <a class="btn btn-primary read-more" data-id="{{{ $service->id }}}" href="#">{{{ Lang::get('button.read_more') }}}</a>
                 </div>
               </div>
               @endforeach
@@ -64,7 +64,7 @@
             <div class="col-md-12">
                 <div class="secHeader">
                     <h1 class="text-center">{{{ Lang::get('site/title.info_title') }}}</h1>
-                    <p class="text-center"><small>Nam scelerisque dui ultricies mollis interdum. Aenean at lectus quis risus pretium placerat. Sed consectetur bibendum pharetra. Mauris tincidunt a augue nec porta. Fusce porttitor leo est, id convallis erat pretium sed.</small></p>
+                    <p class="text-center"><small>&nbsp;</small></p>
                 </div>
                 <div class="glView">
 
@@ -76,16 +76,16 @@
                                   <a href="#">
                                   <div class="itemInfo">
                                     <h4>{{{ $info->info_name }}}</h4>
-                                    <h6>Webdesign</h6>
+                                    <h6>{{{ $info->created_at }}}</h6>
                                     <p>{{ String::tidy(Str::limit(strip_tags($info->info_content, '<p><a>'), 100)) }} </p>
                                   </div>
                                    </a>
-                                  <button type="button" class="btn btn-primary goto" data-id="{{{ $info->id }}}">view</button>
+                                  <button type="button" class="btn btn-primary goto" data-id="{{{ $info->id }}}">{{{ Lang::get('button.view') }}}</button>
                                 </div>
                             </div>
                             @endforeach
                     </div>
-                      <div class="loadit"><button type="button" class="btn btn-primary load-more" data-offset="1">Load More</button></div>
+                      <div class="loadit"><button type="button" class="btn btn-primary load-more" data-offset="1">{{{ Lang::get('button.load_more') }}}</button></div>
                 </div>
             </div>
         </div>
@@ -136,37 +136,32 @@
               <h1 class="text-center">{{{ Lang::get('site/title.recruits') }}}</h1>
               <p class="text-center"><small>{{ String::tidy(Str::limit(strip_tags($setting->recruits, '<p><a>'), 100)) }}</small></p>
             </div>
+              <div class="glView">
+
+                  <div class="imgSwitch">
+                      <div class="row">
+                          @foreach ($recruits as $recruit)
+                          <div class="col-xs-6 col-sm-3 col-md-3 prod-cnt webdesign dbox-list" style="opacity: 1;">
+                              <div class="itemCont">
+                                  <a href="#">
+                                      <div class="itemInfo">
+                                          <h4>{{{ $recruit->recruit_name }}}</h4>
+                                          <h6>{{{ $recruit->recruit_count }}} {{{ Lang::get('general.man') }}}</h6>
+                                          <p>{{ strip_tags(String::tidy(Str::limit($recruit->recruit_content, 100)), '<p><a>') }} </p>
+                                      </div>
+                                  </a>
+                                  <button type="button" class="btn btn-primary goto" data-id="{{{ $recruit->id }}}">{{{ Lang::get('button.view') }}}</button>
+                              </div>
+                          </div>
+                          @endforeach
+                      </div>
+                      <div class="loadit"><button type="button" class="btn btn-primary load-more" data-offset="1">{{{ Lang::get('button.load_more') }}}</button></div>
+
+                  </div> <!-- eo section 6 -->
+              </div>
           </div>
         </div>
       </div>
-      <div class="glView">
-
-        <div class="imgSwitch">
-          <div class="row">
-            @foreach ($recruits as $recruit)
-            <div class="col-xs-6 col-sm-3 col-md-3 prod-cnt webdesign dbox-list" style="opacity: 1;">
-              <div class="itemCont">
-                <a href="#">
-                  <div class="itemInfo">
-                    <h4>{{{ $recruit->recruit_name }}}</h4>
-                    <h6>{{{ $recruit->recruit_count }}} {{{ Lang::get('general.man') }}}</h6>
-                    <p>{{ strip_tags(String::tidy(Str::limit($recruit->recruit_content, 100)), '<p><a>') }} </p>
-                  </div>
-                </a>
-                <button type="button" class="btn btn-primary goto" data-id="{{{ $recruit->id }}}">view</button>
-            </div>
-            @endforeach
-          </div>
-            <div class="loadit"><button type="button" class="btn btn-primary load-more" data-offset="1">Load More</button></div>
-        </div>
-
-    </div> <!-- eo section 6 -->
-
-      <div class="bfWrap text-center">
-        <div class="templatemo_footer">Copyright © 2014 {{{ $setting->company_name }}}
-          @if (!Auth::check())| <a href="{{{ URL::to('user/login') }}}">{{{ Lang::get('general.login') }}}</a> @endif| Collect from <a href="http://{{{ $setting->site_url }}}/" title="{{{ $setting->company_name }}}" target="_blank">{{{ $setting->company_name }}}</a></div>
-      </div>
-        </div>
       </div><!-- eo section5 -->
 
 
@@ -185,6 +180,15 @@
           </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
       </div><!-- /.modal -->
+@stop
+
+
+{{-- footer --}}
+@section('footer')
+<div class="bfWrap text-center">
+    <div class="templatemo_footer">Copyright © 2014 {{{ $setting->company_name }}}
+        @if (!Auth::check())| <a href="{{{ URL::to('user/login') }}}">{{{ Lang::get('general.login') }}}</a> @endif| Collect from <a href="http://{{{ $setting->site_url }}}/" title="{{{ $setting->company_name }}}" target="_blank">{{{ $setting->company_name }}}</a></div>
+</div>
 @stop
 
 {{-- Scripts --}}
@@ -340,25 +344,6 @@
       <script>
         $(document).ready(function(){
 
-          $("#templatemo_infos .goto").click(function(){
-
-            showModal();
-
-            $.ajax({
-              url: "infos/"+$(this).attr('data-id')+"/show_ajax",
-              type:"GET",
-              dataType : "json"
-            }).done(function(data) {
-              if(data.result){
-                $("#newModal .modal-title").html(data.title);
-                $("#newModal .modal-body").html(data.content);
-              }else{
-                $("#newModal .modal-title").html("Error");
-                $("#newModal .modal-body").html(data.message);
-              }
-            });
-          });
-
           $("#templatemo_business .read-more").click(function(){
 
             showModal();
@@ -378,42 +363,81 @@
             });
           });
 
-          $("#templatemo_recruit .goto").click(function(){
-
-            showModal();
-
-            $.ajax({
-              url: "recruits/"+$(this).attr('data-id')+"/show_ajax",
-              type:"GET",
-              dataType : "json"
-            }).done(function(data) {
-              if(data.result){
-                $("#newModal .modal-title").html(data.title);
-                $("#newModal .modal-body").html(" {{{ Lang::get('general.recruit_man') }}}: "+data.count + " {{{ Lang::get('general.man') }}}"+"<br/>"+ data.content);
-              }else{
-                $("#newModal .modal-title").html("Error");
-                $("#newModal .modal-body").html(data.message);
-              }
-            });
-          });
-
+            openRecruitDetailModalAction();
+            openInfoDetailModalAction();
           ///Load more
-          $("#templatemo_infos .load-more").click(function(){
+            $("#templatemo_recruit .load-more").click(function(){
 
-            $.ajax({
-              url: "infos/more_ajax?offset="+$(this).attr("data-offset"),
-              type:"GET",
-              dataType : "json"
-            }).done(function(data) {
-              if(data.result){
-                for(var i=0;i<data.list.length;i++) {
-                  $("#templatemo_infos .imgSwitch .row").append(getOneInfo(data.list[i].title, data.list[i].content));
-                }
-              }
+                $.ajax({
+                    url: "recruits/more_ajax?offset="+$(this).attr("data-offset"),
+                    type:"GET",
+                    dataType : "json"
+                }).done(function(data) {
+                    if(data.result){
+                        for(var i=0;i<data.list.length;i++) {
+                            $("#templatemo_recruit .imgSwitch .row").append(getOneInfo(data.list[i].id, data.list[i].title," {{{ Lang::get('general.recruit_man') }}}: " +  data.list[i].count + " {{{ Lang::get('general.man') }}}", data.list[i].content));
+                        }
+                        openRecruitDetailModalAction();
+                    }
+                });
+                $(this).attr('data-offset', parseInt($(this).attr('data-offset'))+1);
             });
-            $(this).attr('data-offset', parseInt($(this).attr('data-offset'))+1);
-          });
+
+            $("#templatemo_infos .load-more").click(function(){
+
+                $.ajax({
+                    url: "infos/more_ajax?offset="+$(this).attr("data-offset"),
+                    type:"GET",
+                    dataType : "json"
+                }).done(function(data) {
+                    if(data.result){
+                        for(var i=0;i<data.list.length;i++) {
+                            $("#templatemo_infos .imgSwitch .row").append(getOneInfo(data.list[i].id, data.list[i].title, data.list[i].created_at.date, data.list[i].content));
+                        }
+                        openInfoDetailModalAction();
+                    }
+                });
+                $(this).attr('data-offset', parseInt($(this).attr('data-offset'))+1);
+            });
         });
+
+        function openRecruitDetailModalAction(){
+            $("#templatemo_recruit .goto").click(function(){
+                showModal();
+                $.ajax({
+                    url: "recruits/"+$(this).attr('data-id')+"/show_ajax",
+                    type:"GET",
+                    dataType : "json"
+                }).done(function(data) {
+                    if(data.result){
+                        $("#newModal .modal-title").html(data.title);
+                        $("#newModal .modal-body").html(" {{{ Lang::get('general.recruit_man') }}}: "+data.count + " {{{ Lang::get('general.man') }}}"+"<br/>"+ data.content);
+                    }else{
+                        $("#newModal .modal-title").html("Error");
+                        $("#newModal .modal-body").html(data.message);
+                    }
+                });
+            });
+        }
+
+        function openInfoDetailModalAction(){
+            $("#templatemo_infos .goto").on('click', function(){
+                showModal();
+                $.ajax({
+                    url: "infos/"+$(this).attr('data-id')+"/show_ajax",
+                    type:"GET",
+                    dataType : "json"
+                }).done(function(data) {
+                    if(data.result){
+                        $("#newModal .modal-title").html(data.title);
+                        $("#newModal .modal-body").html(data.content);
+                    }else{
+                        $("#newModal .modal-title").html("Error");
+                        $("#newModal .modal-body").html(data.message);
+                    }
+                });
+            });
+        }
 
         function showModal(){
           $("#newModal .modal-title").html('<i class="ion ion-loading-c"></i></div>');
@@ -426,17 +450,17 @@
         };
 
 
-        function getOneInfo(title, content){
+        function getOneInfo(id, title, created_at, content){
             return '<div class="col-xs-6 col-sm-3 col-md-3 prod-cnt webdesign dbox-list" style="opacity: 1;">\
                 <div class="itemCont">\
                 <a href="#">\
                 <div class="itemInfo">\
                 <h4>'+title+'</h4>\
-              <h6>Webdesign</h6>\
+              <h6>'+created_at+'</h6>\
               <p>'+content+'</p>\
             </div>\
             </a>\
-            <button type="button" class="btn btn-primary goto" data-id="{{{ $info->id }}}">view</button>\
+            <button type="button" class="btn btn-primary goto" data-id="'+id+'">{{{ Lang::get('button.view') }}}</button>\
             </div>\
             </div>';
         }

@@ -31,7 +31,7 @@ class InfosController extends BaseController {
 
     $new_infos = array();
     foreach( $infos as $info) {
-      $new_infos[] = array('title' => $info->info_name, 'content' => String::tidy(Str::limit(strip_tags($info->info_content, '<p><a>'), 100)));
+      $new_infos[] = array('id' => $info->id, 'title' => $info->info_name, 'created_at' => $info->created_at, 'content' => String::tidy(Str::limit(strip_tags($info->info_content, '<p><a>'), 100)));
     }
     $res = Array('result'=>true,'list'=>$new_infos);
     echo json_encode($res);

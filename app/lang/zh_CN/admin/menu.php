@@ -7,20 +7,20 @@
  */
 
 return array(
-    'profile' => 'Profile',
-    'signout' => 'Sign Out',
-    'front_page' => 'Front Page',
-    'home' => 'Home',
-    'dashboard' => 'Dashboard',
-    'dashborad_desc' => 'Control panel',
-    'title_messages' => 'Messages',
-    'recruits' => 'Recruits',
-    'infos' => 'News',
-    'settings' => 'Settings',
-    'businesses' => 'Business',
-    'carousels' => 'Carousels',
+    'profile' => '个人设置',
+    'signout' => '退出',
+    'front_page' => '前台网站',
+    'home' => '首页',
+    'dashboard' => '控制面板',
+    'dashborad_desc' => '控制面板',
+    'title_messages' => '咨讯管理',
+    'recruits' => '招聘',
+    'infos' => '新闻',
+    'settings' => '设置',
+    'businesses' => '业务介绍',
+    'carousels' => '图片轮播',
 
-  'title_users' => 'Admin and Role',
-  'users' => 'Administrators',
-  'roles' => 'Roles'
+  'title_users' => '管理员与权限',
+  'users' => '管理员管理',
+  'roles' => '权限管理'
 );

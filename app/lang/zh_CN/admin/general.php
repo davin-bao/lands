@@ -7,7 +7,7 @@
  */
 
 return array(
-  'general_info' => 'General',
+  'general_info' => '基本信息',
 
   'edit'   => 'Edit',
 
