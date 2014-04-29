@@ -2,15 +2,15 @@
 
 return array(
 
-	'name'       => 'Name',
-	'users'      => '# of Users',
-	'created_at' => 'Created at',
+	'name'       => '角色名称',
+	'users'      => '用户列表',
+	'created_at' => '创建时间',
 
-  'manage_infos'  => 'manage news',
-    'manage_carousels' => 'manage carousels',
-    'manage_settings' => 'manage settings',
-  'manage_businesses' => 'manage businesses',
-  'manage_recruits' => 'manage recruits',
-  'manage_users' => 'manage users',
-  'manage_roles' => 'manage roles',
+  'manage_infos'  => '新闻管理',
+    'manage_carousels' => '图片轮播管理',
+    'manage_settings' => '站点设定管理',
+  'manage_businesses' => '业务介绍管理',
+  'manage_recruits' => '招聘管理',
+  'manage_users' => '用户管理',
+  'manage_roles' => '角色管理',
 );

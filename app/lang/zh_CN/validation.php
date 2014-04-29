@@ -100,10 +100,58 @@ return array(
 	*/
 
 	'attributes' => array(
+
         'recruit_name' => '职位名称',
         'recruit_count'  => '需求数量',
         'recruit_content'  => '职位描述',
         'freeze'  => '冻结',
+
+
+        'business_name' => '业务标题',
+        'business_content'  => '业务内容',
+
+        'carousel_image'  => '轮播图片',
+        'carousel_content'  => '内容',
+
+        'name'       => '角色名称',
+        'users'      => '用户列表',
+        'created_at' => '创建时间',
+
+        'manage_infos'  => '新闻管理',
+        'manage_carousels' => '图片轮播管理',
+        'manage_settings' => '站点设定管理',
+        'manage_businesses' => '业务介绍管理',
+        'manage_recruits' => '招聘管理',
+        'manage_users' => '用户管理',
+        'manage_roles' => '角色管理',
+
+        'first_name' => '名字',
+        'last_name'  => '姓氏',
+        'user_id'  => '用户ID',
+        'username'  => '用户名',
+        'email'      => 'Email',
+        'groups'     => '群组',
+        'roles'     => '权限',
+        'activated'  => '激活',
+        'created_at' => '创建时间',
+        'password'  => '密码',
+        'password_confirmation' => '密码确认',
+        'activate_user' => '激活账号',
+
+        'site_url' => '网站地址',
+        'company_name'=>'公司名称',
+        'master_email'=>'管理员Email',
+        'address'=>'公司地址',
+        'service_phone'=>'服务热线',
+        'mobile'=>'手机',
+        'company_instroductions'=>'公司简介',
+        'services'=>'业务介绍',
+        'contact'=>'联系我们',
+
+        'freeze'  => '冻结',
+        'order'  => '排序',
+        'created_at' => '创建时间',
+        'updated_at' => '更新时间'
     ),
 
 );

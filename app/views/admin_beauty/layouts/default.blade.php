@@ -140,7 +140,7 @@
     <ul class="sidebar-menu">
       <li class="active">
         <a href="{{{ URL::to('admin') }}}">
-          <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+          <i class="fa fa-dashboard"></i> <span>{{ Lang::get('admin/menu.dashboard') }}</span>
         </a>
       </li>
 

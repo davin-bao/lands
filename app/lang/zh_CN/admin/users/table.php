@@ -2,17 +2,17 @@
 
 return array(
 
-	'first_name' => 'First Name',
-	'last_name'  => 'Last Name',
-	'user_id'  => 'User Id',
-	'username'  => 'Username',
+	'first_name' => '名字',
+	'last_name'  => '姓氏',
+	'user_id'  => '用户ID',
+	'username'  => '用户名',
 	'email'      => 'Email',
-	'groups'     => 'Groups',
-	'roles'     => 'Roles',
-	'activated'  => 'Activated',
-	'created_at' => 'Created at',
-  'password'  => 'password',
-  'password_confirmation' => 'Password Confirmation',
-  'activate_user' => 'Activate User'
+	'groups'     => '群组',
+	'roles'     => '权限',
+	'activated'  => '激活',
+	'created_at' => '创建时间',
+  'password'  => '密码',
+  'password_confirmation' => '密码确认',
+  'activate_user' => '激活账号'
 
 );
