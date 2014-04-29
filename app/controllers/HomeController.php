@@ -22,7 +22,8 @@ class HomeController extends BaseController {
       $setting = Setting::find(1);
       $services = Business::where('freeze','=','0')->orderBy('order', 'DESC')->take(4)->get();
       $infos = Info::where('freeze','=','0')->orderBy('updated_at', 'DESC')->take(5)->get();
-    return View::make(Config::get('app.front_template').'index', compact('setting','services','infos'));
+      $recruits = Recruit::where('freeze','=','0')->orderBy('updated_at', 'DESC')->take(5)->get();
+      return View::make(Config::get('app.front_template').'index', compact('setting','services','infos','recruits'));
   }
 
 }

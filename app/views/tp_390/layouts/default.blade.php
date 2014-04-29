@@ -106,7 +106,19 @@
                         <li><a href="#templatemo_business"><i class="icon-exclamation-sign"></i> {{{ Lang::get('site/default.businesses') }}}</a></a></li>
                         <li><a href="#templatemo_infos"><i class="icon-tags"></i> {{{ Lang::get('site/default.news') }}}</a></li>
                         <li><a href="#templatemo_about"><i class="icon-eye-open"></i> {{{ Lang::get('site/default.introductions') }}}</a></li>
-                        <li><a href="#templatemo_contact"><i class="icon-glass"></i> {{{ Lang::get('site/default.recruits') }}}</a></li>
+                        <li><a href="#templatemo_contact"><i class="icon-glass"></i> {{{ Lang::get('site/default.contact') }}}</a></li>
+                        <li><a href="#templatemo_recruit"><i class="icon-glass"></i> {{{ Lang::get('site/default.recruits') }}}</a></li>
+                        @if (Auth::check())
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i> {{{ Auth::user()->username }}}<b class="caret"></b></a>
+                          <ul class="dropdown-menu">
+                            <li><a href="{{{ URL::to('admin') }}}"><i class="icon-wrench"></i> {{{ Lang::get('general.admin_panel') }}}</a></li>
+                            <li class="divider"></li>
+                            <li><a href="{{{ URL::to('user/settings') }}}"><i class="icon-wrench"></i> {{{ Lang::get('admin/menu.profile') }}}</a></li>
+                            <li><a href="{{{ URL::to('user/logout') }}}"><i class="icon-share"></i> {{{ Lang::get('admin/menu.signout') }}}</a></li>
+                          </ul>
+                        </li>
+                        @endif
                     </ul>
                 </nav>
             </div>

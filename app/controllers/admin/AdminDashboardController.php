@@ -8,8 +8,9 @@ class AdminDashboardController extends AdminController {
      */
     public function getIndex()
     {
-
-        return \View::make(Config::get('app.admin_template').'/dashboard');
+      $infos = Info::paginate(Config::get('app.pagenate_num'));
+      $recruits = Recruit::paginate(Config::get('app.pagenate_num'));
+        return \View::make(Config::get('app.admin_template').'/dashboard', compact('infos','recruits'));
     }
 
 }

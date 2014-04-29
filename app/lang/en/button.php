@@ -2,6 +2,11 @@
 
 return array(
 
-	'edit'   => 'Edit',
-	'delete' => 'Delete'
+  'create'   => 'Create',
+  'edit'   => 'Edit',
+  'delete' => 'Delete',
+  'submit' => 'Submit',
+  'cancel' => 'Cancel',
+  'ok' => 'OK',
+  'return' => 'Back'
 );

@@ -39,15 +39,15 @@
           <th class="col-md-2">{{{ Lang::get('admin/recruits/table.updated_at') }}}</th>
           <th class="col-md-2">{{{ Lang::get('table.actions') }}}</th>
         </tr>
-        @foreach ($recruits as $user)
+        @foreach ($recruits as $recruit)
         <tr>
-          <th class="col-md-2">{{ $user->recruit_name }}</th>
-          <th class="col-md-2">{{ $user->recruit_count }}</th>
-          <th class="col-md-2">{{ $user->freeze }}</th>
-          <th class="col-md-2">{{ $user->updated_at }}</th>
+          <th class="col-md-2">{{ $recruit->recruit_name }}</th>
+          <th class="col-md-2">{{ $recruit->recruit_count }}</th>
+          <th class="col-md-2">{{ $recruit->freeze }}</th>
+          <th class="col-md-2">{{ $recruit->updated_at }}</th>
           <th class="col-md-2">
-            <a href="{{{ URL::to(sprintf('admin/recruits/%d/edit', $user->id)) }}}" class="iframe btn btn-xs btn-default"><i class="fa fa-edit"></i> {{{ Lang::get('button.edit') }}}</a>
-            <a href="#deleteModal" data-id="{{ $user->id }}" data-toggle="modal" class="iframe btn btn-xs btn-danger"><i class="fa fa-trash-o"></i> {{{ Lang::get('button.delete') }}}</a>
+            <a href="{{{ URL::to(sprintf('admin/recruits/%d/edit', $recruit->id)) }}}" class="iframe btn btn-xs btn-default"><i class="fa fa-edit"></i> {{{ Lang::get('button.edit') }}}</a>
+            <a href="#deleteModal" data-id="{{ $recruit->id }}" data-toggle="modal" class="iframe btn btn-xs btn-danger"><i class="fa fa-trash-o"></i> {{{ Lang::get('button.delete') }}}</a>
           </th>
         </tr>
         @endforeach

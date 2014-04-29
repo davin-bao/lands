@@ -80,7 +80,7 @@ class UserController extends BaseController {
         }
         else
         {
-          return View::make("site/user/login");//Config::get('confide::login_form'));
+          return View::make(Config::get('app.admin_template')."/users/login");
         }
     }
 

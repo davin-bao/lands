@@ -12,7 +12,7 @@
               <p class="text-center"><small> {{ $setting->services }}</small></p>
             </div>
             <div class="row">
-              {{ $service_id = 0 ? '' : '' }}
+              @if ($service_id = 0) @endif
               @foreach ($services as $service)
               <div class="col-xs-6 col-sm-6 col-md-3">
                 <div class="blok text-center">
@@ -23,14 +23,14 @@
                           <div class="vertical-align-a">
                             @if ($service_id == 0)
                             <span class="texts-a"><i class="fa fa-bell"></i></span>
-                              @elseif ($service_id == 1)
-                              <span class="texts-a"><i class="fa fa-rocket"></i></span>
-                              @elseif ($service_id == 2)
-                              <span class="texts-a"><i class="fa fa-mobile-phone"></i></span>
-                              @else
-                              <span class="texts-a"><i class="fa fa-tags"></i></span>
-                              @endif
-                              {{ $service_id = ($service_id+1) ? '' : '' }}
+                            @elseif ($service_id == 1)
+                            <span class="texts-a"><i class="fa fa-rocket"></i></span>
+                            @elseif ($service_id == 2)
+                            <span class="texts-a"><i class="fa fa-mobile-phone"></i></span>
+                            @else
+                            <span class="texts-a"><i class="fa fa-tags"></i></span>
+                            @endif
+                            @if ($service_id = $service_id+1) @endif
                           </div>
                         </div>
                       </div>
@@ -99,14 +99,14 @@
         <div class="row">
           <div class="col-md-12">
             <div class="secHeader">
-              <h1 class="text-center"><a class="text-title" href="#" target="_blank">{{{ Lang::get('site/title.introductions') }}}</a></h1>
+              <h1 class="text-center"><a class="text-title" href="#" target="_blank">{{{ Lang::get('site/title.introductions_title') }}}</a></h1>
               <p class="text-center"><small>{{ $setting->company_instroductions }}</small></p>
             </div>
           </div>
         </div>
       </div>
     </div> <!-- e/o section3 -->
-    <div id="templatemo_contact" class="section5">
+    <div id="templatemo_contact" class="section4">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
@@ -131,110 +131,44 @@
       </div>
     </div> <!-- eo section 5 -->
 
-    <div class="section6">
+    <div id="templatemo_recruit" class="section5">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
             <div class="secHeader">
-              <h1 class="text-center">Happy Partners</h1>
-              <p class="text-center"><small>Praesent ornare felis eget lobortis tempus. Nullam ante dui, tempus ac vehicula faucibus, vestibulum ac neque. Etiam non tellus facilisis, scelerisque est sed, aliquet metus. In arcu sapien, hendrerit eu lectus et, interdum fringilla urna.</small></p>
+              <h1 class="text-center">{{{ Lang::get('site/title.recruits') }}}</h1>
+              <p class="text-center"><small>{{{ String::tidy(Str::limit($setting->recruits, 300)) }}}</small></p>
             </div>
           </div>
         </div>
       </div>
-      <div class="partnerWrap">
-        <div class="slideshow" 
-            data-cycle-fx=carousel
-            data-cycle-timeout=0
-            data-cycle-carousel-visible=4
-            data-cycle-next="#next"
-            data-cycle-prev="#prev"
-            data-cycle-carousel-fluid=true
-            >
-            <img alt="partner 1" src="images/partners/partner1.jpg">
-            <img alt="partner 2" src="images/partners/partner2.jpg">
-            <img alt="partner 3" src="images/partners/partner3.jpg">
-            <img alt="partner 4" src="images/partners/partner4.jpg">
-            <img alt="partner 5" src="images/partners/partner5.jpg">
-            <img alt="partner 6" src="images/partners/partner6.jpg">
-            <img alt="partner 7" src="images/partners/partner7.jpg">
-            <img alt="partner 8" src="images/partners/partner8.jpg">
+      <div class="glView">
+
+        <div class="imgSwitch">
+          <div class="row">
+            @foreach ($recruits as $recruit)
+            <div class="col-xs-6 col-sm-3 col-md-3 prod-cnt webdesign dbox-list" style="opacity: 1;">
+              <div class="itemCont">
+                <a href="http://www.cssmoban.com/">
+                  <div class="itemInfo">
+                    <h4>{{{ $recruit->recruit_name }}}</h4>
+                    <h6>{{{ $recruit->recruit_count }}} {{{ Lang::get('general.man') }}}</h6>
+                    <p>{{ String::tidy(Str::limit($recruit->recruit_content, 200)) }} </p>
+                  </div>
+                </a>
+                <button type="button" class="btn btn-primary goto">view</button>
+              </div>
+            </div>
+            @endforeach
+            <div class="loadit"><button type="button" class="btn btn-primary">Load More</button></div>
+          </div>
         </div>
-        <a href="#" id="prev">&lt;&lt; Prev </a>
-        <a href="#" id="next"> Next &gt;&gt; </a>
-      </div>
 
     </div> <!-- eo section 6 -->
 
-    <div class="opener text-center">
-        <span><a id="togg" href="#foo" onClick="toggle_visibility('foo');">hide footer</a></span>
-    </div>
-
-    <footer class="footer" id="foo">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="info1">
-              <h4>Powerful Info</h4>
-              <div class="addr">
-                <p>Etiam non tellus facilisis, scelerisque est sed, aliquet metus. In arcu sapien, hendrerit eu lectus et, interdum fringilla urna. Validate <a href="#" >XHTML</a> &amp; <a href="#" >CSS</a>.</p>
-                <ul>
-                  <li><i class="fa fa-map-marker"></i>450 Aenean ut sagittis 11220</li>
-                  <li><i class="fa fa-mobile-phone"></i>010-020-0120</li>
-                  <li><i class="fa fa-globe"></i><a  href="http://www.cssmoban.com">www.cssmoban.com</a></li>
-                  <li><i class="fa fa-envelope"></i>info@company.com</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="info2">
-              <h4>Flickr Feed</h4>
-              <div class="row">
-                <div class="col-xs-4">
-                  <a  href="http://unsplash.com" title="Free Photos"><img class="img-responsive" alt="flickr" src="images/feed/image1.jpg"></a>
-                </div>
-                <div class="col-xs-4">
-                  <a  href="http://www.cssmoban.com/"><img class="img-responsive" alt="flickr" src="images/feed/image2.jpg"></a>
-                </div>
-                <div class="col-xs-4">
-                  <a  href="http://www.cssmoban.com/"><img class="img-responsive" alt="flickr" src="images/feed/image3.jpg"></a>
-                </div>
-                <div class="col-xs-4">
-                  <a  href="http://www.cssmoban.com/"><img class="img-responsive" alt="flickr" src="images/feed/image4.jpg"></a>
-                </div>
-                <div class="col-xs-4">
-                  <a  href="http://www.cssmoban.com/"><img class="img-responsive" alt="flickr" src="images/feed/image5.jpg"></a>
-                </div>
-                <div class="col-xs-4">
-                  <a  href="http://www.cssmoban.com/page/6"><img class="img-responsive" alt="flickr" src="images/feed/image6.jpg"></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="info3">
-              <h4>Stay Tuned</h4>
-              <p>You may sign up our monthly newsletter to receive updates or news from our team.</p>
-              <form role="form">
-                <div class="form-group">
-                  <input type="email" class="form-control" id="email_newsletter" placeholder="Your Email">
-                </div>
-                <div><button type="button" class="btn btn-primary">Send</button></div>
-              </form>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-      <div id="back-top" class="gotop text-center">
-        <a href="#">Back to top</a>
-      </div>
-
       <div class="bfWrap text-center">
-        <div class="templatemo_footer">Copyright © 2084 Company Name | More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> | Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></div>
+        <div class="templatemo_footer">Copyright © 2014 {{{ $setting->company_name }}}
+          @if (!Auth::check())| <a href="{{{ URL::to('user/login') }}}">{{{ Lang::get('general.login') }}}</a> @endif| Collect from <a href="http://{{{ $setting->site_url }}}/" title="{{{ $setting->company_name }}}" target="_blank">{{{ $setting->company_name }}}</a></div>
       </div>
 
 @stop

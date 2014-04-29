@@ -113,10 +113,10 @@
       <!-- Menu Footer-->
       <li class="user-footer">
         <div class="pull-left">
-          <a href="{{{ URL::to(sprintf('admin/users/%d/edit',  Auth::user()->id)) }}}" class="btn btn-default btn-flat">Profile</a>
+          <a href="{{{ URL::to(sprintf('admin/users/%d/edit',  Auth::user()->id)) }}}" class="btn btn-default btn-flat">{{{ Lang::get('admin/menu.profile') }}}</a>
         </div>
         <div class="pull-right">
-          <a href="{{{ URL::to('user/logout') }}}" class="btn btn-default btn-flat">Sign out</a>
+          <a href="{{{ URL::to('user/logout') }}}" class="btn btn-default btn-flat">{{{ Lang::get('admin/menu.signout') }}}</a>
         </div>
       </li>
     </ul>

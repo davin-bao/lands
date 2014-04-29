@@ -4,17 +4,23 @@ return array(
 
     'title' => 'LAND',
     'form_error_info' => 'Please check the form below for errors',
+    'manage' =>'Manage',
+    'no_permission' => 'No Permission',
     'admin_panel' => 'Admin Panel',
-    'login' => 'Login',
+    'login' => 'Sign In',
     'settings' => 'Settings',
-    'logout' => 'Logout',
+    'logout' => 'Sing Out',
+
+
+  'more' => 'more',
 
   'error' => 'Error',
   'warning' => 'Warning',
   'info' => 'Info',
   'success' => 'Success',
-  'yes' => '是',
-	'no'  => '否',
-    'must_login' => '请登录.'
+  'yes' => 'Yes',
+	'no'  => 'No',
+  'must_login' => 'Please Login.',
+  'man' => 'man'
 
 );

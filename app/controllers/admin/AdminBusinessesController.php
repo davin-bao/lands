@@ -48,7 +48,8 @@ class AdminBusinessesController extends AdminController {
   {
     $this->business->business_name = Input::get( 'business_name' );
     $this->business->business_content = Input::get( 'business_content' );
-    $this->carousel->order = Input::get( 'order' );
+    $this->business->order = Input::get( 'order' );
+    $this->business->freeze = Input::get( 'freeze' );
 
     if ($this->business->save(Business::$rules) )
     {
@@ -106,7 +107,9 @@ class AdminBusinessesController extends AdminController {
 
             $business->business_name = Input::get( 'business_name' );
             $business->business_content = Input::get( 'business_content' );
-            $business->carousel->order = Input::get( 'order' );
+            $business->order = Input::get( 'order' );
+            $business->freeze = Input::get( 'freeze' );
+
             // Was the role updated?
             if ($business->save())
             {

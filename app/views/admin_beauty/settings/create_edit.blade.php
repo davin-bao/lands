@@ -114,15 +114,27 @@
                     </div>
                     <!-- ./ services -->
 
+                    <!-- recruits -->
+                    <div class="form-group {{{ $errors->has('recruits') ? 'has-error' : '' }}}">
+                      <label class="span2 control-label" for="recruits">{{{ Lang::get('admin/settings/table.recruits') }}}</label>
+                      <div class="span6">
+                        <textarea class="form-control ckeditor" cols="80" id="recruits" name="recruits" rows="10">
+                          {{{ Input::old('recruits', isset($setting) ? $setting->recruits : null) }}}
+                        </textarea>
+                        {{ $errors->first('recruits', '<label class="control-label" for="recruits"><i class="fa fa-times-circle-o"></i> :message</label>') }}
+                      </div>
+                    </div>
+                    <!-- ./ recruits -->
+
                     <!-- contact -->
                     <div class="form-group {{{ $errors->has('contact') ? 'has-error' : '' }}}">
-                        <label class="span2 control-label" for="contact">{{{ Lang::get('admin/settings/table.contact') }}}</label>
-                        <div class="span6">
-                            <textarea class="form-control ckeditor" cols="80" id="contact" name="contact" rows="10">
-                                {{{ Input::old('contact', isset($setting) ? $setting->contact : null) }}}
-                            </textarea>
-                            {{ $errors->first('contact', '<label class="control-label" for="contact"><i class="fa fa-times-circle-o"></i> :message</label>') }}
-                        </div>
+                      <label class="span2 control-label" for="contact">{{{ Lang::get('admin/settings/table.contact') }}}</label>
+                      <div class="span6">
+                        <textarea class="form-control ckeditor" cols="80" id="contact" name="contact" rows="10">
+                          {{{ Input::old('contact', isset($setting) ? $setting->contact : null) }}}
+                        </textarea>
+                        {{ $errors->first('contact', '<label class="control-label" for="contact"><i class="fa fa-times-circle-o"></i> :message</label>') }}
+                      </div>
                     </div>
                     <!-- ./ contact -->
 

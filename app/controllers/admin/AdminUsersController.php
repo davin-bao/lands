@@ -49,7 +49,7 @@ class AdminUsersController extends AdminController {
         $users = User::leftjoin('assigned_roles', 'assigned_roles.user_id', '=', 'users.id')
           ->leftjoin('roles', 'roles.id', '=', 'assigned_roles.role_id')
           ->select(array('users.id', 'users.username','users.email', 'roles.name as rolename', 'users.confirmed', 'users.created_at'))
-          ->get();
+          ->paginate(Config::get('app.pagenate_num'));
 
         // Show the page
         return View::make(Config::get('app.admin_template').'/users/index', compact('users', 'title'));

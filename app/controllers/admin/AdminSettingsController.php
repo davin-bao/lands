@@ -9,7 +9,7 @@
 class AdminSettingsController extends AdminController {
 
   protected $setting;
-  public function __construct(Business $setting){
+  public function __construct(Setting $setting){
     $this->setting = $setting;
   }
   /**
@@ -23,7 +23,7 @@ class AdminSettingsController extends AdminController {
     $title = Lang::get('admin/settings/title.management');
 
     // Grab all the users
-    $settings = Business::all();
+    $settings = Setting::find(1);
 
     // Show the page
     return View::make(Config::get('app.admin_template').'/settings/index', compact('settings', 'title'));
@@ -54,6 +54,7 @@ class AdminSettingsController extends AdminController {
       $this->setting->mobile = Input::get( 'mobile' );
       $this->setting->company_instroductions = Input::get( 'company_instroductions' );
       $this->setting->services = Input::get( 'services' );
+      $this->setting->recruits = Input::get( 'recruits' );
       $this->setting->contact = Input::get( 'contact' );
 
     if ($this->setting->save(Business::$rules) )
@@ -117,6 +118,7 @@ class AdminSettingsController extends AdminController {
             $setting->mobile = Input::get( 'mobile' );
             $setting->company_instroductions = Input::get( 'company_instroductions' );
             $setting->services = Input::get( 'services' );
+            $setting->recruits = Input::get( 'recruits' );
             $setting->contact = Input::get( 'contact' );
             // Was the role updated?
             if ($setting->save())

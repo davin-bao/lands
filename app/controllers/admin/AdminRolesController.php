@@ -47,7 +47,7 @@ class AdminRolesController extends AdminController {
 
         // Grab all the groups
         $roles = Role::select(array('roles.id',  'roles.name',  'roles.created_at'))
-          ->get();
+          ->paginate(Config::get('app.pagenate_num'));;
 
         // Show the page
         return View::make(Config::get('app.admin_template').'/roles/index', compact('roles', 'title'));
@@ -70,7 +70,7 @@ class AdminRolesController extends AdminController {
         $title = Lang::get('admin/roles/title.create_a_new_role');
 
         // Show the page
-        return View::make(Config::get('app.admin_template').'/roles/create', compact('permissions', 'selectedPermissions', 'title'));
+        return View::make(Config::get('app.admin_template').'/roles/create_edit', compact('permissions', 'selectedPermissions', 'title'));
     }
 
     /**
@@ -156,7 +156,7 @@ class AdminRolesController extends AdminController {
         // Title
         $title = Lang::get('admin/roles/title.role_update');
         // Show the page
-        return View::make(Config::get('app.admin_template').'/roles/edit', compact('role', 'permissions', 'title'));
+        return View::make(Config::get('app.admin_template').'/roles/create_edit', compact('role', 'permissions', 'title'));
     }
 
     /**

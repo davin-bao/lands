@@ -11,24 +11,24 @@ class AdminImagesController extends AdminController {
     protected $uploadHandler;
     public function __construct(){
         $error_messages = array(
-            1 => 'The uploaded file exceeds the upload_max_filesize directive in php.ini',
-            2 => 'The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form',
-            3 => 'The uploaded file was only partially uploaded',
-            4 => 'No file was uploaded',
-            6 => 'Missing a temporary folder',
-            7 => 'Failed to write file to disk',
-            8 => 'A PHP extension stopped the file upload',
-            'post_max_size' => 'The uploaded file exceeds the post_max_size directive in php.ini',
-            'max_file_size' => 'File is too big',
-            'min_file_size' => 'File is too small',
-            'accept_file_types' => 'Filetype not allowed',
-            'max_number_of_files' => 'Maximum number of files exceeded',
-            'max_width' => 'Image exceeds maximum width',
-            'min_width' => 'Image requires a minimum width',
-            'max_height' => 'Image exceeds maximum height',
-            'min_height' => 'Image requires a minimum height',
-            'abort' => 'File upload aborted',
-            'image_resize' => 'Failed to resize image'
+            1 => Lang::get('admin/upload.upload_max_filesize'),
+            2 => Lang::get('admin/upload.max_file_size'),
+            3 => Lang::get('admin/upload.only_partially'),
+            4 => Lang::get('admin/upload.no_files'),
+            6 => Lang::get('admin/upload.temporary_folder'),
+            7 => Lang::get('admin/upload.write_failed'),
+            8 => Lang::get('admin/upload.extension_stoped'),
+            'post_max_size' => Lang::get('admin/upload.post_max_size'),
+            'max_file_size' => Lang::get('admin/upload.max_file_size'),
+            'min_file_size' => Lang::get('admin/upload.min_file_size'),
+            'accept_file_types' => Lang::get('admin/upload.accept_file_types'),
+            'max_number_of_files' => Lang::get('admin/upload.max_number_of_files'),
+            'max_width' => Lang::get('admin/upload.max_width'),
+            'min_width' => Lang::get('admin/upload.min_width'),
+            'max_height' => Lang::get('admin/upload.max_height'),
+            'min_height' => Lang::get('admin/upload.min_height'),
+            'abort' => Lang::get('admin/upload.abort'),
+            'image_resize' => Lang::get('admin/upload.image_resize')
         );
 
         $options = array(
