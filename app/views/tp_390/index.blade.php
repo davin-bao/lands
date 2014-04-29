@@ -49,7 +49,7 @@
                   </div>
                   <h4>{{{ $service->business_name }}}</h4>
                   <p><small>{{{ String::tidy(Str::limit($service->business_content, 100)) }}}</small></p>
-                  <a class="btn btn-primary" href="#">Read More</a>
+                  <a class="btn btn-primary read-more" data-id="{{{ $service->id }}}" href="#">Read More</a>
                 </div>
               </div>
               @endforeach
@@ -58,9 +58,8 @@
         </div>
       </div>
     </div> <!-- e/o section1 -->
-
     <div id="templatemo_infos" class="section2">
-    <div class="container">
+      <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="secHeader">
@@ -74,26 +73,25 @@
                             @foreach ($infos as $info)
                             <div class="col-xs-6 col-sm-3 col-md-3 prod-cnt webdesign dbox-list" style="opacity: 1;">
                                 <div class="itemCont">
-                                    <a href="http://www.cssmoban.com/">
-                                        <div class="itemInfo">
-                                            <h4>{{{ $info->info_name }}}</h4>
-                                            <h6>Webdesign</h6>
-                                            <p>{{ String::tidy(Str::limit($info->info_content, 200)) }} </p>
-                                        </div>
-                                    </a>
-                                    <button type="button" class="btn btn-primary goto">view</button>
+                                  <a href="#">
+                                  <div class="itemInfo">
+                                    <h4>{{{ $info->info_name }}}</h4>
+                                    <h6>Webdesign</h6>
+                                    <p>{{ String::tidy(Str::limit(strip_tags($info->info_content, '<p><a>'), 100)) }} </p>
+                                  </div>
+                                   </a>
+                                  <button type="button" class="btn btn-primary goto" data-id="{{{ $info->id }}}">view</button>
                                 </div>
                             </div>
                             @endforeach
-                        <div class="loadit"><button type="button" class="btn btn-primary">Load More</button></div>
                     </div>
+                      <div class="loadit"><button type="button" class="btn btn-primary load-more" data-offset="1">Load More</button></div>
                 </div>
             </div>
         </div>
     </div>
 </div>
- <!-- e/o section2 -->
-
+    </div><!-- e/o section2 -->
     <div id="templatemo_about" class="section3">
       <div class="container">
         <div class="row">
@@ -129,15 +127,14 @@
           </div>
         </div>
       </div>
-    </div> <!-- eo section 5 -->
-
+    </div> <!-- eo section4 -->
     <div id="templatemo_recruit" class="section5">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
             <div class="secHeader">
               <h1 class="text-center">{{{ Lang::get('site/title.recruits') }}}</h1>
-              <p class="text-center"><small>{{{ String::tidy(Str::limit($setting->recruits, 300)) }}}</small></p>
+              <p class="text-center"><small>{{ String::tidy(Str::limit(strip_tags($setting->recruits, '<p><a>'), 100)) }}</small></p>
             </div>
           </div>
         </div>
@@ -149,19 +146,18 @@
             @foreach ($recruits as $recruit)
             <div class="col-xs-6 col-sm-3 col-md-3 prod-cnt webdesign dbox-list" style="opacity: 1;">
               <div class="itemCont">
-                <a href="http://www.cssmoban.com/">
+                <a href="#">
                   <div class="itemInfo">
                     <h4>{{{ $recruit->recruit_name }}}</h4>
                     <h6>{{{ $recruit->recruit_count }}} {{{ Lang::get('general.man') }}}</h6>
-                    <p>{{ String::tidy(Str::limit($recruit->recruit_content, 200)) }} </p>
+                    <p>{{ strip_tags(String::tidy(Str::limit($recruit->recruit_content, 100)), '<p><a>') }} </p>
                   </div>
                 </a>
-                <button type="button" class="btn btn-primary goto">view</button>
-              </div>
+                <button type="button" class="btn btn-primary goto" data-id="{{{ $recruit->id }}}">view</button>
             </div>
             @endforeach
-            <div class="loadit"><button type="button" class="btn btn-primary">Load More</button></div>
           </div>
+            <div class="loadit"><button type="button" class="btn btn-primary load-more" data-offset="1">Load More</button></div>
         </div>
 
     </div> <!-- eo section 6 -->
@@ -170,7 +166,25 @@
         <div class="templatemo_footer">Copyright © 2014 {{{ $setting->company_name }}}
           @if (!Auth::check())| <a href="{{{ URL::to('user/login') }}}">{{{ Lang::get('general.login') }}}</a> @endif| Collect from <a href="http://{{{ $setting->site_url }}}/" title="{{{ $setting->company_name }}}" target="_blank">{{{ $setting->company_name }}}</a></div>
       </div>
+        </div>
+      </div><!-- eo section5 -->
 
+
+      <!-- Modal -->
+      <div class="modal fade" id="newModal" tabindex="-1" role="dialog" aria-labelledby="newModal" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title" id="myModalLabel"><i class="ion ion-loading-c"></i></h4>
+            </div>
+            <div class="modal-body"><div class="text-center"><i class="ion ion-loading-c"></i></div></div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
 @stop
 
 {{-- Scripts --}}
@@ -322,5 +336,110 @@
           });
         });
       </script>
-      
+
+      <script>
+        $(document).ready(function(){
+
+          $("#templatemo_infos .goto").click(function(){
+
+            showModal();
+
+            $.ajax({
+              url: "infos/"+$(this).attr('data-id')+"/show_ajax",
+              type:"GET",
+              dataType : "json"
+            }).done(function(data) {
+              if(data.result){
+                $("#newModal .modal-title").html(data.title);
+                $("#newModal .modal-body").html(data.content);
+              }else{
+                $("#newModal .modal-title").html("Error");
+                $("#newModal .modal-body").html(data.message);
+              }
+            });
+          });
+
+          $("#templatemo_business .read-more").click(function(){
+
+            showModal();
+
+            $.ajax({
+              url: "businesses/"+$(this).attr('data-id')+"/show_ajax",
+              type:"GET",
+              dataType : "json"
+            }).done(function(data) {
+              if(data.result){
+                $("#newModal .modal-title").html(data.title);
+                $("#newModal .modal-body").html(data.content);
+              }else{
+                $("#newModal .modal-title").html("Error");
+                $("#newModal .modal-body").html(data.message);
+              }
+            });
+          });
+
+          $("#templatemo_recruit .goto").click(function(){
+
+            showModal();
+
+            $.ajax({
+              url: "recruits/"+$(this).attr('data-id')+"/show_ajax",
+              type:"GET",
+              dataType : "json"
+            }).done(function(data) {
+              if(data.result){
+                $("#newModal .modal-title").html(data.title);
+                $("#newModal .modal-body").html(" {{{ Lang::get('general.recruit_man') }}}: "+data.count + " {{{ Lang::get('general.man') }}}"+"<br/>"+ data.content);
+              }else{
+                $("#newModal .modal-title").html("Error");
+                $("#newModal .modal-body").html(data.message);
+              }
+            });
+          });
+
+          ///Load more
+          $("#templatemo_infos .load-more").click(function(){
+
+            $.ajax({
+              url: "infos/more_ajax?offset="+$(this).attr("data-offset"),
+              type:"GET",
+              dataType : "json"
+            }).done(function(data) {
+              if(data.result){
+                for(var i=0;i<data.list.length;i++) {
+                  $("#templatemo_infos .imgSwitch .row").append(getOneInfo(data.list[i].title, data.list[i].content));
+                }
+              }
+            });
+            $(this).attr('data-offset', parseInt($(this).attr('data-offset'))+1);
+          });
+        });
+
+        function showModal(){
+          $("#newModal .modal-title").html('<i class="ion ion-loading-c"></i></div>');
+          $("#newModal .modal-body").html('<div class="text-center"><i class="ion ion-loading-c"></i></div>');
+
+          $("#newModal").modal({
+            backdrop:true,
+            show: true
+          });
+        };
+
+
+        function getOneInfo(title, content){
+            return '<div class="col-xs-6 col-sm-3 col-md-3 prod-cnt webdesign dbox-list" style="opacity: 1;">\
+                <div class="itemCont">\
+                <a href="#">\
+                <div class="itemInfo">\
+                <h4>'+title+'</h4>\
+              <h6>Webdesign</h6>\
+              <p>'+content+'</p>\
+            </div>\
+            </a>\
+            <button type="button" class="btn btn-primary goto" data-id="{{{ $info->id }}}">view</button>\
+            </div>\
+            </div>';
+        }
+
+      </script>
 @stop

@@ -157,7 +157,7 @@ img {
 	box-shadow: 0 4px 4px -2px #ddd;
   	width: 100%;
   	background-color: white;
-  	z-index: 5000;
+  	z-index: 900;
 }
 .logo {
 	padding: 0;

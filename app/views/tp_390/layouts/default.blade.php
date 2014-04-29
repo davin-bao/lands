@@ -40,6 +40,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/site-main.css') }}">
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,600' rel='stylesheet' type='text/css'>
     <link href="{{ asset('tp_390/css/font-awesome.min.css') }}" rel="stylesheet">
+  <!-- Ionicons -->
+  <link href="{{ asset('admin/css/ionicons.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('tp_390/css/templatemo_style.css') }}" rel="stylesheet">
 
     <link href="{{ asset('tp_390/css/circle.css') }}" rel="stylesheet">

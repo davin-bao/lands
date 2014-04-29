@@ -31,7 +31,7 @@ return array(
 
     'front_template' => 'tp_390/',
   'admin_template' => 'admin_beauty',
-  'pagenate_num' => '5',
+  'pagenate_num' => '1',
 
 	/*
 	|--------------------------------------------------------------------------

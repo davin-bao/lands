@@ -21,6 +21,7 @@ return array(
   'yes' => 'Yes',
 	'no'  => 'No',
   'must_login' => 'Please Login.',
+  'recruit_man' => 'Require',
   'man' => 'man'
 
 );
