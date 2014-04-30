@@ -2,10 +2,9 @@
 
 return array(
 
-	'role_management'    => 'Role Management',
-	'role_update'        => 'Update a Role',
-	'role_delete'        => 'Delete a Role',
-	'create_a_new_role'  => 'Create a New Role',
-
-  'tab_permissions'  => 'Permissions',
+    'management'    => '角色管理',
+    'edit'        => '编辑角色',
+    'delete'        => '删除角色',
+    'create     '  => '创建角色',
+    'tab_permissions'  => '权限分配',
 );

@@ -19,11 +19,6 @@ return array(
         'message' => 'Delete this Carousel ?',
         'error'      => 'There was an issue deleting the Carousel. Please try again.',
         'success'    => 'The Carousel was deleted successfully.'
-    ),
-
-  'validation' => array(
-    'required' => ' :attribute is empty.',
-    'numeric' => ' :attribute mast be a number.',
-  )
+    )
 
 );

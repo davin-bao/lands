@@ -2,9 +2,10 @@
 
 return array(
 
-	'management'    => 'Carousel Management',
-	'edit'        => 'Update a Carousel',
-	'delete'        => 'Delete a Carousel',
-	'create     '  => 'Create a New Carousel',
+    'management'    => '图片轮播管理',
+    'edit'        => '编辑图片轮播',
+    'delete'        => '删除图片轮播',
+    'create     '  => '创建图片轮播',
 
 );
+

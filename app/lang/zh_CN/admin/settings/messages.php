@@ -2,13 +2,8 @@
 
 return array(
     'update' => array(
-        'error'   => 'Settings was not updated, please try again',
-        'success' => 'Settings updated successfully.'
-    ),
-
-  'validation' => array(
-    'required' => ' :attribute is empty.',
-    'numeric' => ' :attribute must be a number.',
-  )
+        'error'   => '该设置保存时出错',
+        'success' => '设置已经保存成功.'
+    )
 
 );

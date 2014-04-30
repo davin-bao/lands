@@ -2,28 +2,23 @@
 
 return array(
 
-	'already_exists'    => 'Recruit already exists!',
-	'does_not_exist'    => 'Recruit does not exist.',
+    'already_exists'    => '当前招聘信息已存在!',
+    'does_not_exist'    => '当前招聘信息不存在.',
 
-	'create' => array(
-		'error'   => 'Recruit was not created, please try again.',
-		'success' => 'Recruit created successfully.',
-	),
+    'create' => array(
+        'error'   => '招聘信息不能被创建, 请重试.',
+        'success' => '招聘信息创建成功.',
+    ),
 
     'update' => array(
-        'error'   => 'Recruit was not updated, please try again',
-        'success' => 'Recruit updated successfully.'
+        'error'   => '该招聘信息修改失败.',
+        'success' => '招聘信息修改成功.'
     ),
 
     'delete' => array(
-        'message' => 'Delete this Recruit ?',
-        'error'      => 'There was an issue deleting the recruit. Please try again.',
-        'success'    => 'The recruit was deleted successfully.'
-    ),
-
-  'validation' => array(
-    'required' => ' :attribute is empty.',
-    'numeric' => ' :attribute must be a number.',
-  )
+        'message' => '确认删除当前招聘信息 ?',
+        'error'      => '删除该招聘信息发生错误.',
+        'success'    => '成功删除该招聘信息.'
+    )
 
 );

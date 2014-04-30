@@ -4,7 +4,6 @@ return array(
 
 	'already_exists' => 'Role already exists!',
 	'does_not_exist' => 'Role does not exist.',
-	'name_required'  => 'The name field is required',
 
 	'create' => array(
 		'error'   => 'Role was not created, please try again.',
@@ -17,7 +16,7 @@ return array(
 	),
 
 	'delete' => array(
-    'message' => 'Delete this Role ?',
+        'message' => 'Delete this Role ?',
 		'error'   => 'There was an issue deleting the role. Please try again.',
 		'success' => 'The role was deleted successfully.'
 	)

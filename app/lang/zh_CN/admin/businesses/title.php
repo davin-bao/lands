@@ -2,9 +2,9 @@
 
 return array(
 
-	'management'    => 'Business Management',
-	'edit'        => 'Update a Business',
-	'delete'        => 'Delete a Business',
-	'create     '  => 'Create a New Business',
+	'management'    => '业务管理',
+	'edit'        => '编辑业务',
+	'delete'        => '删除业务',
+	'create     '  => '创建业务',
 
 );

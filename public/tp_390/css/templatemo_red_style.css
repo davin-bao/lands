@@ -6,6 +6,10 @@ a:hover, a:focus {
     color: #A80605;
 }
 
+.text-title:hover {
+    color: #A80605;
+}
+
 .mainMenu li a:hover {
     background-color: #E62D2C;
     color: whitesmoke;

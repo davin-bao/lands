@@ -2,9 +2,9 @@
 
 return array(
 
-	'user_management'    => 'User Management',
-	'user_update'        => 'Update a User',
-	'user_delete'        => 'Delete a User',
-	'create_a_new_user'  => 'Create a New User',
+    'management'    => '管理员管理',
+    'edit'        => '编辑管理员',
+    'delete'        => '删除管理员',
+    'create     '  => '创建管理员',
 
 );

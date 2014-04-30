@@ -2,9 +2,9 @@
 
 return array(
 
-	'management'    => 'Recruit Management',
-	'update'        => 'Update a Recruit',
-	'delete'        => 'Delete a Recruit',
-	'create     '  => 'Create a New Recruit',
+    'management'    => '招聘管理',
+    'edit'        => '编辑招聘',
+    'delete'        => '删除招聘',
+    'create     '  => '创建招聘',
 
 );

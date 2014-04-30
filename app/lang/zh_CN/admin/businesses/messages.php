@@ -2,27 +2,23 @@
 
 return array(
 
-	'already_exists'    => 'Business already exists!',
-	'does_not_exist'    => 'Business does not exist.',
+	'already_exists'    => '当前业务信息已存在!',
+	'does_not_exist'    => '当前业务信息不存在.',
 
 	'create' => array(
-		'error'   => 'Business was not created, please try again.',
-		'success' => 'Business created successfully.',
+		'error'   => '业务信息不能被创建, 请重试.',
+		'success' => '业务信息创建成功.',
 	),
 
     'update' => array(
-        'error'   => 'Business was not updated, please try again',
-        'success' => 'Business updated successfully.'
+        'error'   => '该业务信息修改失败.',
+        'success' => '业务信息修改成功.'
     ),
 
     'delete' => array(
-        'message' => 'Delete this business ?',
-        'error'      => 'There was an issue deleting the business. Please try again.',
-        'success'    => 'The business was deleted successfully.'
-    ),
-
-  'validation' => array(
-    'required' => ' :attribute is empty.',
-  )
+        'message' => '确认删除当前业务信息 ?',
+        'error'      => '删除该业务信息发生错误.',
+        'success'    => '成功删除该业务信息.'
+    )
 
 );

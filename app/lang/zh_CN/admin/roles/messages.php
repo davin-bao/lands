@@ -2,24 +2,23 @@
 
 return array(
 
-	'already_exists' => 'Role already exists!',
-	'does_not_exist' => 'Role does not exist.',
-	'name_required'  => 'The name field is required',
+    'already_exists'    => '当前角色信息已存在!',
+    'does_not_exist'    => '当前角色信息不存在.',
 
-	'create' => array(
-		'error'   => 'Role was not created, please try again.',
-		'success' => 'Role created successfully.'
-	),
+    'create' => array(
+        'error'   => '角色信息不能被创建, 请重试.',
+        'success' => '角色信息创建成功.',
+    ),
 
-	'update' => array(
-		'error'   => 'Role was not updated, please try again',
-		'success' => 'Role updated successfully.'
-	),
+    'update' => array(
+        'error'   => '该角色信息修改失败.',
+        'success' => '角色信息修改成功.'
+    ),
 
-	'delete' => array(
-    'message' => 'Delete this Role ?',
-		'error'   => 'There was an issue deleting the role. Please try again.',
-		'success' => 'The role was deleted successfully.'
-	)
+    'delete' => array(
+        'message' => '确认删除当前角色信息 ?',
+        'error'      => '删除该角色信息发生错误.',
+        'success'    => '成功删除该角色信息.'
+    )
 
 );
