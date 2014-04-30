@@ -47,6 +47,11 @@
     <link href="{{ asset('tp_390/css/circle.css') }}" rel="stylesheet">
     <link href="{{ asset('tp_390/css/jquery.bxslider.css') }}" rel="stylesheet" />
     <link href="{{ asset('tp_390/css/nivo-slider.css') }}" rel="stylesheet">
+  @if ($setting->front_color == 'red')
+  <link href="{{ asset('tp_390/css/templatemo_red_style.css') }}" rel="stylesheet">
+  @elseif ($setting->front_color == 'orange')
+  <link href="{{ asset('tp_390/css/templatemo_orange_style.css') }}" rel="stylesheet">
+  @endif
     <style>
         @section('styles')
         @show

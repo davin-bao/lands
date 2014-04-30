@@ -137,6 +137,27 @@
                       </div>
                     </div>
                     <!-- ./ contact -->
+                    <!-- front_color -->
+                  <div class="form-group {{{ $errors->has('front_color') || $errors->has('front_color') ? 'has-error' : '' }}}">
+                    <label class="span2 control-label" for="front_color">{{{ Lang::get('admin/settings/table.front_color') }}}?</label>
+                    <div class="span6">
+                      @if ($mode == 'create')
+                      <select class="form-control" name="front_color" id="front_color">
+                        <option value="blue"{{{ (Input::old('front_color', 0) === 'blue' ? ' selected="selected"' : '') }}}>Blue</option>
+                        <option value="red"{{{ (Input::old('front_color', 0) === 'red' ? ' selected="selected"' : '') }}}>Red</option>
+                        <option value="orange"{{{ (Input::old('front_color', 0) === 'orange' ? ' selected="selected"' : '') }}}>Orange</option>
+                      </select>
+                      @else
+                      <select class="form-control" name="front_color" id="front_color">
+                        <option value="blue"{{{ ($setting->front_color === 'blue' ? ' selected="selected"' : '') }}}>Blue</option>
+                        <option value="red"{{{ ($setting->front_color === 'red' ? ' selected="selected"' : '') }}}>Red</option>
+                        <option value="orange"{{{ ($setting->front_color === 'orange' ? ' selected="selected"' : '') }}}>Orange</option>
+                      </select>
+                      @endif
+                      {{ $errors->first('front_color', '<label class="control-label" for="front_color"><i class="fa fa-times-circle-o"></i> :message</label>') }}
+                    </div>
+                  </div>
+                  <!-- ./ front_color -->
 
                 </div>
                 <!-- ./ general tab -->

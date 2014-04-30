@@ -8,6 +8,8 @@ return array(
     'service_phone'=>'服务热线',
     'mobile'=>'手机',
     'company_instroductions'=>'公司简介',
+    'recruits'=>'招聘介绍',
     'services'=>'业务介绍',
-    'contact'=>'联系我们'
+    'contact'=>'联系我们',
+    'front_color'=>'网站色调'
 );

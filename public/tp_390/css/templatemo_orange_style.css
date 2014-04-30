@@ -1,0 +1,28 @@
+a {
+    color: #FF4A00;
+}
+
+.mainMenu li a:hover {
+    background-color: #FF4A00;
+    color: whitesmoke;
+}
+
+.secHeader h1 {
+    color: #FF4A00;
+}
+
+.hexa-a {
+    color: #FF4A00;
+}
+.hexagon-a a.hlinktop:hover .hexa-a {
+    background: #FF4A00;
+    color: #fff;
+}
+.hexa {
+    background: #FF4A00;
+}
+
+.btn-primary {
+    background-color: #FF4A00;
+    border-color: #FF4A00;
+}

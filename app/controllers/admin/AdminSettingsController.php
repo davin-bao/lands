@@ -56,6 +56,7 @@ class AdminSettingsController extends AdminController {
       $this->setting->services = Input::get( 'services' );
       $this->setting->recruits = Input::get( 'recruits' );
       $this->setting->contact = Input::get( 'contact' );
+      $this->setting->front_color = Input::get( 'front_color' );
 
     if ($this->setting->save(Business::$rules) )
     {
@@ -120,6 +121,7 @@ class AdminSettingsController extends AdminController {
             $setting->services = Input::get( 'services' );
             $setting->recruits = Input::get( 'recruits' );
             $setting->contact = Input::get( 'contact' );
+            $setting->front_color = Input::get( 'front_color' );
             // Was the role updated?
             if ($setting->save())
             {

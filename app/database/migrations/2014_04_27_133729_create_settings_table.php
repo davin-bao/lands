@@ -26,6 +26,8 @@ class CreateSettingsTable extends Migration {
             $table->text('services');
             $table->text('recruits');
             $table->text('contact');
+            $table->string('front_color');
+
             $table->timestamps();
         });
 	}
