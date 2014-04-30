@@ -2,6 +2,10 @@ a {
     color: #E62D2C;
 }
 
+a:hover, a:focus {
+    color: #A80605;
+}
+
 .mainMenu li a:hover {
     background-color: #E62D2C;
     color: whitesmoke;
@@ -25,4 +29,10 @@ a {
 .btn-primary {
     background-color: #E62D2C;
     border-color: #E62D2C;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: #A80605;
+    border-color: #7E100F;
 }
