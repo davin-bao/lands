@@ -14,8 +14,24 @@ class RecruitsController extends BaseController {
 
   public function getIndex()
   {
-    //echo Config::get('app.front_template').'index';exit;
+      $services = Business::where('freeze','=','0')->orderBy('order', 'DESC')->take(4)->get();
+      $setting = Setting::find(1);
+      $recruits = Recruit::paginate(5);
+      $infos = Info::paginate(5);
+
+      // Show the page
+      return View::make(Config::get('app.front_template').'/recruits_index', compact('services','setting','infos','recruits'));
   }
+
+    public function getShow($recruit)
+    {
+        $services = Business::where('freeze','=','0')->orderBy('order', 'DESC')->take(4)->get();
+        $setting = Setting::find(1);
+        $infos = Info::paginate(5);
+
+        // Show the page
+        return View::make(Config::get('app.front_template').'/recruits_show', compact('services','setting','infos','recruit'));
+    }
 
   public function getShowAJAX($recruit){
     $res = Array('result'=>true,'title'=>$recruit->recruit_name,'count'=>$recruit->recruit_count,'content'=>$recruit->recruit_content,);

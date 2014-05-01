@@ -17,6 +17,7 @@ class CreateInfosTable extends Migration {
         {
             $table->increments('id');
             $table->string('info_name');
+            $table->string('image');
             $table->text('info_content');
             $table->boolean('freeze')->default(false);
             $table->timestamps();

@@ -47,6 +47,7 @@ class AdminInfosController extends AdminController {
     public function postCreate()
     {
         $this->info->info_name = Input::get( 'info_name' );
+        $this->info->image = Input::get( 'image' );
         $this->info->info_content = Input::get( 'info_content' );
         $this->info->freeze = Input::get( 'freeze' );
 
@@ -109,6 +110,7 @@ class AdminInfosController extends AdminController {
         {
 
             $info->info_name = Input::get( 'info_name' );
+            $info->image = Input::get( 'image' );
             $info->info_content = Input::get( 'info_content' );
             $info->freeze = Input::get( 'freeze' );
             // Was the role updated?

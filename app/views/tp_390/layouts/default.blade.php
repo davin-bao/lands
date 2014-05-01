@@ -85,7 +85,7 @@
     </div> <!-- e/o mainTop -->
 
     <div id="slider" class="nivoSlider">
-        @if (isset($carousels) && is_array($carousels) && count($carousels)>0)
+        @if (isset($carousels) && $carousels->count()>0)
         @foreach ($carousels as $carousel)
         <a href="#">
             <img src="{{ URL::to('files/image?name=') }}{{{ isset($carousel) ? $carousel->carousel_image : null }}}" alt="{{{ isset($carousel) ? $carousel->carousel_content : 'description' }}}" /></a>

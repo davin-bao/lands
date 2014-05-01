@@ -13,10 +13,25 @@ class InfosController extends BaseController {
     $this->info = $info;
   }
 
-  public function getIndex()
-  {
-    //echo Config::get('app.front_template').'index';exit;
-  }
+    public function getIndex()
+    {
+        $services = Business::where('freeze','=','0')->orderBy('order', 'DESC')->take(4)->get();
+        $setting = Setting::find(1);
+        $infos = Info::paginate(5);
+
+        // Show the page
+        return View::make(Config::get('app.front_template').'/infos_index', compact('services','setting','infos'));
+    }
+
+    public function getShow($info)
+    {
+        $services = Business::where('freeze','=','0')->orderBy('order', 'DESC')->take(4)->get();
+        $setting = Setting::find(1);
+        $infos = Info::paginate(5);
+
+        // Show the page
+        return View::make(Config::get('app.front_template').'/infos_show', compact('services','setting','infos','info'));
+    }
 
   public function getShowAJAX($info){
     $res = Array('result'=>true,'title'=>$info->info_name,'content'=>$info->info_content);

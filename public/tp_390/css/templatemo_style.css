@@ -461,6 +461,7 @@ img {
 }
 .dbox .itemCont {
   display: inline-block;
+    width:100%;
 }
 .dbox .itemCont a {
   display: block;
@@ -502,8 +503,8 @@ img {
   float: left;
 }
 .dbox-list > .itemCont > a > .itemInfo {
-  float: left;
-  margin-left: 30px;
+  text-align: center;
+  margin-left: 145px;
   width: 75%;
 }
 .dbox-list > .itemCont > a > .itemInfo > p {

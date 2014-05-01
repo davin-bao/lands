@@ -108,12 +108,21 @@ Route::get( 'user/logout',                 'UserController@logout');
 Route::get( '/files/thumbnail',                 'FilesController@getThumbnail');
 Route::get( '/files/image',                 'FilesController@getImage');
 
+Route::get('infos/{info}/show', 'InfosController@getShow');
 Route::get('infos/more_ajax', 'InfosController@getMoreAJAX');
 Route::get('infos/{info}/show_ajax', 'InfosController@getShowAJAX');
+Route::controller('infos', 'InfosController');
 
+Route::get('recruits/{recruit}/show', 'RecruitsController@getShow');
 Route::get('recruits/more_ajax', 'RecruitsController@getMoreAJAX');
 Route::get('recruits/{recruit}/show_ajax', 'RecruitsController@getShowAJAX');
+Route::controller('recruits', 'RecruitsController');
 
+Route::get('businesses/{business}/show', 'BusinessesController@getShow');
 Route::get('businesses/{business}/show_ajax', 'BusinessesController@getShowAJAX');
 
+Route::get('contact/show', 'ContactController@getShow');
+
+
+Route::get( '/introductions',                 'HomeController@getIntroductionShow');
 Route::get( '/',                 'HomeController@getIndex');

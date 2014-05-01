@@ -77,7 +77,7 @@
                                   <div class="itemInfo">
                                     <h4>{{{ $info->info_name }}}</h4>
                                     <h6>{{{ $info->created_at }}}</h6>
-                                    <p>{{ String::tidy(Str::limit(strip_tags($info->info_content, '<p><a>'), 100)) }} </p>
+                                    <p>{{ String::tidy(Str::limit(strip_tags($info->info_content, ''), 100)) }} </p>
                                   </div>
                                    </a>
                                   <button type="button" class="btn btn-primary goto" data-id="{{{ $info->id }}}">{{{ Lang::get('button.view') }}}</button>
@@ -134,7 +134,7 @@
           <div class="col-md-12">
             <div class="secHeader">
               <h1 class="text-center">{{{ Lang::get('site/title.recruits') }}}</h1>
-              <p class="text-center"><small>{{ String::tidy(Str::limit(strip_tags($setting->recruits, '<p><a>'), 100)) }}</small></p>
+              <p class="text-center"><small>{{ String::tidy(Str::limit(strip_tags($setting->recruits, ''), 100)) }}</small></p>
             </div>
               <div class="glView">
 
@@ -147,7 +147,7 @@
                                       <div class="itemInfo">
                                           <h4>{{{ $recruit->recruit_name }}}</h4>
                                           <h6>{{{ $recruit->recruit_count }}} {{{ Lang::get('general.man') }}}</h6>
-                                          <p>{{ strip_tags(String::tidy(Str::limit($recruit->recruit_content, 100)), '<p><a>') }} </p>
+                                          <p>{{ strip_tags(String::tidy(Str::limit($recruit->recruit_content, 100)), '') }} </p>
                                       </div>
                                   </a>
                                   <button type="button" class="btn btn-primary goto" data-id="{{{ $recruit->id }}}">{{{ Lang::get('button.view') }}}</button>

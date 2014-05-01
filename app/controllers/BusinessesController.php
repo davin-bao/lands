@@ -18,6 +18,16 @@ class BusinessesController extends BaseController {
     //echo Config::get('app.front_template').'index';exit;
   }
 
+    public function getShow($business)
+    {
+        $services = Business::where('freeze','=','0')->orderBy('order', 'DESC')->take(4)->get();
+        $setting = Setting::find(1);
+        $infos = Info::paginate(5);
+
+        // Show the page
+        return View::make(Config::get('app.front_template').'/businesses_show', compact('services','setting','infos','business'));
+    }
+
   public function getShowAJAX($business){
     $res = Array('result'=>true,'title'=>$business->business_name,'content'=>$business->business_content,);
     echo json_encode($res);

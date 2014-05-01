@@ -29,9 +29,9 @@ return array(
 	'url' => 'http://git.localhost/lands',
 
 
-    'front_template' => 'tp_390/',
-  'admin_template' => 'admin_beauty',
-  'pagenate_num' => '1',
+    'front_template' => 'tp_391/',
+    'admin_template' => 'admin_beauty',
+    'pagenate_num' => '10',
 
 	/*
 	|--------------------------------------------------------------------------
