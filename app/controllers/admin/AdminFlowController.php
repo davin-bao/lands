@@ -80,8 +80,12 @@ class AdminFlowController extends AdminController {
     echo json_encode($res);
   }
 
-  public function postCreatenode(){
-    $res = Array('result'=>true,'id'=>1,'name'=>Lang::get('workflow::workflow.node'),'users'=>'jack,david','roles'=>'admins,users', 'message'=>Lang::get('workflow::workflow.saved'));
+  public function postCreateNode($flow){
+
+    $node = new Node(array('name' => Lang::get('workflow::workflow.node')));
+    $node = $flow->comments()->save($node);
+
+    $res = Array('result'=>true,'id'=>1,'name'=>$node->name,'users'=>'','roles'=>'', 'message'=>Lang::get('workflow::workflow.saved'));
     echo json_encode($res);
   }
 }

@@ -92,6 +92,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     Route::delete('files/image', 'AdminImagesController@deleteImageUpload');
     Route::controller('files', 'AdminImagesController');
 
+    Route::post('flows/{flow}/createnode', 'AdminFlowController@postCreateNode');
     Route::get('flows/{flow}/edit', 'AdminFlowController@getEdit');
     Route::post('flows/{flow}/edit', 'AdminFlowController@postEdit');
     Route::controller('/flows', 'AdminFlowController');
