@@ -127,6 +127,7 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
         'Zizaco\Confide\ConfideServiceProvider',
         'Zizaco\Entrust\EntrustServiceProvider',
+    'DavinBao\Workflow\WorkflowServiceProvider',
 
 	),
 
@@ -198,6 +199,7 @@ return array(
         'Carbon'          => 'Carbon\Carbon', // Carbon
         'Confide'    => 'Zizaco\Confide\ConfideFacade',
         'Entrust'    => 'Zizaco\Entrust\EntrustFacade',
+    'Workflow'       => 'DavinBao\Workflow\WorkflowFacade',
 	),
 
 );

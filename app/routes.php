@@ -20,6 +20,7 @@ Route::model('introduction', 'Introduction');
 Route::model('business', 'Business');
 Route::model('setting', 'Setting');
 
+
 Route::pattern('user', '[0-9]+');
 Route::pattern('role', '[0-9]+');
 Route::pattern('recruit', '[0-9]+');
@@ -28,6 +29,9 @@ Route::pattern('info', '[0-9]+');
 Route::pattern('introduction', '[0-9]+');
 Route::pattern('business', '[0-9]+');
 Route::pattern('setting', '[0-9]+');
+
+Route::model('flow', 'Flow');
+Route::pattern('flow', '[0-9]+');
 
 Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
 {
@@ -87,6 +91,10 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     Route::post('files/image', 'AdminImagesController@postImageUpload');
     Route::delete('files/image', 'AdminImagesController@deleteImageUpload');
     Route::controller('files', 'AdminImagesController');
+
+    Route::get('flows/{flow}/edit', 'AdminFlowController@getEdit');
+    Route::post('flows/{flow}/edit', 'AdminFlowController@postEdit');
+    Route::controller('/flows', 'AdminFlowController');
 
     # Admin Dashboard
     Route::controller('/', 'AdminDashboardController');
