@@ -19,13 +19,14 @@ class AdminFlowController extends AdminController {
   public function getCreate()
   {
     $title = Lang::get('admin/infos/title.create');
+    $roles = Role::with('users')->get();
     // Show the page
-    return View::make(Config::get('app.admin_template').'/flows/create_edit', compact('title'));
+    return View::make(Config::get('app.admin_template').'/flows/create_edit', compact('title', 'roles'));
   }
 
   public function postCreate(){
     $this->flow = new Flow();
-    $this->flow->name = Input::get('name');
+    $this->flow->flow_name = Input::get('flow_name');
 
     if ($this->flow->save(Flow::$rules) )
     {
@@ -44,9 +45,11 @@ class AdminFlowController extends AdminController {
   public function getEdit($flow) {
     if ( $flow->id )
     {
+      $roles = Role::with('users')->get();
       $title = Lang::get('admin/infos/title.create');
+
       // Show the page
-      return View::make(Config::get('app.admin_template').'/flows/create_edit', compact('title', 'flow'));
+      return View::make(Config::get('app.admin_template').'/flows/create_edit', compact('title', 'flow', 'roles'));
     }
     else
     {
@@ -62,7 +65,13 @@ class AdminFlowController extends AdminController {
     // Check if the form validates with success
     if ($validator->passes())
     {
-      $flow->name = Input::get( 'name' );
+      $flow->flow_name = Input::get( 'flow_name' );
+      $nodeIds = Input::get('node_ids');
+      if(!$nodeIds || !is_array($nodeIds)){
+          $nodeIds = array();
+      }
+      $flow->updateNodesOrder($nodeIds);
+
       // Was the role updated?
       if ($flow->save())
       {
@@ -71,7 +80,7 @@ class AdminFlowController extends AdminController {
       else
       {
         // Redirect to the role page
-        $res = Array('result'=>false,'id'=>$flow->id, 'message'=>Lang::get('admin/infos/messages.update.error'));
+        $res = Array('result'=>false,'id'=>$flow->id, 'message'=>$flow->errors()->all());
       }
     }else{
       $res = Array('result'=>false,'id'=>$flow->id, 'message'=>$validator->errors()->all());
@@ -81,11 +90,14 @@ class AdminFlowController extends AdminController {
   }
 
   public function postCreateNode($flow){
+      $node = new Node();
+      $node->node_name =Lang::get('workflow::workflow.node').Lang::get('workflow::workflow.name');
 
-    $node = new Node(array('name' => Lang::get('workflow::workflow.node')));
-    $node = $flow->comments()->save($node);
-
-    $res = Array('result'=>true,'id'=>1,'name'=>$node->name,'users'=>'','roles'=>'', 'message'=>Lang::get('workflow::workflow.saved'));
+       if($flow->nodes()->save($node)){
+           $res = Array('result'=>true,'id'=>$node->id,'node_name'=>$node->node_name,'users'=>'','roles'=>'', 'message'=>Lang::get('workflow::workflow.saved'));
+       }else{
+           $res = Array('result'=>false, 'message'=>$node->errors()->all());
+       }
     echo json_encode($res);
   }
 }

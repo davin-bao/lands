@@ -17,7 +17,7 @@
 <div class="box box-primary">
 
     {{-- Create Form --}}
-    {{ Workflow::makeFlowForm($flow) }}
+    @if (isset($flow)){{ Workflow::makeFlowForm($flow, $roles) }}@else{{ Workflow::makeFlowForm(null,$roles) }}@endif
 </div>
 @stop
 {{-- Scripts --}}

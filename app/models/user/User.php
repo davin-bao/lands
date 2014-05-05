@@ -2,9 +2,10 @@
 
 use Zizaco\Confide\ConfideUser;
 use Zizaco\Entrust\HasRole;
+use DavinBao\Workflow\HasNodeForUser;
 
 class User extends ConfideUser {
-    use HasRole;
+    use HasRole, HasNodeForUser;
 
 
   /**

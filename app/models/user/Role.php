@@ -7,8 +7,10 @@
  */
 
 use Zizaco\Entrust\EntrustRole;
+use DavinBao\Workflow\HasNodeForRole;
 
 class Role extends EntrustRole
 {
+    use HasNodeForRole;
 
 }
