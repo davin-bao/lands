@@ -19,6 +19,7 @@ return array(
     'settings' => '设置',
     'businesses' => '业务介绍',
     'carousels' => '图片轮播',
+    'flows' => '审核流程',
 
   'title_users' => '管理员与权限',
   'users' => '管理员管理',

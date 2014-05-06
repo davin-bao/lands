@@ -147,4 +147,51 @@ class AdminInfosController extends AdminController {
         // There was a problem deleting the role
         return Redirect::to('admin/infos')->with('error', Lang::get('admin/infos/messages.delete.error'));
     }
+
+  public function getBindingFlow($entry){
+    //
+    if ( $entry->id )
+    {
+      $flows = $entry->getFlows('infos');
+      //if no flow, return success
+      if(!$flows || $flows->count() <= 0){
+        return Redirect::to('admin/infos/' . $entry->id . '/edit')->with('success', Lang::get('admin/infos/messages.create.success'));
+      }else if($flows->count() == 1){
+        //if flow is only one, binding it
+        $entry->bindingFlow($flows->first()->id);
+        return Redirect::to('admin/infos/' . $entry->id . '/audit');
+      }
+      //if have muliti flows, show list for user select
+      return View::make(Config::get('app.admin_template').'/flows/binding', compact('entry', 'flows'));
+    } else {
+      return Redirect::to('admin/infos')->with('error', Lang::get('admin/infos/messages.does_not_exist'));
+    }
+  }
+  public function postBindingFlow($entry){
+    if( $entry->id ){
+      $entry->bindingFlow(Input::get( 'flow_id' ));
+        return Redirect::to('admin/infos/' . $entry->id . '/audit');
+    } else {
+      return Redirect::to('admin/infos')->with('error', Lang::get('admin/infos/messages.does_not_exist'));
+    }
+  }
+  public function getAudit($entry){
+    if( $entry->id ){
+      $auditUsers = $entry->getAuditUsers();
+      $nextNode = $entry->getNextNode();
+      return View::make(Config::get('app.admin_template').'/flows/audit', compact('entry','auditUsers','nextNode'));
+    } else {
+      return Redirect::to('admin/infos')->with('error', Lang::get('admin/infos/messages.does_not_exist'));
+    }
+  }
+  public function postAudit($entry){
+    if( $entry->id ){
+      $comment = Input::get( 'comment' );
+      $auditUsers = Input::get( 'auditUsers' );
+
+      return Redirect::to('admin/infos/' . $entry->id . '/edit')->with('success', Lang::get('admin/infos/messages.create.success'));
+    } else {
+      return Redirect::to('admin/infos')->with('error', Lang::get('admin/infos/messages.does_not_exist'));
+    }
+  }
 }

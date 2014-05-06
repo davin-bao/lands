@@ -19,6 +19,7 @@ return array(
     'settings' => 'Settings',
     'businesses' => 'Business',
     'carousels' => 'Carousels',
+    'flows' => 'Flows',
 
   'title_users' => 'Admin and Role',
   'users' => 'Administrators',

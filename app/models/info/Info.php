@@ -6,7 +6,10 @@
  * Time: 上午10:27
  */
 
+use DavinBao\Workflow\HasFlowForResource;
+
 class Info extends \LaravelBook\Ardent\Ardent {
+  use HasFlowForResource;
 
   protected $table = 'infos';
 

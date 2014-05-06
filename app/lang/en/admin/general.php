@@ -13,5 +13,6 @@ return array(
 
   'delete_fail' => 'Delete this file failed.',
 
+  'select_flow' => 'Select a flow to audit infomation.',
 );
 

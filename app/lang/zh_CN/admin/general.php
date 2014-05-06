@@ -13,5 +13,7 @@ return array(
 
   'delete_fail' => '文件删除失败.',
 
+  'select_flow' => '选择一个审核流程进行信息审核.',
+
 );
 

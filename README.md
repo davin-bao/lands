@@ -16,6 +16,9 @@ ne":297}}
 ** Delete all database
 **Go to `D:\github\lands\vendor\composer\autoload_classmap.php` to update the real database files names OR run `composer dump-autoload`
 
+** Print all SQL
+** Go to row 270 in D:\github\lands\workbench\davin-bao\workflow\vendor\laravel\framework\src\Illuminate\Database\Connection.php, input `var_dump($query);`
+
 ### License
 
 The Lands is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)

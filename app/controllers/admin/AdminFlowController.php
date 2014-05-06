@@ -27,6 +27,7 @@ class AdminFlowController extends AdminController {
   public function postCreate(){
     $this->flow = new Flow();
     $this->flow->flow_name = Input::get('flow_name');
+    $this->flow->resource_type = Input::get( 'resource_type' );
 
     if ($this->flow->save(Flow::$rules) )
     {
@@ -66,6 +67,7 @@ class AdminFlowController extends AdminController {
     if ($validator->passes())
     {
       $flow->flow_name = Input::get( 'flow_name' );
+      $flow->resource_type = Input::get( 'resource_type' );
       $nodeIds = Input::get('node_ids');
       if(!$nodeIds || !is_array($nodeIds)){
           $nodeIds = array();
@@ -100,4 +102,8 @@ class AdminFlowController extends AdminController {
        }
     echo json_encode($res);
   }
+
+  public function getAudit($flow){}
+
+  public function postAudit($flow){}
 }
