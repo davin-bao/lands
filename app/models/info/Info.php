@@ -29,9 +29,9 @@ class Info extends \LaravelBook\Ardent\Ardent {
    *
    * @return string
    */
-  public function created_at()
+  public function getLogTitle()
   {
-    return $this->date($this->created_at);
+    return $this->info_name;
   }
 
   /**
@@ -40,8 +40,8 @@ class Info extends \LaravelBook\Ardent\Ardent {
    *
    * @return string
    */
-  public function updated_at()
+  public function getLogContent()
   {
-    return $this->date($this->updated_at);
+    return $this->info_content;
   }
 }
