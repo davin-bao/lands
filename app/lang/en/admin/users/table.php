@@ -13,6 +13,6 @@ return array(
 	'created_at' => 'Created at',
   'password'  => 'password',
   'password_confirmation' => 'Password Confirmation',
-  'activate_user' => 'Activate User'
+  'confirmed' => 'Activate User'
 
 );

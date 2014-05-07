@@ -43,8 +43,12 @@
                     <th class="col-md-2">{{ $info->freeze }}</th>
                     <th class="col-md-2">{{ $info->updated_at }}</th>
                     <th class="col-md-2">
-                        <a href="{{{ URL::to(sprintf('admin/infos/%d/edit', $info->id)) }}}" class="iframe btn btn-xs btn-default"><i class="fa fa-edit"></i> {{{ Lang::get('button.edit') }}}</a>
-                        <a href="#deleteModal" data-target="#deleteModal" data-id="{{ $info->id }}" data-toggle="modal" class="iframe btn btn-xs btn-danger"><i class="fa fa-trash-o"></i> {{{ Lang::get('button.delete') }}}</a>
+                      @if (!isset($info) || !$info->isBindingFlow() || ($info->isBindingFlow() && $info->isMeAudit()))
+                        <a href="{{{ URL::to(sprintf('admin/infos/%d/edit', $info->id)) }}}" class="iframe btn btn-xs btn-default"><i class="fa fa-edit"></i> {{{ Lang::get('workflow::button.audit') }}}</a>
+                        <!--a href="#deleteModal" data-target="#deleteModal" data-id="{{ $info->id }}" data-toggle="modal" class="iframe btn btn-xs btn-danger"><i class="fa fa-trash-o"></i> {{{ Lang::get('button.delete') }}}</a-->
+                      @else
+                      <label>{{{ Lang::get("workflow::workflow.".$info->status()) }}}</label>
+                      @endif
                     </th>
                 </tr>
                 @endforeach

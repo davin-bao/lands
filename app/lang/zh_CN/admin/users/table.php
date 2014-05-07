@@ -13,6 +13,6 @@ return array(
 	'created_at' => '创建时间',
   'password'  => '密码',
   'password_confirmation' => '密码确认',
-  'activate_user' => '激活账号'
+  'confirmed' => '激活账号'
 
 );

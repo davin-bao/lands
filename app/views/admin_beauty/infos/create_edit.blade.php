@@ -110,7 +110,7 @@
             <!-- Form Actions -->
             <div class="form-group">
                 <div class="span6 offset2">
-                    @if ($info->isMeAudit())
+                    @if (!isset($info) || !$info->isBindingFlow() || ($info->isBindingFlow() && $info->isMeAudit()))
                     <a type="reset" class="btn btn-default" href="{{{ URL::to('admin/infos') }}}">{{{ Lang::get('button.return') }}}</a>
                     <button type="submit" class="btn btn-success">{{{ Lang::get('button.submit') }}}</button>
                     @else

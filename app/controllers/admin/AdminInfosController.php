@@ -58,7 +58,8 @@ class AdminInfosController extends AdminController {
         if ($this->info->save(Info::$rules) )
         {
             // Redirect to the new user page
-            return Redirect::to('admin/infos/' . $this->info->id . '/edit')->with('success', Lang::get('admin/infos/messages.create.success'));
+            return Redirect::to('admin/infos/' . $this->info->id . '/binding');
+            //return Redirect::to('admin/infos/' . $this->info->id . '/edit')->with('success', Lang::get('admin/infos/messages.create.success'));
         }
         else
         {
@@ -80,7 +81,7 @@ class AdminInfosController extends AdminController {
         if ( $info->id )
         {
             // Title
-            $title = Lang::get('admin/infos/title.update');
+            //$title = Lang::get('admin/infos/title.update');
             // mode
             $mode = 'edit';
 
@@ -153,6 +154,11 @@ class AdminInfosController extends AdminController {
     if ( $entry->id )
     {
       $flows = $entry->getFlows('infos');
+      //if this resource has binded flow, go to audit flow
+      if($entry->isBindingFlow()){
+        return Redirect::to('admin/infos/' . $entry->id . '/audit');
+      }
+
       //if no flow, return success
       if(!$flows || $flows->count() <= 0){
         return Redirect::to('admin/infos/' . $entry->id . '/edit')->with('success', Lang::get('admin/infos/messages.create.success'));
@@ -169,30 +175,62 @@ class AdminInfosController extends AdminController {
   }
   public function postBindingFlow($entry){
     if( $entry->id ){
-      $entry->bindingFlow(Input::get( 'flow_id' ));
+        $entry->bindingFlow(Input::get( 'flow_id' ));
         return Redirect::to('admin/infos/' . $entry->id . '/audit');
     } else {
       return Redirect::to('admin/infos')->with('error', Lang::get('admin/infos/messages.does_not_exist'));
     }
   }
+
   public function getAudit($entry){
     if( $entry->id ){
-      $auditUsers = $entry->getAuditUsers();
-        $nextNode = $entry->getNextNode();
+        $nextAuditUsers = $entry->getNextAuditUsers();
         $currentNode = $entry->getCurrentNode();
-      return View::make(Config::get('app.admin_template').'/flows/audit', compact('entry','auditUsers','currentNode','nextNode'));
+      //if auditUsers is one person and this entry unstart, auto audited it
+      if(count($nextAuditUsers)==1 && $entry->status() == 'unstart'){
+        $result = $entry->startFlow($nextAuditUsers, $entry->info_name, $entry->info_content);
+        if($result){
+          return Redirect::to('admin/infos/' . $entry->id . '/edit')->with('success', Lang::get('workflow::workflow.action').Lang::get('workflow::workflow.success'));
+        }else{
+          return Redirect::to('admin/infos/' . $entry->id . '/edit')->with('error', Lang::get('workflow::workflow.action').Lang::get('workflow::workflow.failed_unknown'));
+        }
+      }else {
+        return View::make(Config::get('app.admin_template').'/flows/audit', compact('entry','nextAuditUsers','currentNode'));
+      }
     } else {
       return Redirect::to('admin/infos')->with('error', Lang::get('admin/infos/messages.does_not_exist'));
     }
   }
+
   public function postAudit($entry){
     if( $entry->id ){
       $comment = Input::get( 'comment' );
-      $auditUsers = Input::get( 'auditUsers' );
+      $nextAuditUserIds = Input::get( 'audit_users' );
+      $nextAuditUsers = new \Illuminate\Database\Eloquent\Collection();
+      if($nextAuditUserIds && count($nextAuditUserIds)>0){
+        foreach($nextAuditUserIds as $id){
+          $nextAuditUsers->add(User::find($id));
+        }
+      }
+      $submit = Input::get( 'submit' );
+      switch($submit){
+        case 'agree':
+          $result = $entry->agree($comment, $nextAuditUsers, $entry->info_name, $entry->info_content);
+          break;
+        case 'discard':
+          $result = $entry->disagree('info' .'::discard', $comment, $entry->info_name, $entry->info_content);
+          break;
+        case 'gofirst':
+          $result = $entry->disagree('info' .'::goFirst', $comment, $entry->info_name, $entry->info_content);
+          break;
+      }
 
-      return Redirect::to('admin/infos/' . $entry->id . '/edit')->with('success', Lang::get('admin/infos/messages.create.success'));
-    } else {
-      return Redirect::to('admin/infos')->with('error', Lang::get('admin/infos/messages.does_not_exist'));
+      if($result){
+        return Redirect::to('admin/infos/' . $entry->id . '/edit')->with('success', Lang::get('workflow::workflow.action').Lang::get('workflow::workflow.success'));
+      }else{
+        return Redirect::to('admin/infos/' . $entry->id . '/edit')->with('error', Lang::get('workflow::workflow.action').Lang::get('workflow::workflow.failed_unknown'));
+      }
     }
+    return Redirect::to('admin/infos')->with('error', Lang::get('admin/infos/messages.does_not_exist'));
   }
 }

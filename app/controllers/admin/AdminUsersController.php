@@ -99,7 +99,7 @@ class AdminUsersController extends AdminController {
         // before saving. This field will be used in Ardent's
         // auto validation.
         $this->user->password_confirmation = Input::get( 'password_confirmation' );
-        $this->user->confirmed = Input::get( 'confirm' );
+        $this->user->confirmed = Input::get( 'password_confirmation' );
 
         // Permissions are currently tied to roles. Can't do this yet.
         //$user->permissions = $user->roles()->preparePermissionsForSave(Input::get( 'permissions' ));
@@ -180,7 +180,7 @@ class AdminUsersController extends AdminController {
       $oldUser = clone $user;
       $user->username = Input::get( 'username' );
       $user->email = Input::get( 'email' );
-      $user->confirmed = Input::get( 'confirm' );
+      $user->confirmed = Input::get( 'confirmed' );
 
       $password = Input::get( 'password' );
       $passwordConfirmation = Input::get( 'password_confirmation' );

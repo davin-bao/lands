@@ -10,7 +10,7 @@
 @section('breadcrumb')
 <li><a href="#"><i class="fa fa-dashboard"></i> {{{ Lang::get('admin/menu.home') }}}</a></li>
 <li class="active">{{{ Lang::get('admin/menu.flows') }}}</li>
-<li class="active">@if($nextNode) {{{ $nextNode->node_name }}} @endif</li>
+<li class="active">@if($currentNode) {{{ $currentNode->node_name }}} @endif</li>
 @stop
 
 {{-- Content --}}
@@ -19,7 +19,7 @@
 
   {{-- Create Form --}}
   <form method="post" action="@if (isset($info)){{ URL::to('admin/infos/' . $info->id . '/audit') }}@endif" autocomplete="off">
-          {{ Workflow::makeAuditFlowForm($entry, $auditUsers,$currentNode, $nextNode) }}
+          {{ Workflow::makeAuditFlowForm($entry, $nextAuditUsers,$currentNode) }}
   </form>
 </div>
 @stop

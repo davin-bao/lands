@@ -66,31 +66,31 @@
           <div class="form-group {{{ $errors->has('password_confirmation') ? 'has-error' : '' }}}">
             <label class="span2 control-label" for="password_confirmation">{{{ Lang::get('admin/users/table.password_confirmation') }}}</label>
             <div class="span6">
-              <input class="form-control" type="text" name="password_confirmation" id="password_confirmation" value="{{{ Input::old('password_confirmation', isset($user) ? $user->password_confirmation : null) }}}" />
+              <input class="form-control" type="password" name="password_confirmation" id="password_confirmation" value="{{{ Input::old('password_confirmation', isset($user) ? $user->password_confirmation : null) }}}" />
               {{ $errors->first('password_confirmation', '<label class="control-label" for="password_confirmation"><i class="fa fa-times-circle-o"></i> :message</label>') }}
             </div>
           </div>
           <!-- ./ password_confirmation -->
 
-          <!-- activated -->
-          <div class="form-group {{{ $errors->has('activated') || $errors->has('confirm') ? 'has-error' : '' }}}">
-            <label class="span2 control-label" for="activated">{{{ Lang::get('admin/users/table.activated') }}}?</label>
+          <!-- confirmed -->
+          <div class="form-group {{{ $errors->has('confirmed') || $errors->has('confirmed') ? 'has-error' : '' }}}">
+            <label class="span2 control-label" for="confirmed">{{{ Lang::get('admin/users/table.confirmed') }}}?</label>
             <div class="span6">
               @if ($mode == 'create')
-              <select class="form-control" name="activated" id="activated">
-                <option value="1"{{{ (Input::old('activated', 0) === 1 ? ' selected="selected"' : '') }}}>{{{ Lang::get('general.yes') }}}</option>
-                <option value="0"{{{ (Input::old('activated', 0) === 0 ? ' selected="selected"' : '') }}}>{{{ Lang::get('general.no') }}}</option>
+              <select class="form-control" name="confirmed" id="confirmed">
+                <option value="1"{{{ (Input::old('confirmed', 0) === 1 ? ' selected="selected"' : '') }}}>{{{ Lang::get('general.yes') }}}</option>
+                <option value="0"{{{ (Input::old('confirmed', 0) === 0 ? ' selected="selected"' : '') }}}>{{{ Lang::get('general.no') }}}</option>
               </select>
               @else
-              <select class="form-control" name="activated" id="activated">
-                <option value="1"{{{ ($user->activated ? ' selected="selected"' : '') }}}>{{{ Lang::get('general.yes') }}}</option>
-                <option value="0"{{{ ( ! $user->activated ? ' selected="selected"' : '') }}}>{{{ Lang::get('general.no') }}}</option>
+              <select class="form-control" name="confirmed" id="confirmed">
+                <option value="1"{{{ ($user->confirmed ? ' selected="selected"' : '') }}}>{{{ Lang::get('general.yes') }}}</option>
+                <option value="0"{{{ ( ! $user->confirmed ? ' selected="selected"' : '') }}}>{{{ Lang::get('general.no') }}}</option>
               </select>
               @endif
-              {{ $errors->first('activated', '<label class="control-label" for="activated"><i class="fa fa-times-circle-o"></i> :message</label>') }}
+              {{ $errors->first('confirmed', '<label class="control-label" for="confirmed"><i class="fa fa-times-circle-o"></i> :message</label>') }}
             </div>
           </div>
-          <!-- ./ activated -->
+          <!-- ./ confirmed -->
 
           <!-- Groups -->
           <div class="form-group {{{ $errors->has('roles') ? 'has-error' : '' }}}">

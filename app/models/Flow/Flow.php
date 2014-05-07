@@ -1,5 +1,4 @@
-<?php
-/**
+<?php/**
  * Created by PhpStorm.
  * User: davin.bao
  * Date: 14-5-2
