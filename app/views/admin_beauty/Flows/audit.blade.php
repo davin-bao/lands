@@ -1,9 +1,9 @@
 @extends('admin_beauty.layouts.default')
 
 @section('content_header')
-@if($nextNode) {{{ $nextNode->node_name }}}@endif
+@if($entry->flow()) {{{ $entry->flow()->flow_name }}}@else {{{ Lang::get("workflow::workflow.audit") }}} @endif
 <small>
-  @if($nextNode) {{{ $nextNode->node_name }}}@endif
+    @if($entry->flow()) {{{ $entry->flow()->flow_name }}}@else {{{ Lang::get("workflow::workflow.audit") }}} @endif
 </small>
 @stop
 {{-- breadcrumb --}}
@@ -19,7 +19,7 @@
 
   {{-- Create Form --}}
   <form method="post" action="@if (isset($info)){{ URL::to('admin/infos/' . $info->id . '/audit') }}@endif" autocomplete="off">
-          {{ Workflow::makeAuditFlowForm($entry, $auditUsers, $nextNode) }}
+          {{ Workflow::makeAuditFlowForm($entry, $auditUsers,$currentNode, $nextNode) }}
   </form>
 </div>
 @stop

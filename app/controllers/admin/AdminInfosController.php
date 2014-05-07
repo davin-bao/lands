@@ -117,7 +117,7 @@ class AdminInfosController extends AdminController {
             if ($info->save())
             {
                 // Redirect to the role page
-                return Redirect::to('admin/infos/' . $info->id . '/edit')->with('success', Lang::get('admin/infos/messages.update.success'));
+                return Redirect::to('admin/infos/' . $info->id . '/binding');
             }
             else
             {
@@ -178,8 +178,9 @@ class AdminInfosController extends AdminController {
   public function getAudit($entry){
     if( $entry->id ){
       $auditUsers = $entry->getAuditUsers();
-      $nextNode = $entry->getNextNode();
-      return View::make(Config::get('app.admin_template').'/flows/audit', compact('entry','auditUsers','nextNode'));
+        $nextNode = $entry->getNextNode();
+        $currentNode = $entry->getCurrentNode();
+      return View::make(Config::get('app.admin_template').'/flows/audit', compact('entry','auditUsers','currentNode','nextNode'));
     } else {
       return Redirect::to('admin/infos')->with('error', Lang::get('admin/infos/messages.does_not_exist'));
     }

@@ -110,8 +110,12 @@
             <!-- Form Actions -->
             <div class="form-group">
                 <div class="span6 offset2">
+                    @if ($info->isMeAudit())
                     <a type="reset" class="btn btn-default" href="{{{ URL::to('admin/infos') }}}">{{{ Lang::get('button.return') }}}</a>
                     <button type="submit" class="btn btn-success">{{{ Lang::get('button.submit') }}}</button>
+                    @else
+                    <label>{{{ Lang::get("workflow::workflow.".$info->status()) }}}</label>
+                    @endif
                 </div>
             </div>
             <!-- ./ form actions -->

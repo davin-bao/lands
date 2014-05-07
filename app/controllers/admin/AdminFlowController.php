@@ -102,8 +102,4 @@ class AdminFlowController extends AdminController {
        }
     echo json_encode($res);
   }
-
-  public function getAudit($flow){}
-
-  public function postAudit($flow){}
 }
