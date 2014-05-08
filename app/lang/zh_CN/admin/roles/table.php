@@ -13,4 +13,5 @@ return array(
   'manage_recruits' => '招聘管理',
   'manage_users' => '用户管理',
   'manage_roles' => '角色管理',
+    'manage_flows' => '审核流程管理'
 );

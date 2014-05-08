@@ -13,4 +13,5 @@ return array(
   'manage_recruits' => 'manage recruits',
   'manage_users' => 'manage users',
   'manage_roles' => 'manage roles',
+    'manage_flows' => 'manage flows'
 );

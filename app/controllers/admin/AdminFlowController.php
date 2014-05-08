@@ -12,6 +12,21 @@ class AdminFlowController extends AdminController {
   public function __construct(Flow $flow){
     $this->flow = $flow;
   }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
+    public function getIndex()
+    {
+
+        // Grab all the flows
+        $flows = Flow::paginate(Config::get('app.pagenate_num'));
+
+        // Show the page
+        return View::make(Config::get('app.admin_template').'/flows/index', compact('flows'));
+    }
   /**
    * Admin dashboard
    *

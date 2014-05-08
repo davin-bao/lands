@@ -35,6 +35,11 @@ class PermissionsTableSeeder extends Seeder {
                 'name'         => 'manage_carousels',
                 'display_name' => 'manage carousels'
             ),
+            array( // 8
+                'name'         => 'manage_flows',
+                'display_name' => 'manage flows'
+            ),
+
         );
 
         DB::table('permissions')->insert( $permissions );
@@ -72,6 +77,10 @@ class PermissionsTableSeeder extends Seeder {
             array(
                 'role_id'       => $role_id_admin,
                 'permission_id' => $permission_base + 7
+            ),
+            array(
+                'role_id'       => $role_id_admin,
+                'permission_id' => $permission_base + 8
             ),
         );
 

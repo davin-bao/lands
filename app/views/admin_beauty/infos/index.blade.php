@@ -33,23 +33,23 @@
             <table class="table table-hover">
                 <tbody><tr>
                     <th class="col-md-2">{{{ Lang::get('admin/infos/table.info_name') }}}</th>
-                    <th class="col-md-1">{{{ Lang::get('admin/infos/table.freeze') }}}</th>
                     <th class="col-md-1">{{{ Lang::get('admin/infos/table.updated_at') }}}</th>
-                    <th class="col-md-5">{{{ Lang::get('table.status') }}}</th>
-                    <th class="col-md-1">{{{ Lang::get('table.actions') }}}</th>
+                    <th class="col-md-4">{{{ Lang::get('workflow::workflow.audit_info') }}}</th>
+                    <th class="col-md-1">{{{ Lang::get('table.status') }}}</th>
+                    <th class="col-md-2">{{{ Lang::get('table.actions') }}}</th>
                 </tr>
                 @foreach ($infos as $info)
                 <tr>
                     <th class="col-md-2">{{ $info->info_name }}</th>
-                    <th class="col-md-2">{{ $info->freeze }}</th>
-                    <th class="col-md-2">{{ $info->updated_at }}</th>
-                    <th class="col-md-3">
+                    <th class="col-md-1">{{ $info->updated_at }}</th>
+                    <th class="col-md-5">
                       @if (isset($info) && $info->isBindingFlow())
                       {{ Workflow::makeFlowGraph($info->flow(), $info->orderID()) }}
                       <!--label>{{{ Lang::get("workflow::workflow.".$info->status()) }}}</label-->
                       @endif
                     </th>
-                    <th class="col-md-1">
+                    <th class="col-md-1">@if ($info->status() != '') {{{ Lang::get('workflow::workflow.'.$info->status()) }}} @endif</th>
+                    <th class="col-md-2">
                       @if (!isset($info) || !$info->isBindingFlow() || ($info->isBindingFlow() && $info->isMeAudit()))
                       <a href="{{{ URL::to(sprintf('admin/infos/%d/edit', $info->id)) }}}" class="iframe btn btn-xs btn-success"><i class="fa fa-edit"></i> {{{ Lang::get('workflow::button.audit') }}}</a>
                       <!--a href="#deleteModal" data-target="#deleteModal" data-id="{{ $info->id }}" data-toggle="modal" class="iframe btn btn-xs btn-danger"><i class="fa fa-trash-o"></i> {{{ Lang::get('button.delete') }}}</a-->

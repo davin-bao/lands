@@ -156,9 +156,12 @@
           <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="treeview-menu">
-          @if (Auth::user()->can('manage_infos'))
-          <li{{ (Request::is('admin/infos*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/infos') }}}"><i class="fa fa-angle-double-right"></i> {{{ Lang::get('admin/menu.infos') }}}</a></li>
-          @endif
+            @if (Auth::user()->can('manage_flows'))
+            <li{{ (Request::is('admin/flows*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/flows') }}}"><i class="fa fa-angle-double-right"></i> {{{ Lang::get('admin/menu.flows') }}}</a></li>
+            @endif
+            @if (Auth::user()->can('manage_infos'))
+            <li{{ (Request::is('admin/infos*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/infos') }}}"><i class="fa fa-angle-double-right"></i> {{{ Lang::get('admin/menu.infos') }}}</a></li>
+            @endif
           @if (Auth::user()->can('manage_recruits'))
           <li{{ (Request::is('admin/recruits*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/recruits') }}}"><i class="fa fa-angle-double-right"></i> {{{ Lang::get('admin/menu.recruits') }}}</a></li>
           @endif
