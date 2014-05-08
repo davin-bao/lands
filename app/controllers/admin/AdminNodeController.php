@@ -75,4 +75,20 @@ class AdminNodeController extends AdminController {
         echo json_encode($res);
     }
 
+
+
+  public function getShowlog(){
+
+    $resourcenode = \Resourcenode::find(\Input::get('id'));
+    if ( $resourcenode )
+    {
+      $log = $resourcenode->resourceLog()->first();
+      $username = $resourcenode->user()->first()->username;
+      $result = $resourcenode->result;
+      return \View::make(\Config::get('app.admin_template').'/Flows/show_log', compact('log','username','result'));
+    }else{
+      return Redirect::to('admin/infos')->with('error', Lang::get('workflow::workflow.does_not_exist'));
+    }
+  }
+
 }

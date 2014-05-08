@@ -23,6 +23,9 @@
             <!-- Tabs -->
             <ul class="nav nav-tabs">
                 <li class="active"><a href="#tab-general" data-toggle="tab">{{{ Lang::get('admin/general.general_info') }}}</a></li>
+                @if (isset($info) && $info->isBindingFlow())
+                  <li><a href="#tab-audit" data-toggle="tab">{{{ Lang::get('workflow::workflow.audit_info') }}}</a></li>
+                @endif
             </ul>
             <!-- ./ tabs -->
 
@@ -104,6 +107,11 @@
                 </div>
                 <!-- ./ general tab -->
 
+                @if (isset($info) && $info->isBindingFlow())
+                <!-- Audit tab -->
+                <div class="tab-pane" id="tab-audit">{{ Workflow::makeAuditDetail($info) }}</div>
+                <!-- ./ Audit tab -->
+                @endif
             </div>
             <!-- ./ tabs content -->
 
@@ -114,7 +122,7 @@
                     <a type="reset" class="btn btn-default" href="{{{ URL::to('admin/infos') }}}">{{{ Lang::get('button.return') }}}</a>
                     <button type="submit" class="btn btn-success">{{{ Lang::get('button.submit') }}}</button>
                     @else
-                    <label>{{{ Lang::get("workflow::workflow.".$info->status()) }}}</label>
+                    <!--label>{{{ Lang::get("workflow::workflow.".$info->status()) }}}</label-->
                     @endif
                 </div>
             </div>

@@ -106,6 +106,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     Route::controller('/flows', 'AdminFlowController');
 
 
+    Route::get('nodes/showlog', 'AdminNodeController@getShowlog');
     Route::get('nodes/{node}/edit', 'AdminNodeController@getEdit');
     Route::post('nodes/{node}/edit', 'AdminNodeController@postEdit');
     Route::delete('nodes/{node}/delete', 'AdminNodeController@postDelete');

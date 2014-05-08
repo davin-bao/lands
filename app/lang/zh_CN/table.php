@@ -2,6 +2,7 @@
 
 return array(
 
-	'actions' => '操作'
+	'actions' => '操作',
+  'status' => '状态'
 
 );
