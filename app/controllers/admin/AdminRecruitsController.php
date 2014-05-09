@@ -146,4 +146,21 @@ class AdminRecruitsController extends AdminController {
         // There was a problem deleting the role
         return Redirect::to('admin/recruits')->with('error', Lang::get('admin/recruits/messages.delete.error'));
     }
+
+    public function postPreview(){
+        $recruit = new Recruit();
+        $data = Input::all();
+        $recruit->recruit_name = $data['recruit_name'];
+        $recruit->recruit_count = $data[ 'recruit_count'];
+        $recruit->recruit_content =  $data['recruit_content' ];
+        $recruit->freeze =  $data[ 'freeze' ];
+        $recruit->created_at = date("Y-m-d");
+        $recruit->updated_at = date("Y-m-d");
+
+        $services = Business::where('freeze','=','0')->orderBy('order', 'DESC')->take(4)->get();
+        $setting = Setting::find(1);
+        $infos = Info::paginate(5);
+
+        return View::make(Config::get('app.front_template').'/recruits_show', compact('services','setting','infos','recruit'));
+    }
 }

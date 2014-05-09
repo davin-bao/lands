@@ -150,4 +150,21 @@ class AdminInfosController extends AdminController {
         // There was a problem deleting the role
         return Redirect::to('admin/infos')->with('error', Lang::get('admin/infos/messages.delete.error'));
     }
+
+    public function getPreview(){
+        $info = new Info();
+        $data = Input::all();
+        $info->info_name = $data['info_name'];
+        $info->image = $data[ 'image'];
+        $info->info_content =  $data['info_content' ];
+        $info->freeze =  $data[ 'freeze' ];
+        $info->created_at = date("Y-m-d");
+        $info->updated_at = date("Y-m-d");
+
+        $services = Business::where('freeze','=','0')->orderBy('order', 'DESC')->take(4)->get();
+        $setting = Setting::find(1);
+        $infos = Info::paginate(5);
+
+        return View::make(Config::get('app.front_template').'/infos_show', compact('services','setting','infos','info'));
+    }
 }

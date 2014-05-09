@@ -18,7 +18,7 @@
 <div class="box box-primary">
 
   {{-- Create Form --}}
-  <form method="post" action="@if (isset($recruit)){{ URL::to('admin/recruits/' . $recruit->id . '/edit') }}@endif" autocomplete="off">
+  <form method="post" id="main-form" action="@if (isset($recruit)){{ URL::to('admin/recruits/' . $recruit->id . '/edit') }}@endif" autocomplete="off">
     <div class="box-body">
       <!-- Tabs -->
       <ul class="nav nav-tabs">
@@ -107,7 +107,8 @@
         <div class="span6 offset2">
           @if (!isset($recruits) || !isset($recruit->isBinding) || (isset($recruit->isBinding) && $recruit->isMeAudit()))
           <a type="reset" class="btn btn-default" href="{{{ URL::to('admin/infos') }}}">{{{ Lang::get('button.return') }}}</a>
-          <button type="submit" class="btn btn-success">{{{ Lang::get('button.submit') }}}</button>
+          <a name="preview" class="btn btn-success" value="preview">{{{ Lang::get('button.preview') }}}</a>
+          <button type="submit" class="btn btn-success" style="margin-left: 20px">{{{ Lang::get('button.submit') }}}</button>
           @endif
         </div>
       </div>
@@ -120,6 +121,19 @@
 @section('scripts')
 <script type="text/javascript">
   var imageUploadUrl = "{{{ URL::to('admin/images/upload') }}}"+"?_token={{{ csrf_token() }}}";
+
+  $('form a[name="preview"]').click(function(){
+      $('form#main-form').attr('target', "_blank");
+      $('form#main-form').attr("action",'{{ URL::to("admin/recruits/preview") }}');
+      $('form#main-form').submit();
+  });
+
+  $('form button[type="submit"]').click(function(){
+      $('form#main-form').attr('target', "_self");
+      $('form#main-form').attr("action",'@if (isset($recruit)){{ URL::to('admin/recruits/' . $recruit->id . '/edit') }}@endif');
+      $('form#main-form').submit();
+  });
+
 </script>
 <script type="text/javascript" src="{{asset('assets/ckeditor/ckeditor.js') }}"></script>
 @stop

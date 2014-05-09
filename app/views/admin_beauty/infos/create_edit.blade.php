@@ -18,7 +18,7 @@
 <div class="box box-primary">
 
     {{-- Create Form --}}
-    <form method="post" action="@if (isset($info)){{ URL::to('admin/infos/' . $info->id . '/edit') }}@endif" autocomplete="off">
+    <form method="post" id="main-form" action="@if (isset($info)){{ URL::to('admin/infos/' . $info->id . '/edit') }}@endif" autocomplete="off">
         <div class="box-body">
             <!-- Tabs -->
             <ul class="nav nav-tabs">
@@ -120,7 +120,8 @@
                 <div class="span6 offset2">
                     @if (!isset($info) || !isset($info->isBinding) || (isset($info->isBinding) && $info->isMeAudit()))
                     <a type="reset" class="btn btn-default" href="{{{ URL::to('admin/infos') }}}">{{{ Lang::get('button.return') }}}</a>
-                    <button type="submit" class="btn btn-success">{{{ Lang::get('button.submit') }}}</button>
+                    <a name="preview" class="btn btn-success" value="preview">{{{ Lang::get('button.preview') }}}</a>
+                    <button type="submit" class="btn btn-success" style="margin-left: 20px">{{{ Lang::get('button.submit') }}}</button>
                     @else
                     <!--label>{{{ Lang::get("workflow::workflow.".$info->status()) }}}</label-->
                     @endif
@@ -196,6 +197,19 @@
             }
         }).prop('disabled', !$.support.fileInput)
             .parent().addClass($.support.fileInput ? undefined : 'disabled');
+
+        $('form a[name="preview"]').click(function(){
+            $('form#main-form').attr('target', "_blank");
+            $('form#main-form').attr("action",'{{ URL::to("admin/infos/preview") }}');
+            $('form#main-form').submit();
+        });
+
+        $('form button[type="submit"]').click(function(){
+            $('form#main-form').attr('target', "_self");
+            $('form#main-form').attr("action",'@if (isset($info)){{ URL::to('admin/infos/' . $info->id . '/edit') }}@endif');
+            $('form#main-form').submit();
+        });
+
     });
 </script>
 <script type="text/javascript" src="{{asset('assets/ckeditor/ckeditor.js') }}"></script>
