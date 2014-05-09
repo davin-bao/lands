@@ -24,8 +24,7 @@ class Info extends \LaravelBook\Ardent\Ardent {
   );
 
   /**
-   * Returns the date of the Recruit creation,
-   * on a good and more readable format :)
+   * Returns the title of the Info log
    *
    * @return string
    */
@@ -35,8 +34,7 @@ class Info extends \LaravelBook\Ardent\Ardent {
   }
 
   /**
-   * Returns the date of the Recruit last update,
-   * on a good and more readable format :)
+   * Returns the Content of the Info log
    *
    * @return string
    */

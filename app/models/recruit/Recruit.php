@@ -7,6 +7,7 @@
  */
 
 class Recruit extends \LaravelBook\Ardent\Ardent {
+  use \DavinBao\Workflow\HasFlowForResource;
 
   protected $table = 'recruits';
 
@@ -22,24 +23,22 @@ class Recruit extends \LaravelBook\Ardent\Ardent {
   );
 
   /**
-   * Returns the date of the Recruit creation,
-   * on a good and more readable format :)
+   * Returns the title of the Recruit log
    *
    * @return string
    */
-  public function created_at()
+  public function getLogTitle()
   {
-    return $this->date($this->created_at);
+    return $this->recruit_name;
   }
 
   /**
-   * Returns the date of the Recruit last update,
-   * on a good and more readable format :)
+   * Returns the Content of the Recruit log
    *
    * @return string
    */
-  public function updated_at()
+  public function getLogContent()
   {
-    return $this->date($this->updated_at);
+    return $this->recruit_count . ':'.$this->recruit_content;
   }
 }

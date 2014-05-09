@@ -65,9 +65,19 @@ Route::filter('guest', function()
 Entrust::routeNeedsRole( 'admin*', array('admin', 'test1'), Redirect::to('/'), false );
 //
 //// Check for permissions on admin actions
-Entrust::routeNeedsPermission( 'admin/news*', 'manage_news', Redirect::to('/admin') );
+Entrust::routeNeedsPermission( 'admin/infos*', 'manage_infos', Redirect::to('/admin') );
+Entrust::routeNeedsPermission( 'admin/infos/create', 'create_infos', Redirect::to('/admin/infos') );
+Entrust::routeNeedsPermission( 'admin/infos/*/delete', 'delete_infos', Redirect::to('/admin/infos') );
+Entrust::routeNeedsPermission( 'admin/recruits*', 'manage_recruits', Redirect::to('/admin') );
+Entrust::routeNeedsPermission( 'admin/recruits/create', 'create_recruits', Redirect::to('/admin/recruits') );
+Entrust::routeNeedsPermission( 'admin/recruits/*/delete', 'delete_recruits', Redirect::to('/admin/recruits') );
+Entrust::routeNeedsPermission( 'admin/carousels*', 'manage_carousels', Redirect::to('/admin') );
+Entrust::routeNeedsPermission( 'admin/businesses*', 'manage_businesses', Redirect::to('/admin') );
+Entrust::routeNeedsPermission( 'admin/settings*', 'manage_settings', Redirect::to('/admin') );
 Entrust::routeNeedsPermission( 'admin/users*', 'manage_users', Redirect::to('/admin') );
 Entrust::routeNeedsPermission( 'admin/roles*', 'manage_roles', Redirect::to('/admin') );
+
+
 /*
 |--------------------------------------------------------------------------
 | CSRF Protection Filter

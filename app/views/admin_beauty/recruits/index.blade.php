@@ -35,19 +35,28 @@
         <tbody><tr>
           <th class="col-md-2">{{{ Lang::get('admin/recruits/table.recruit_name') }}}</th>
           <th class="col-md-2">{{{ Lang::get('admin/recruits/table.recruit_count') }}}</th>
-          <th class="col-md-2">{{{ Lang::get('admin/recruits/table.freeze') }}}</th>
-          <th class="col-md-2">{{{ Lang::get('admin/recruits/table.updated_at') }}}</th>
+          <th class="col-md-4">{{{ Lang::get('workflow::workflow.audit_info') }}}</th>
+          <th class="col-md-1">{{{ Lang::get('table.status') }}}</th>
           <th class="col-md-2">{{{ Lang::get('table.actions') }}}</th>
         </tr>
         @foreach ($recruits as $recruit)
         <tr>
           <th class="col-md-2">{{ $recruit->recruit_name }}</th>
           <th class="col-md-2">{{ $recruit->recruit_count }}</th>
-          <th class="col-md-2">{{ $recruit->freeze }}</th>
-          <th class="col-md-2">{{ $recruit->updated_at }}</th>
+          <th class="col-md-4">
+            @if (isset($recruit->isBinding))
+            {{ Workflow::makeFlowGraph($recruit->flow(), $recruit->orderID()) }}
+            @endif
+          </th>
+          <th class="col-md-1">@if (isset($recruit->isBinding) && $recruit->status() != '') {{{ Lang::get('workflow::workflow.'.$recruit->status()) }}} @endif</th>
           <th class="col-md-2">
+            @if (isset($recruit->isBinding) && $recruit->isMeAudit())
             <a href="{{{ URL::to(sprintf('admin/recruits/%d/edit', $recruit->id)) }}}" class="iframe btn btn-xs btn-default"><i class="fa fa-edit"></i> {{{ Lang::get('button.edit') }}}</a>
-            <a href="#deleteModal" data-id="{{ $recruit->id }}" data-toggle="modal" class="iframe btn btn-xs btn-danger"><i class="fa fa-trash-o"></i> {{{ Lang::get('button.delete') }}}</a>
+            @endif
+            <a href="{{{ URL::to(sprintf('admin/recruits/%d/edit', $recruit->id)) }}}" class="iframe btn btn-xs btn-default"><i class="fa fa-eye"></i> {{{ Lang::get('button.view') }}}</a>
+            @if (Auth::user()->can('delete_recruits'))
+            <a href="#deleteModal" data-target="#deleteModal" data-id="{{ $recruit->id }}" data-toggle="modal" class="iframe btn btn-xs btn-danger"><i class="fa fa-trash-o"></i> {{{ Lang::get('button.delete') }}}</a>
+            @endif
           </th>
         </tr>
         @endforeach
@@ -57,7 +66,9 @@
   </div>
   <!-- /.box-body -->
   <div class="box-footer clearfix no-border">
+    @if (Auth::user()->can('create_recruits'))
     <a href="{{{ URL::to('admin/recruits/create') }}}" class="btn btn-default pull-right"><i class="fa fa-plus"></i><i class="icon-plus-sign"></i> {{{ Lang::get('button.create') }}}</a>
+    @endif
   </div>
 </div>
 

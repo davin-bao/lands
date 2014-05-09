@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: davin.bao
  * Date: 14-5-2
- * Time: 下午1:33
+ * Time: PM 1:33
  */
 
 class AdminFlowController extends AdminController {

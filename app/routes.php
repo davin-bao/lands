@@ -76,6 +76,12 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     Route::post('recruits/{recruit}/edit', 'AdminRecruitsController@postEdit');
     Route::get('recruits/{recruit}/delete', 'AdminRecruitsController@getDelete');
     Route::post('recruits/{recruit}/delete', 'AdminRecruitsController@postDelete');
+
+  Route::get('recruits/{recruit}/binding', 'AdminRecruitsController@getBindingFlow');
+  Route::post('recruits/{recruit}/binding', 'AdminRecruitsController@postBindingFlow');
+  Route::get('recruits/{recruit}/audit', 'AdminRecruitsController@getAudit');
+  Route::post('recruits/{recruit}/audit', 'AdminRecruitsController@postAudit');
+
     Route::controller('recruits', 'AdminRecruitsController');
 
     # User Management

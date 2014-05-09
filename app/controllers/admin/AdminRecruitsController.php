@@ -9,6 +9,7 @@
 class AdminRecruitsController extends AdminController {
 
   protected $recruit;
+  protected $entryName = 'recruits';
   public function __construct(Recruit $recruit){
     $this->recruit = $recruit;
   }

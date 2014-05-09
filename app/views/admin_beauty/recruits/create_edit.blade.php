@@ -23,6 +23,9 @@
       <!-- Tabs -->
       <ul class="nav nav-tabs">
         <li class="active"><a href="#tab-general" data-toggle="tab">{{{ Lang::get('admin/general.general_info') }}}</a></li>
+        @if (isset($recruit) && isset($recruit->isBinding))
+        <li><a href="#tab-audit" data-toggle="tab">{{{ Lang::get('workflow::workflow.audit_info') }}}</a></li>
+        @endif
       </ul>
       <!-- ./ tabs -->
 
@@ -90,14 +93,22 @@
         </div>
         <!-- ./ general tab -->
 
+        @if (isset($recruit) && isset($recruit->isBinding))
+        <!-- Audit tab -->
+        <div class="tab-pane" id="tab-audit">{{ Workflow::makeAuditDetail($recruit) }}</div>
+        <!-- ./ Audit tab -->
+        @endif
+
       </div>
       <!-- ./ tabs content -->
 
       <!-- Form Actions -->
       <div class="form-group">
         <div class="span6 offset2">
-          <a type="reset" class="btn btn-default" href="{{{ URL::to('admin/recruits') }}}">{{{ Lang::get('button.return') }}}</a>
+          @if (!isset($recruits) || !isset($recruit->isBinding) || (isset($recruit->isBinding) && $recruit->isMeAudit()))
+          <a type="reset" class="btn btn-default" href="{{{ URL::to('admin/infos') }}}">{{{ Lang::get('button.return') }}}</a>
           <button type="submit" class="btn btn-success">{{{ Lang::get('button.submit') }}}</button>
+          @endif
         </div>
       </div>
       <!-- ./ form actions -->

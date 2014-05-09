@@ -36,8 +36,24 @@ class PermissionsTableSeeder extends Seeder {
                 'display_name' => 'manage carousels'
             ),
             array( // 8
-                'name'         => 'manage_flows',
-                'display_name' => 'manage flows'
+              'name'         => 'manage_flows',
+              'display_name' => 'manage flows'
+            ),
+            array( // 9
+              'name'         => 'create_infos',
+              'display_name' => 'create infos'
+            ),
+            array( // 10
+              'name'         => 'create_recruits',
+              'display_name' => 'create recruits'
+            ),
+            array( // 11
+              'name'         => 'delete_infos',
+              'display_name' => 'delete infos'
+            ),
+            array( // 12
+              'name'         => 'delete_recruits',
+              'display_name' => 'delete recruits'
             ),
 
         );
@@ -75,12 +91,28 @@ class PermissionsTableSeeder extends Seeder {
                 'permission_id' => $permission_base + 6
             ),
             array(
-                'role_id'       => $role_id_admin,
-                'permission_id' => $permission_base + 7
+              'role_id'       => $role_id_admin,
+              'permission_id' => $permission_base + 7
             ),
             array(
-                'role_id'       => $role_id_admin,
-                'permission_id' => $permission_base + 8
+              'role_id'       => $role_id_admin,
+              'permission_id' => $permission_base + 8
+            ),
+            array(
+              'role_id'       => $role_id_admin,
+              'permission_id' => $permission_base + 9
+            ),
+            array(
+              'role_id'       => $role_id_admin,
+              'permission_id' => $permission_base + 10
+            ),
+            array(
+              'role_id'       => $role_id_admin,
+              'permission_id' => $permission_base + 11
+            ),
+            array(
+              'role_id'       => $role_id_admin,
+              'permission_id' => $permission_base + 12
             ),
         );
 
