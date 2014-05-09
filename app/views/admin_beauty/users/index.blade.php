@@ -34,19 +34,21 @@
       <table class="table table-hover">
         <tbody><tr>
           <th class="col-md-2">{{{ Lang::get('admin/users/table.username') }}}</th>
+          <th class="col-md-1">{{{ Lang::get('admin/users/table.last_name') }}}</th>
+          <th class="col-md-2">{{{ Lang::get('admin/users/table.first_name') }}}</th>
           <th class="col-md-2">{{{ Lang::get('admin/users/table.email') }}}</th>
           <th class="col-md-2">{{{ Lang::get('admin/users/table.roles') }}}</th>
-          <th class="col-md-2">{{{ Lang::get('admin/users/table.activated') }}}</th>
-          <th class="col-md-2">{{{ Lang::get('admin/users/table.created_at') }}}</th>
+          <th class="col-md-1">{{{ Lang::get('admin/users/table.activated') }}}</th>
           <th class="col-md-2">{{{ Lang::get('table.actions') }}}</th>
         </tr>
         @foreach ($users as $user)
         <tr>
           <th class="col-md-2">{{ $user->username }}</th>
+          <th class="col-md-1">{{ $user->last_name }}</th>
+          <th class="col-md-2">{{ $user->first_name }}</th>
           <th class="col-md-2">{{ $user->email }}</th>
           <th class="col-md-2">{{ $user->rolename }}</th>
-          <th class="col-md-2">{{ $user->confirmed }}</th>
-          <th class="col-md-2">{{ $user->created_at }}</th>
+          <th class="col-md-1">{{ $user->confirmed }}</th>
           <th class="col-md-2">
             <a href="{{{ URL::to(sprintf('admin/users/%d/edit', $user->id)) }}}" class="iframe btn btn-xs btn-default"><i class="fa fa-edit"></i> {{{ Lang::get('button.edit') }}}</a>
             <a href="#deleteModal" data-id="{{ $user->id }}" data-toggle="modal" class="iframe btn btn-xs btn-danger"><i class="fa fa-trash-o"></i> {{{ Lang::get('button.delete') }}}</a>

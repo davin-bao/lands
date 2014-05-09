@@ -2,8 +2,8 @@
 
 return array(
 
-	'first_name' => '名字',
-	'last_name'  => '姓氏',
+	'first_name' => '名',
+	'last_name'  => '姓',
 	'user_id'  => '用户ID',
 	'username'  => '用户名',
 	'email'      => 'Email',

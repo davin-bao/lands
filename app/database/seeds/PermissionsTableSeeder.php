@@ -62,7 +62,7 @@ class PermissionsTableSeeder extends Seeder {
 
         DB::table('permission_role')->delete();
 
-        $role_id_admin = Role::where('name', '=', 'admin')->first()->id;
+        $role_id_admin = Role::where('name', '=', 'administrators')->first()->id;
         $permission_base = (int)DB::table('permissions')->first()->id - 1;
 
         $permissions = array(
@@ -117,6 +117,70 @@ class PermissionsTableSeeder extends Seeder {
         );
 
         DB::table('permission_role')->insert( $permissions );
+
+      //insert creators
+      $role_id_create = Role::where('name', '=', 'creaters')->first()->id;
+
+      $permissions_creaters = array(
+        array(
+          'role_id'       => $role_id_create,
+          'permission_id' => $permission_base + 3
+        ),
+        array(
+          'role_id'       => $role_id_create,
+          'permission_id' => $permission_base + 5
+        ),
+        array(
+          'role_id'       => $role_id_create,
+          'permission_id' => $permission_base + 6
+        ),
+        array(
+          'role_id'       => $role_id_create,
+          'permission_id' => $permission_base + 7
+        ),
+        array(
+          'role_id'       => $role_id_create,
+          'permission_id' => $permission_base + 9
+        ),
+        array(
+          'role_id'       => $role_id_create,
+          'permission_id' => $permission_base + 10
+        ),
+      );
+
+      DB::table('permission_role')->insert( $permissions_creaters );
+
+      //create deleters
+      $role_id_deleter = Role::where('name', '=', 'deleters')->first()->id;
+
+      $permissions_deleters = array(
+        array(
+          'role_id'       => $role_id_deleter,
+          'permission_id' => $permission_base + 3
+        ),
+        array(
+          'role_id'       => $role_id_deleter,
+          'permission_id' => $permission_base + 5
+        ),
+        array(
+          'role_id'       => $role_id_deleter,
+          'permission_id' => $permission_base + 6
+        ),
+        array(
+          'role_id'       => $role_id_deleter,
+          'permission_id' => $permission_base + 7
+        ),
+        array(
+          'role_id'       => $role_id_deleter,
+          'permission_id' => $permission_base + 11
+        ),
+        array(
+          'role_id'       => $role_id_deleter,
+          'permission_id' => $permission_base + 12
+        ),
+      );
+
+      DB::table('permission_role')->insert( $permissions_deleters );
     }
 
 }

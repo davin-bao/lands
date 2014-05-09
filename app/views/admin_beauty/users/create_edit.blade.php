@@ -53,6 +53,24 @@
             </div>
           </div>
           <!-- ./ email -->
+          <!-- first_name -->
+          <div class="form-group {{{ $errors->has('first_name') ? 'has-error' : '' }}}">
+            <label class="span2 control-label" for="first_name">{{{ Lang::get('admin/users/table.first_name') }}}</label>
+            <div class="span6">
+              <input class="form-control" type="text" name="first_name" id="first_name" value="{{{ Input::old('first_name', isset($user) ? $user->first_name : null) }}}" />
+              {{ $errors->first('first_name', '<label class="control-label" for="first_name"><i class="fa fa-times-circle-o"></i> :message</label>') }}
+            </div>
+          </div>
+          <!-- ./ first_name -->
+          <!-- last_name -->
+          <div class="form-group {{{ $errors->has('last_name') ? 'has-error' : '' }}}">
+            <label class="span2 control-label" for="last_name">{{{ Lang::get('admin/users/table.last_name') }}}</label>
+            <div class="span6">
+              <input class="form-control" type="text" name="last_name" id="last_name" value="{{{ Input::old('last_name', isset($user) ? $user->last_name : null) }}}" />
+              {{ $errors->first('last_name', '<label class="control-label" for="last_name"><i class="fa fa-times-circle-o"></i> :message</label>') }}
+            </div>
+          </div>
+          <!-- ./ last_name -->
           <!-- password -->
           <div class="form-group {{{ $errors->has('password') ? 'has-error' : '' }}}">
             <label class="span2 control-label" for="password">{{{ Lang::get('admin/users/table.password') }}}</label>

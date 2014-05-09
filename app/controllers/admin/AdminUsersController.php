@@ -92,6 +92,8 @@ class AdminUsersController extends AdminController {
     public function postCreate()
     {
         $this->user->username = Input::get( 'username' );
+        $this->user->first_name = Input::get( 'first_name' );
+        $this->user->last_name = Input::get( 'last_name' );
         $this->user->email = Input::get( 'email' );
         $this->user->password = Input::get( 'password' );
 
@@ -179,6 +181,8 @@ class AdminUsersController extends AdminController {
     {
       $oldUser = clone $user;
       $user->username = Input::get( 'username' );
+      $user->first_name = Input::get( 'first_name' );
+      $user->last_name = Input::get( 'last_name' );
       $user->email = Input::get( 'email' );
       $user->confirmed = Input::get( 'confirmed' );
 
