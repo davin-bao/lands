@@ -119,7 +119,7 @@
             <div class="half-right">
                 @if (Auth::check())
                     <a href="{{{ URL::to('admin') }}}"><i class="icon-wrench"></i> {{{ Lang::get('general.admin_panel') }}}</a>
-                    <a class="left_wrapper" href="{{{ URL::to('user/settings') }}}"><i class="icon-wrench"></i> {{{ Lang::get('admin/menu.profile') }}}</a>
+                    <a class="left_wrapper" href="{{{ URL::to(sprintf('admin/users/%d/edit',  Auth::user()->id)) }}}"><i class="icon-wrench"></i> {{{ Lang::get('admin/menu.profile') }}}</a>
                     <a class="left_wrapper" href="{{{ URL::to('user/logout') }}}"><i class="icon-share"></i> {{{ Lang::get('admin/menu.signout') }}}</a>
                 @else
                 <a href="{{{ URL::to('user/login') }}}">{{{ Lang::get('general.login') }}}</a>
