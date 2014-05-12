@@ -35,6 +35,11 @@ Route::pattern('flow', '[0-9]+');
 Route::model('node', 'Node');
 Route::pattern('node', '[0-9]+');
 
+
+Route::model('statistic', 'Statistic');
+Route::pattern('statistic', '[0-9]+');
+
+
 Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
 {
 
@@ -117,6 +122,11 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     Route::post('nodes/{node}/edit', 'AdminNodeController@postEdit');
     Route::delete('nodes/{node}/delete', 'AdminNodeController@postDelete');
     Route::controller('/nodes', 'AdminNodeController');
+
+    # Statistics
+  Route::get('statistics/{statistic}/result', 'AdminStatisticsController@getResult');
+  Route::get('statistics/{statistic}/export', 'AdminStatisticsController@getExport');
+    Route::controller('/statistics', 'AdminStatisticsController');
 
     # Admin Dashboard
     Route::controller('/', 'AdminDashboardController');

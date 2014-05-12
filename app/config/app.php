@@ -31,7 +31,7 @@ return array(
 
     'front_template' => 'tp_391/',
     'admin_template' => 'admin_beauty',
-    'pagenate_num' => '10',
+    'pagenate_num' => '2',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -128,6 +128,7 @@ return array(
         'Zizaco\Confide\ConfideServiceProvider',
         'Zizaco\Entrust\EntrustServiceProvider',
     'DavinBao\Workflow\WorkflowServiceProvider',
+    'DavinBao\Statistics\StatisticsServiceProvider',
 
 	),
 
@@ -200,6 +201,7 @@ return array(
         'Confide'    => 'Zizaco\Confide\ConfideFacade',
         'Entrust'    => 'Zizaco\Entrust\EntrustFacade',
     'Workflow'       => 'DavinBao\Workflow\WorkflowFacade',
+    'Statistics'       => 'DavinBao\Statistics\StatisticsFacade',
 	),
 
 );
