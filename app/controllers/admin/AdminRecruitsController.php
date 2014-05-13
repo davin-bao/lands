@@ -23,8 +23,18 @@ class AdminRecruitsController extends AdminController {
     // Title
     $title = Lang::get('admin/recruits/title.management');
 
-    // Grab all the users
-    $recruits = Recruit::paginate(Config::get('app.pagenate_num'));
+      $recruits = array();
+      switch(Input::get('s')){
+          case 'audit':
+              $recruits = Recruit::getAuditList()->paginate(Config::get('app.pagenate_num'));
+              break;
+          case 'completed':
+              $recruits = Recruit::getCompletedList()->paginate(Config::get('app.pagenate_num'));
+              break;
+          default:
+              $recruits = Recruit::orderBy('updated_at', 'DESC')->paginate(Config::get('app.pagenate_num'));
+              break;
+      }
 
     // Show the page
     return View::make(Config::get('app.admin_template').'/recruits/index', compact('recruits', 'title'));
@@ -159,7 +169,7 @@ class AdminRecruitsController extends AdminController {
 
         $services = Business::where('freeze','=','0')->orderBy('order', 'DESC')->take(4)->get();
         $setting = Setting::find(1);
-        $infos = Info::paginate(5);
+        $infos = Info::orderBy('updated_at', 'DESC')->paginate(5);
 
         return View::make(Config::get('app.front_template').'/recruits_show', compact('services','setting','infos','recruit'));
     }

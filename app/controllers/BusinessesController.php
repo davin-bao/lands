@@ -22,7 +22,7 @@ class BusinessesController extends BaseController {
     {
         $services = Business::where('freeze','=','0')->orderBy('order', 'DESC')->take(4)->get();
         $setting = Setting::find(1);
-        $infos = Info::paginate(5);
+        $infos = Info::getCompletedList()->where('freeze','=','0')->orderBy('updated_at', 'DESC')->paginate(5);
 
         // Show the page
         return View::make(Config::get('app.front_template').'/businesses_show', compact('services','setting','infos','business'));

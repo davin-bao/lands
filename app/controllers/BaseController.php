@@ -19,4 +19,12 @@ class BaseController extends Controller {
 		}
 	}
 
+    protected function getPaginateData($arrData = array(), $perPage = 0){
+        $currentPage = \Paginator::getCurrentPage();
+        return array_slice($arrData, ($currentPage-1) * $perPage, $perPage);
+    }
+    protected function getPaginateLinks($arrData = array(), $perPage = 0){
+        return \Paginator::make($arrData, count($arrData), $perPage)->links();
+    }
+
 }

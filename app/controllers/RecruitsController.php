@@ -16,8 +16,8 @@ class RecruitsController extends BaseController {
   {
       $services = Business::where('freeze','=','0')->orderBy('order', 'DESC')->take(4)->get();
       $setting = Setting::find(1);
-      $recruits = Recruit::paginate(5);
-      $infos = Info::paginate(5);
+      $recruits = Recruit::getCompletedList()->where('freeze','=','0')->orderBy('updated_at', 'DESC')->paginate(5);
+      $infos = Info::getCompletedList()->where('freeze','=','0')->orderBy('updated_at', 'DESC')->paginate(5);
 
       // Show the page
       return View::make(Config::get('app.front_template').'/recruits_index', compact('services','setting','infos','recruits'));
@@ -25,9 +25,9 @@ class RecruitsController extends BaseController {
 
     public function getShow($recruit)
     {
-        $services = Business::where('freeze','=','0')->orderBy('order', 'DESC')->take(4)->get();
+        $services = Business::getCompletedList()->where('freeze','=','0')->orderBy('order', 'DESC')->take(4)->get();
         $setting = Setting::find(1);
-        $infos = Info::paginate(5);
+        $infos = Info::getCompletedList()->where('freeze','=','0')->orderBy('updated_at', 'DESC')->paginate(5);
 
         // Show the page
         return View::make(Config::get('app.front_template').'/recruits_show', compact('services','setting','infos','recruit'));
@@ -42,7 +42,7 @@ class RecruitsController extends BaseController {
         $pageCount = intval(Config::get("app.pagenate_num"));
         $offset = intval(Input::get( 'offset' ));
 
-        $recruits =  Recruit::where('freeze','=','0')->orderBy('updated_at', 'DESC')->skip($offset*$pageCount)->take($pageCount)->get();
+        $recruits =  Recruit::getCompletedList()->where('freeze','=','0')->orderBy('updated_at', 'DESC')->skip($offset*$pageCount)->take($pageCount)->get();
 
         $new_recruits = array();
         foreach( $recruits as $recruit) {

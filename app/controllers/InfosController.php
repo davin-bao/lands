@@ -17,7 +17,7 @@ class InfosController extends BaseController {
     {
         $services = Business::where('freeze','=','0')->orderBy('order', 'DESC')->take(4)->get();
         $setting = Setting::find(1);
-        $infos = Info::paginate(5);
+        $infos = Info::getCompletedList()->where('freeze','=','0')->orderBy('updated_at', 'DESC')->paginate(Config::get('app.pagenate_num'));
 
         // Show the page
         return View::make(Config::get('app.front_template').'/infos_index', compact('services','setting','infos'));
@@ -27,7 +27,7 @@ class InfosController extends BaseController {
     {
         $services = Business::where('freeze','=','0')->orderBy('order', 'DESC')->take(4)->get();
         $setting = Setting::find(1);
-        $infos = Info::paginate(5);
+        $infos = Info::getCompletedList()->where('freeze','=','0')->orderBy('updated_at', 'DESC')->paginate(5);
 
         // Show the page
         return View::make(Config::get('app.front_template').'/infos_show', compact('services','setting','infos','info'));
@@ -42,7 +42,7 @@ class InfosController extends BaseController {
     $pageCount = intval(Config::get("app.pagenate_num"));
     $offset = intval(Input::get( 'offset' ));
 
-    $infos =  Info::where('freeze','=','0')->orderBy('updated_at', 'DESC')->skip($offset*$pageCount)->take($pageCount)->get();
+    $infos =   Info::getCompletedList()->where('freeze','=','0')->orderBy('updated_at', 'DESC')->skip($offset*$pageCount)->take($pageCount)->get();
 
     $new_infos = array();
     foreach( $infos as $info) {

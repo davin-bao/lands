@@ -23,9 +23,18 @@ class AdminInfosController extends AdminController {
     {
         // Title
         $title = Lang::get('admin/infos/title.management');
-
-        // Grab all the users
-        $infos = Info::paginate(Config::get('app.pagenate_num'));
+        $infos = array();
+        switch(Input::get('s')){
+            case 'audit':
+                $infos = Info::getAuditList()->paginate(Config::get('app.pagenate_num'));
+                break;
+            case 'completed':
+                $infos = Info::getCompletedList()->paginate(Config::get('app.pagenate_num'));
+                break;
+            default:
+                $infos = Info::orderBy('updated_at', 'DESC')->paginate(Config::get('app.pagenate_num'));
+                break;
+        }
 
         // Show the page
         return View::make(Config::get('app.admin_template').'/infos/index', compact('infos', 'title'));
@@ -163,7 +172,7 @@ class AdminInfosController extends AdminController {
 
         $services = Business::where('freeze','=','0')->orderBy('order', 'DESC')->take(4)->get();
         $setting = Setting::find(1);
-        $infos = Info::paginate(5);
+        $infos = Info::orderBy('updated_at', 'DESC')->paginate(5);
 
         return View::make(Config::get('app.front_template').'/infos_show', compact('services','setting','infos','info'));
     }

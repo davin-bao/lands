@@ -19,10 +19,11 @@
 
 <div class="box box-primary">
     <div class="box-header" style="cursor: move;">
-        <i class="ion ion-clipboard"></i>
-
-        <h3 class="box-title"></h3>
-
+        <div class="box-tools pull-left">
+            <a href="{{{ URL::to('admin/infos?s=all') }}}" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i> {{{ Lang::get('workflow::button.show_all') }}}</a>
+            <a href="{{{ URL::to('admin/infos?s=audit') }}}" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i> {{{ Lang::get('workflow::button.show_audit') }}}</a>
+            <a href="{{{ URL::to('admin/infos?s=completed') }}}" class="btn btn-xs btn-success"><i class="fa fa-edit"></i> {{{ Lang::get('workflow::button.show_completed') }}}</a>
+        </div>
         <div class="box-tools pull-right">
             <?php echo $infos->links(); ?>
         </div>
