@@ -35,10 +35,6 @@ Route::pattern('flow', '[0-9]+');
 Route::model('node', 'Node');
 Route::pattern('node', '[0-9]+');
 
-Route::model('statistic', '\DavinBao\Statistics\StatisticsStatistic');
-Route::pattern('statistic', '[0-9]+');
-
-
 
 Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
 {
