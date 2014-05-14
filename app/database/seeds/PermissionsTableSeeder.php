@@ -77,7 +77,7 @@ class PermissionsTableSeeder extends Seeder {
         DB::table('permission_role')->insert( $permissions );
 
       //insert creators
-      $role_id_hr = Role::where('name', '=', 'hrs')->first()->id;
+      $role_id_hr = Role::where('name', '=', 'human_resources')->first()->id;
 
       $permissions_hrs = array(
         array(

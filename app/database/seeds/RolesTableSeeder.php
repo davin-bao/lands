@@ -11,7 +11,7 @@ class RolesTableSeeder extends Seeder {
         $adminRole->save();
 
         $hrRole = new Role();
-        $hrRole->name = 'hrs';
+        $hrRole->name = 'human_resources';
         $hrRole->save();
 
         $auditRole = new Role();
@@ -22,17 +22,17 @@ class RolesTableSeeder extends Seeder {
         $infoRole->name = 'infos';
         $infoRole->save();
 
-//        $user = User::where('username','=','admin')->first();
-//        $user->attachRole( $adminRole );
-//
-//        $user = User::where('username','=','hr')->first();
-//        $user->attachRole( $hrRole );
-//
-//        $user = User::where('username','=','info')->first();
-//        $user->attachRole( $infoRole );
-//
-//        $user = User::where('username','=','audit')->first();
-//        $user->attachRole( $auditRole );
+        $user = User::where('username','=','admin')->first();
+        $user->attachRole( $adminRole );
+
+        $user = User::where('username','=','hr')->first();
+        $user->attachRole( $hrRole );
+
+        $user = User::where('username','=','info')->first();
+        $user->attachRole( $infoRole );
+
+        $user = User::where('username','=','audit')->first();
+        $user->attachRole( $auditRole );
     }
 
 }
