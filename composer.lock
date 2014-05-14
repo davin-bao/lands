@@ -3,7 +3,11 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
+<<<<<<< HEAD
     "hash": "08e89ee42fa302fa75368ad53dcc3fed",
+=======
+    "hash": "df4b0ae2fe330b37a3d3aca6b5b92473",
+>>>>>>> 5836d43d9e0e1f47184b47c0a791a22080c5cd1a
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -87,6 +91,57 @@
             "time": "2014-01-17 12:21:18"
         },
         {
+<<<<<<< HEAD
+=======
+            "name": "davin-bao/statistics",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/davin-bao/statistics.git",
+                "reference": "35e75d6e906756ce7142dc71e150e99ef39875d3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/davin-bao/statistics/zipball/35e75d6e906756ce7142dc71e150e99ef39875d3",
+                "reference": "35e75d6e906756ce7142dc71e150e99ef39875d3",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "4.1.*",
+                "laravelbook/ardent": "dev-master",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/migrations"
+                ],
+                "psr-0": {
+                    "DavinBao\\Statistics\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "davin-bao",
+                    "email": "davin.bao@gmail.com",
+                    "homepage": "http://davinbao.blog.com/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "this is a statistics package for laravel",
+            "homepage": "https://github.com/davin-bao/statistics",
+            "keywords": [
+                "laravel",
+                "statistics"
+            ],
+            "time": "2014-05-14 07:58:07"
+        },
+        {
+>>>>>>> 5836d43d9e0e1f47184b47c0a791a22080c5cd1a
             "name": "davin-bao/workflow",
             "version": "dev-master",
             "source": {
@@ -1087,12 +1142,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Console.git",
+<<<<<<< HEAD
                 "reference": "53afaa7a2baa9d3c9b6346cea75fa9423c1ede38"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/Console/zipball/53afaa7a2baa9d3c9b6346cea75fa9423c1ede38",
                 "reference": "53afaa7a2baa9d3c9b6346cea75fa9423c1ede38",
+=======
+                "reference": "af0d8ea914d77dcf60c13158a035755a10d5e54d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/Console/zipball/af0d8ea914d77dcf60c13158a035755a10d5e54d",
+                "reference": "af0d8ea914d77dcf60c13158a035755a10d5e54d",
+>>>>>>> 5836d43d9e0e1f47184b47c0a791a22080c5cd1a
                 "shasum": ""
             },
             "require": {
@@ -1133,7 +1197,11 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "http://symfony.com",
+<<<<<<< HEAD
             "time": "2014-05-13 08:58:07"
+=======
+            "time": "2014-05-14 06:53:52"
+>>>>>>> 5836d43d9e0e1f47184b47c0a791a22080c5cd1a
         },
         {
             "name": "symfony/css-selector",
@@ -1519,12 +1587,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpKernel.git",
+<<<<<<< HEAD
                 "reference": "10c0abfa5bdfba5a099ad4b7ab03750f40397467"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/10c0abfa5bdfba5a099ad4b7ab03750f40397467",
                 "reference": "10c0abfa5bdfba5a099ad4b7ab03750f40397467",
+=======
+                "reference": "2236d6007888efa1ac2dbb99dc038118dd88666a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/2236d6007888efa1ac2dbb99dc038118dd88666a",
+                "reference": "2236d6007888efa1ac2dbb99dc038118dd88666a",
+>>>>>>> 5836d43d9e0e1f47184b47c0a791a22080c5cd1a
                 "shasum": ""
             },
             "require": {
@@ -1583,7 +1660,11 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "http://symfony.com",
+<<<<<<< HEAD
             "time": "2014-04-27 18:41:56"
+=======
+            "time": "2014-05-14 06:53:52"
+>>>>>>> 5836d43d9e0e1f47184b47c0a791a22080c5cd1a
         },
         {
             "name": "symfony/process",
@@ -1966,7 +2047,12 @@
     "stability-flags": {
         "zizaco/confide": 20,
         "zizaco/entrust": 20,
+<<<<<<< HEAD
         "davin-bao/workflow": 20
+=======
+        "davin-bao/workflow": 20,
+        "davin-bao/statistics": 20
+>>>>>>> 5836d43d9e0e1f47184b47c0a791a22080c5cd1a
     },
     "platform": [
 

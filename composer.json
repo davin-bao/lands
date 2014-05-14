@@ -9,7 +9,8 @@
         "zizaco/entrust": "dev-master",
         "ipunkt/laravel-repositories": "~1.0",
         "gargron/fileupload": "1.0.*",
-        "davin-bao/workflow": "dev-master"
+        "davin-bao/workflow": "dev-master",
+      "davin-bao/statistics": "dev-master"
 	},
 	"autoload": {
 		"classmap": [

@@ -35,9 +35,9 @@ Route::pattern('flow', '[0-9]+');
 Route::model('node', 'Node');
 Route::pattern('node', '[0-9]+');
 
-
-Route::model('statistic', 'Statistic');
+Route::model('statistic', '\DavinBao\Statistics\StatisticsStatistic');
 Route::pattern('statistic', '[0-9]+');
+
 
 
 Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
@@ -123,6 +123,16 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     Route::delete('nodes/{node}/delete', 'AdminNodeController@postDelete');
     Route::controller('/nodes', 'AdminNodeController');
 
+<<<<<<< HEAD
+=======
+  # Statistics
+  Route::get('statistics/{statistic}/edit', 'AdminStatisticsController@getEdit');
+  Route::post('statistics/{statistic}/edit', 'AdminStatisticsController@postEdit');
+  Route::delete('statistics/{statistic}/delete', 'AdminStatisticsController@postDelete');
+  Route::get('statistics/{statistic}/result', 'AdminStatisticsController@getResult');
+  Route::get('statistics/{statistic}/export', 'AdminStatisticsController@getExport');
+  Route::controller('/statistics', 'AdminStatisticsController');
+>>>>>>> 5836d43d9e0e1f47184b47c0a791a22080c5cd1a
 
 
     # Admin Dashboard
@@ -163,3 +173,6 @@ Route::get('contact/show', 'ContactController@getShow');
 
 Route::get( '/introductions',                 'HomeController@getIntroductionShow');
 Route::get( '/',                 'HomeController@getIndex');
+
+
+
