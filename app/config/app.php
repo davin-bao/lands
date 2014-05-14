@@ -128,7 +128,7 @@ return array(
         'Zizaco\Confide\ConfideServiceProvider',
         'Zizaco\Entrust\EntrustServiceProvider',
     'DavinBao\Workflow\WorkflowServiceProvider',
-    'DavinBao\Statistics\StatisticsServiceProvider',
+
 
 	),
 
@@ -201,7 +201,7 @@ return array(
         'Confide'    => 'Zizaco\Confide\ConfideFacade',
         'Entrust'    => 'Zizaco\Entrust\EntrustFacade',
     'Workflow'       => 'DavinBao\Workflow\WorkflowFacade',
-    'Statistics'       => 'DavinBao\Statistics\StatisticsFacade',
+
 	),
 
 );

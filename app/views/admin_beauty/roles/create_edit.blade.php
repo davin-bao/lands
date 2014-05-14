@@ -61,7 +61,7 @@
             <label>
               <input type="hidden" id="permissions[{{{ $permission['id'] }}}]" name="permissions[{{{ $permission['id'] }}}]" value="0" />
               <input type="checkbox" id="permissions[{{{ $permission['id'] }}}]" name="permissions[{{{ $permission['id'] }}}]" value="1"{{{ (isset($permission['checked']) && $permission['checked'] == true ? ' checked="checked"' : '')}}} />
-              {{{ Lang::get('admin/roles/table.'.$permission['name']) }}}
+              {{$permission['display_name']}}
             </label>
             @endforeach
           </div>

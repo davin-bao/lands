@@ -10,22 +10,29 @@ class RolesTableSeeder extends Seeder {
         $adminRole->name = 'administrators';
         $adminRole->save();
 
-        $createRole = new Role();
-        $createRole->name = 'creaters';
-        $createRole->save();
+        $hrRole = new Role();
+        $hrRole->name = 'hrs';
+        $hrRole->save();
 
-        $deleteRole = new Role();
-        $deleteRole->name = 'deleters';
-        $deleteRole->save();
+        $auditRole = new Role();
+        $auditRole->name = 'audits';
+        $auditRole->save();
 
-        $user = User::where('username','=','admin')->first();
-        $user->attachRole( $adminRole );
+        $infoRole = new Role();
+        $infoRole->name = 'infos';
+        $infoRole->save();
 
-        $user = User::where('username','=','user')->first();
-        $user->attachRole( $createRole );
-
-        $user = User::where('username','=','deleter')->first();
-        $user->attachRole( $deleteRole );
+//        $user = User::where('username','=','admin')->first();
+//        $user->attachRole( $adminRole );
+//
+//        $user = User::where('username','=','hr')->first();
+//        $user->attachRole( $hrRole );
+//
+//        $user = User::where('username','=','info')->first();
+//        $user->attachRole( $infoRole );
+//
+//        $user = User::where('username','=','audit')->first();
+//        $user->attachRole( $auditRole );
     }
 
 }
