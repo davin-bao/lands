@@ -34,16 +34,16 @@
       <table class="table table-hover">
         <tbody><tr>
             <th class="col-md-2">{{{ Lang::get('statistics::statistics.name') }}}</th>
-            <th class="col-md-6">{{{ Lang::get('statistics::statistics.type') }}}</th>
-          <th class="col-md-2">{{{ Lang::get('table.actions') }}}</th>
+            <th class="col-md-6">{{{ Lang::get('statistics::statistics.category_id') }}}</th>
+          <th class="col-md-2">{{{ Lang::get('statistics::statistics.action') }}}</th>
         </tr>
         @foreach ($entries as $entry)
         <tr>
           <th class="col-md-2">{{ $entry->name }}</th>
-          <th class="col-md-2">{{ $entry->created_at }}</th>
+          <th class="col-md-2">{{ $entry->category_id }}</th>
           <th class="col-md-2">
-            <a href="{{{ URL::to(sprintf('admin/statistics/%d/edit', $entry->id)) }}}" class="iframe btn btn-xs btn-default"><i class="fa fa-edit"></i> {{{ Lang::get('button.edit') }}}</a>
-            <a href="#deleteModal" data-id="{{ $entry->id }}" data-toggle="modal" class="iframe btn btn-xs btn-danger"><i class="fa fa-trash-o"></i> {{{ Lang::get('button.delete') }}}</a>
+            <a href="{{{ URL::to(sprintf('admin/statistics/%d/edit', $entry->id)) }}}" class="iframe btn btn-xs btn-default"><i class="fa fa-edit"></i> {{{ Lang::get('statistics::button.edit') }}}</a>
+            <a href="#deleteModal" data-id="{{ $entry->id }}" data-toggle="modal" class="iframe btn btn-xs btn-danger"><i class="fa fa-trash-o"></i> {{{ Lang::get('statistics::button.delete') }}}</a>
           </th>
         </tr>
         @endforeach
@@ -53,7 +53,7 @@
   </div>
   <!-- /.box-body -->
   <div class="box-footer clearfix no-border">
-    <a href="{{{ URL::to('admin/statistics/create') }}}" class="btn btn-default pull-right"><i class="fa fa-plus"></i><i class="icon-plus-sign"></i> {{{ Lang::get('button.create') }}}</a>
+    <a href="{{{ URL::to('admin/statistics/create') }}}" class="btn btn-default pull-right"><i class="fa fa-plus"></i><i class="icon-plus-sign"></i> {{{ Lang::get('statistics::button.create') }}}</a>
   </div>
 </div>
 
@@ -66,15 +66,15 @@
         <h3 id="myModalLabel">{{{ Lang::get('statistics::statistics.statistics') }}}{{{ Lang::get('statistics::statistics.delete') }}}</h3>
       </div>
       <div class="modal-body">
-        <p>{{{ Lang::get('admin/message.delete.message',array('entry_name'=>"Lang::get('statistics::statistics.statistics')")) }}}</p>
+        <p>{{{ Lang::get('admin/message.delete.message',array('entry_name'=>"")) }}}</p>
       </div>
       <div class="modal-footer">
         <form id="deleteForm" class="form-horizontal" method="post" action="" autocomplete="off">
           <!-- CSRF Token -->
           <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
           <input type="hidden" name="id" value="" />
-          <button class="btn" data-dismiss="modal" aria-hidden="true">{{{ Lang::get('button.cancel') }}}</button>
-          <button type="submit" class="btn btn-primary">{{{ Lang::get('button.ok') }}}</button>
+          <button class="btn" data-dismiss="modal" aria-hidden="true">{{{ Lang::get('statistics::button.cancel') }}}</button>
+          <button type="submit" class="btn btn-primary">{{{ Lang::get('statistics::button.ok') }}}</button>
         </form>
       </div>
     </div>

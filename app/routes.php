@@ -124,6 +124,9 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     Route::controller('/nodes', 'AdminNodeController');
 
     # Statistics
+  Route::get('statistics/{statistic}/edit', 'AdminStatisticsController@getEdit');
+  Route::post('statistics/{statistic}/edit', 'AdminStatisticsController@postEdit');
+  Route::delete('statistics/{statistic}/delete', 'AdminStatisticsController@postDelete');
   Route::get('statistics/{statistic}/result', 'AdminStatisticsController@getResult');
   Route::get('statistics/{statistic}/export', 'AdminStatisticsController@getExport');
     Route::controller('/statistics', 'AdminStatisticsController');

@@ -12,7 +12,7 @@ class AdminStatisticsController extends AdminController {
   use HasStatisticsController;
 
     protected $entry;
-    protected $entryName = 'recruits';
+    protected $entryName = 'statistics';
     public function __construct(StatisticsStatistic $entry){
         $this->entry = $entry;
     }
@@ -40,8 +40,8 @@ class AdminStatisticsController extends AdminController {
     {
         $this->entry->name = Input::get( 'name' );
         $this->entry->column_names = Input::get( 'column_names' );
-        $this->entry->type = Input::get( 'type' );
-        $this->entry->sql = Input::get( 'sql' );
+        $this->entry->category_id = Input::get( 'category_id' );
+        $this->entry->sql = trim(Input::get( 'sql' ));
 
         if ($this->entry->save(StatisticsStatistic::$rules) )
         {
@@ -63,16 +63,16 @@ class AdminStatisticsController extends AdminController {
      * @param $user
      * @return Response
      */
-    public function getEdit($recruit)
+    public function getEdit($entry)
     {
-        if ( $recruit->id )
+        if ( $entry->id )
         {
             // Title
-            $title = Lang::get('statistics::statistics.statistics').Lang::get('statistics::statistics.update');
+            $title = Lang::get('statistics::statistics.statistics').Lang::get('statistics::statistics.edit');
             // mode
             $mode = 'edit';
 
-            return View::make(Config::get('app.admin_template').'/statistics/create_edit', compact('recruit', 'mode'));
+            return View::make(Config::get('app.admin_template').'/statistics/create_edit', compact('entry', 'mode','title'));
         }
         else
         {
@@ -91,7 +91,7 @@ class AdminStatisticsController extends AdminController {
     {
 
         // Validate the inputs
-        $validator = Validator::make(Input::all(), Recruit::$rules);
+        $validator = Validator::make(Input::all(), StatisticsStatistic::$rules);
 
         // Check if the form validates with success
         if ($validator->passes())
@@ -99,8 +99,8 @@ class AdminStatisticsController extends AdminController {
 
             $entry->name = Input::get( 'name' );
             $entry->column_names = Input::get( 'column_names' );
-            $entry->type = Input::get( 'type' );
-            $entry->sql = Input::get( 'sql' );
+            $entry->category_id = Input::get( 'category_id' );
+            $entry->sql = trim(Input::get( 'sql' ));
             // Was the role updated?
             if ($entry->save())
             {
