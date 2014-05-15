@@ -58,7 +58,13 @@
     <!-- ~~~~~~ COLORS ~~~~~~ -->
     <link href="{{ asset('tp_391/layout/styles/colors.css') }}" rel="stylesheet" type="text/css" />
 
-
+    @if (Setting::first()->front_color == 'grey')
+    <link href="{{ asset('assets/css/color_gray.css') }}" rel="stylesheet">
+    @endif
+    <style>
+      @section('styles')
+      @show
+    </style>
     <!-- Modernizr -->
     <script type="text/javascript" src="{{ asset('tp_391/layout/scripts/lib/modernizr.js') }}"></script>
 
@@ -79,7 +85,9 @@
         <div class="header-upper" id="header-upper">
             <div class="four columns">
                 <div class="map-iframe">
-                    <img src="http://maps.googleapis.com/maps/api/staticmap?center={{ $setting->address }}&zoom=13&size=420x182&markers=color:blue%7Clabel:S%7C11211&sensor=true"/>
+                    <!--img src="http://maps.googleapis.com/maps/api/
+                    staticmap?center={{ $setting->address }}&zoom=13&size=420x182&markers=color:blue%7Clabel:S%7C11211&sensor=true"/-->
+                  <img src="{{ asset('tp_391/images/map-small.png') }}" width="220"/>
                 </div>
             </div>
             <div class="six  columns contact-datails">
@@ -252,11 +260,75 @@
 <!-- Beautiful - Responsive HTML5/CSS3 Template by WebVision -->
 
 <!-- ~~~~~~ LOAD FONTS ~~~~~~ -->
-<link href="http://fonts.googleapis.com/css?family=Dosis:300,600,700,800" rel="stylesheet" type="text/css" />
-<link href="http://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css" />
-<link href="http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic" rel="stylesheet" type="text/css" />
-<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet" type="text/css" />
-<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
+<style>
+  @font-face {
+    font-family: 'Dosis';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Dosis Light'), local('Dosis-Light'), url({{ asset('tp_391/fonts/GpmMKE0dnXylect5ObzLR_esZW2xOQ-xsNqO47m55DA.woff') }}) format('woff');
+  }
+  @font-face {
+    font-family: 'Dosis';
+    font-style: normal;
+    font-weight: 600;
+    src: local('Dosis SemiBold'), local('Dosis-SemiBold'), url({{ asset('tp_391/fonts/f8qltGyj2S-SS_tsOHsjgfesZW2xOQ-xsNqO47m55DA.woff') }}) format('woff');
+  }
+  @font-face {
+    font-family: 'Dosis';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Dosis Bold'), local('Dosis-Bold'), url({{ asset('tp_391/fonts/x-7NZTw0n-ypOAaIE8uSrvesZW2xOQ-xsNqO47m55DA.woff') }}) format('woff');
+  }
+  @font-face {
+    font-family: 'Dosis';
+    font-style: normal;
+    font-weight: 800;
+    src: local('Dosis ExtraBold'), local('Dosis-ExtraBold'), url({{ asset('tp_391/fonts/k9xA3bmr7wstksq4xsFJafesZW2xOQ-xsNqO47m55DA.woff') }}) format('woff');
+  }
+  @font-face {
+    font-family: 'Droid Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Droid Sans'), local('DroidSans'), url({{ asset('tp_391/fonts/s-BiyweUPV0v-yRb-cjciBsxEYwM7FgeyaSgU71cLG0.woff') }}) format('woff');
+  }
+  @font-face {
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('PT Sans'), local('PTSans-Regular'), url({{ asset('tp_391/fonts/LKf8nhXsWg5ybwEGXk8UBQ.woff') }}) format('woff');
+  }
+  @font-face {
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: local('PT Sans Bold'), local('PTSans-Bold'), url({{ asset('tp_391/fonts/0XxGQsSc1g4rdRdjJKZrNBsxEYwM7FgeyaSgU71cLG0.woff') }}) format('woff');
+  }
+  @font-face {
+    font-family: 'PT Sans';
+    font-style: italic;
+    font-weight: 400;
+    src: local('PT Sans Italic'), local('PTSans-Italic'), url({{ asset('tp_391/fonts/PIPMHY90P7jtyjpXuZ2cLD8E0i7KZn-EPnyo3HZu7kw.woff') }}) format('woff');
+  }
+  @font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sans'), local('OpenSans'), url({{ asset('tp_391/fonts/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff') }}) format('woff');
+  }
+  @font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url({{ asset('tp_391/fonts/MTP_ySUJH_bn48VBG8sNSnhCUOGz7vYGh680lGh-uXM.woff') }}) format('woff');
+  }
+  @font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Open Sans Bold'), local('OpenSans-Bold'), url({{ asset('tp_391/fonts/k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff') }}) format('woff');
+  }
+</style>
+
 @yield('scripts')
 
 <script>

@@ -63,7 +63,9 @@
   <link href="{{ asset('admin/css/AdminLTE.css') }}" rel="stylesheet" type="text/css" />
 
   <link rel="stylesheet" type="text/css" href="{{{ asset('assets/css/admin-main.css') }}}">
-
+  @if (Setting::first()->front_color == 'grey')
+  <link href="{{ asset('assets/css/color_gray.css') }}" rel="stylesheet">
+  @endif
   <style>
     @section('styles')
     @show
@@ -71,9 +73,9 @@
 
   <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
   <!--[if lt IE 9]>
-  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+  <script src="{{ asset('admin/js/html5.js') }}"></script>
+  <script src="{{ asset('admin/js/html5shiv.js') }}"></script>
+  <script src="{{ asset('admin/js/respond.min.js') }}"></script>
   <![endif]-->
 
 </head>

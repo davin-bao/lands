@@ -149,7 +149,7 @@
 <!-- ./ container -->
 
 <!-- Javascripts -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script src="{{ asset('assets/js/jquery.min.js') }}"></script>
 <!--script src="{{asset('assets/js/bootstrap.min.js')}}"></script-->
 <script src="{{asset('assets/js/bootstrap-affix.js')}}"></script>
 <script src="{{asset('assets/js/bootstrap-alert.js')}}"></script>

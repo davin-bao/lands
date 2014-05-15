@@ -30,8 +30,10 @@
 
 		<div class="map-box">
 			 <div id="map_canvas">
-                 <img src="http://maps.googleapis.com/maps/api/staticmap?center={{ $setting->address }}&zoom=13&size=984x356&markers=color:blue%7Clabel:S%7C11211&sensor=true"/>
-             </div>
+                 <!--img src="http://maps.googleapis.com/maps/api/staticmap?center=
+                 {{ $setting->address }}&zoom=13&size=984x356&markers=color:blue%7Clabel:S%7C11211&sensor=true"/-->
+         <img src="{{ asset('tp_391/images/map-large.png') }}" width="984"
+       </div>
 		</div>
 		<div class="container">
 

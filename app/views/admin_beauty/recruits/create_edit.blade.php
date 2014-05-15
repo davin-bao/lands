@@ -105,7 +105,7 @@
       <!-- Form Actions -->
       <div class="form-group">
         <div class="span6 offset2">
-          @if (!isset($recruits) || !isset($recruit->isBinding) || (isset($recruit->isBinding) && $recruit->isMeAudit()))
+          @if (!isset($recruit) || !isset($recruit->isBinding) || (isset($recruit->isBinding) && $recruit->isMeAudit()))
           <a type="reset" class="btn btn-default" href="{{{ URL::to('admin/infos') }}}">{{{ Lang::get('button.return') }}}</a>
           <a name="preview" class="btn btn-success" value="preview">{{{ Lang::get('button.preview') }}}</a>
           <button type="submit" class="btn btn-success" style="margin-left: 20px">{{{ Lang::get('button.submit') }}}</button>

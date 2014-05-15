@@ -122,8 +122,6 @@
                     <a type="reset" class="btn btn-default" href="{{{ URL::to('admin/infos') }}}">{{{ Lang::get('button.return') }}}</a>
                     <a name="preview" class="btn btn-success" value="preview">{{{ Lang::get('button.preview') }}}</a>
                     <button type="submit" class="btn btn-success" style="margin-left: 20px">{{{ Lang::get('button.submit') }}}</button>
-                    @else
-                    <!--label>{{{ Lang::get("workflow::workflow.".$info->status()) }}}</label-->
                     @endif
                 </div>
             </div>

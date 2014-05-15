@@ -146,12 +146,14 @@
                         <option value="blue"{{{ (Input::old('front_color', 0) === 'blue' ? ' selected="selected"' : '') }}}>Blue</option>
                         <option value="red"{{{ (Input::old('front_color', 0) === 'red' ? ' selected="selected"' : '') }}}>Red</option>
                         <option value="orange"{{{ (Input::old('front_color', 0) === 'orange' ? ' selected="selected"' : '') }}}>Orange</option>
+                        <option value="grey"{{{ (Input::old('front_color', 0) === 'grey' ? ' selected="selected"' : '') }}}>Grey</option>
                       </select>
                       @else
                       <select class="form-control" name="front_color" id="front_color">
                         <option value="blue"{{{ ($setting->front_color === 'blue' ? ' selected="selected"' : '') }}}>Blue</option>
                         <option value="red"{{{ ($setting->front_color === 'red' ? ' selected="selected"' : '') }}}>Red</option>
                         <option value="orange"{{{ ($setting->front_color === 'orange' ? ' selected="selected"' : '') }}}>Orange</option>
+                        <option value="grey"{{{ ($setting->front_color === 'grey' ? ' selected="selected"' : '') }}}>Grey</option>
                       </select>
                       @endif
                       {{ $errors->first('front_color', '<label class="control-label" for="front_color"><i class="fa fa-times-circle-o"></i> :message</label>') }}
