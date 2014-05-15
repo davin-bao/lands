@@ -16,7 +16,7 @@ class WorkflowSetupTables extends Migration {
         {
             $table->increments('id')->unsigned();
             $table->string('flow_name')->unique();
-            $table->enum('resource_type', array("infos","recruits"));
+            $table->enum('resource_type', array("Info","Recruit"));
             $table->timestamps();
         });
 

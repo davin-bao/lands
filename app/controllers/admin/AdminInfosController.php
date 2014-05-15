@@ -160,7 +160,7 @@ class AdminInfosController extends AdminController {
         return Redirect::to('admin/infos')->with('error', Lang::get('admin/infos/messages.delete.error'));
     }
 
-    public function getPreview(){
+    public function postPreview(){
         $info = new Info();
         $data = Input::all();
         $info->info_name = $data['info_name'];
