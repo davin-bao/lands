@@ -34,7 +34,7 @@
             {{{ Lang::get('workflow::workflow.'.$result) }}}</span>
           </h4>
         </div><!-- /.attachment -->
-        {{{ $log->content }}}
+        {{ $log->content }}
       </div><!-- /.item -->
     </div>
 

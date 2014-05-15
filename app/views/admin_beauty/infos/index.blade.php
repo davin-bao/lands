@@ -45,7 +45,7 @@
                     <th class="col-md-1">{{ $info->updated_at }}</th>
                     <th class="col-md-5">
                       @if (isset($info) && isset($info->isBinding))
-                      {{ Workflow::makeFlowGraph($info->flow(), $info->orderID()) }}
+                      {{ Workflow::makeFlowGraph($info->flow(), $info->orderID(), $info->status()) }}
                       @endif
                     </th>
                     <th class="col-md-1">@if ($info->status() != '') {{{ Lang::get('workflow::workflow.'.$info->status()) }}} @endif</th>

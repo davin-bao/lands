@@ -7,6 +7,7 @@
  */
 
 class AdminRecruitsController extends AdminController {
+  use \DavinBao\Workflow\HasFlowForResourceController;
 
   protected $recruit;
   protected $entryName = 'recruits';
@@ -67,8 +68,8 @@ class AdminRecruitsController extends AdminController {
 
     if ($this->recruit->save(Recruit::$rules) )
     {
-      // Redirect to the new user page
-      return Redirect::to('admin/recruits/' . $this->recruit->id . '/edit')->with('success', Lang::get('admin/recruits/messages.create.success'));
+      return Redirect::to('admin/recruits/' . $this->recruit->id . '/binding');
+      //return Redirect::to('admin/recruits/' . $this->recruit->id . '/edit')->with('success', Lang::get('admin/recruits/messages.create.success'));
     }
     else
     {
@@ -125,8 +126,8 @@ class AdminRecruitsController extends AdminController {
             // Was the role updated?
             if ($recruit->save())
             {
-                // Redirect to the role page
-                return Redirect::to('admin/recruits/' . $recruit->id . '/edit')->with('success', Lang::get('admin/recruits/messages.update.success'));
+              return Redirect::to('admin/recruits/' . $recruit->id . '/binding');
+                //return Redirect::to('admin/recruits/' . $recruit->id . '/edit')->with('success', Lang::get('admin/recruits/messages.update.success'));
             }
             else
             {

@@ -6,7 +6,12 @@
 	<title>Error 404 - Not Found</title>
 	<meta name="viewport" content="width=device-width">
 	<style type="text/css">
-		@import url(http://fonts.googleapis.com/css?family=Droid+Sans);
+    @font-face {
+      font-family: 'Droid Sans';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Droid Sans'), local('DroidSans'), url({{ asset('assets/fonts/s-BiyweUPV0v-yRb-cjciBsxEYwM7FgeyaSgU71cLG0.woff') }}) format('woff');
+    }
 
 		article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
 		audio, canvas, video { display: inline-block; *display: inline; *zoom: 1; }

@@ -46,7 +46,7 @@
           <th class="col-md-2">{{ $recruit->recruit_count }}</th>
           <th class="col-md-4">
             @if (isset($recruit->isBinding))
-            {{ Workflow::makeFlowGraph($recruit->flow(), $recruit->orderID()) }}
+            {{ Workflow::makeFlowGraph($recruit->flow(), $recruit->orderID(), $recruit->status()) }}
             @endif
           </th>
           <th class="col-md-1">@if (isset($recruit->isBinding) && $recruit->status() != '') {{{ Lang::get('workflow::workflow.'.$recruit->status()) }}} @endif</th>
