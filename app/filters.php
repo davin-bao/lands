@@ -60,9 +60,13 @@ Route::filter('guest', function()
 	if (Auth::check()) return Redirect::to('user/login/');
 });
 
-
+$roles = Role::all();
+$role_names = array();
+foreach($roles as $role){
+    array_push($role_names, $role->name);
+};
 // Check for role on all admin routes
-Entrust::routeNeedsRole( 'admin*', array('administrators', 'human_resources', 'audits', 'infos'), Redirect::to('/'), false );
+Entrust::routeNeedsRole( 'admin*', $role_names, Redirect::to('/'), false );
 //
 //// Check for permissions on admin actions
 Entrust::routeNeedsPermission( 'admin/infos*', 'manage_infos', Redirect::to('/admin') );
