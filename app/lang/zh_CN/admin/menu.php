@@ -16,6 +16,8 @@ return array(
     'title_messages' => '咨讯管理',
     'recruits' => '招聘',
     'infos' => '新闻',
+	'Recruit' => '招聘',
+    'Info' => '新闻',
     'settings' => '设置',
     'businesses' => '业务介绍',
     'carousels' => '图片轮播',
