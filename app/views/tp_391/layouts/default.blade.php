@@ -156,16 +156,16 @@
                     <div class="phone"><small>{{{ Lang::get('site/default.contact') }}}: </small>
                         <mark>{{{ $setting->service_phone }}}</mark>
                     </div>
-                    <div class="social_links">
-                        <!-- src ->  grey;
-                             data-icon -> colored -->
-                        <a href="#"><img src="{{ asset('tp_391/layout/styles/images/backgrounds/ico/h-ico.png') }}" data-icon="{{ asset('tp_391/layout/styles/images/blue/ico.png') }}" alt="twitter" /></a>
-                        <a href="#"><img src="{{ asset('tp_391/layout/styles/images/backgrounds/ico/h-ico-02.png') }}" data-icon="{{ asset('tp_391/layout/styles/images/blue/ico-02.png') }}" alt="facebook" /></a>
-                        <a href="#"><img src="{{ asset('tp_391/layout/styles/images/backgrounds/ico/h-ico-03.png') }}" data-icon="{{ asset('tp_391/layout/styles/images/blue/ico-03.png') }}" alt="StubleUpon" /></a>
-                        <a href="#"><img src="{{ asset('tp_391/layout/styles/images/backgrounds/ico/h-ico-04.png') }}" data-icon="{{ asset('tp_391/layout/styles/images/blue/ico-04.png') }}" alt="digg" /></a>
-                        <a href="#"><img src="{{ asset('tp_391/layout/styles/images/backgrounds/ico/h-ico-05.png') }}" data-icon="{{ asset('tp_391/layout/styles/images/blue/ico-05.png') }}" alt="vimeo" /></a>
-                        <a href="#"><img src="{{ asset('tp_391/layout/styles/images/backgrounds/ico/h-ico-06.png') }}" data-icon="{{ asset('tp_391/layout/styles/images/blue/ico-06.png') }}" alt="youtube" /></a>
-                    </div>
+<!--                    <div class="social_links">-->
+<!--                        <!-- src ->  grey;-->
+<!--                             data-icon -> colored -->
+<!--                        <a href="#"><img src="{{ asset('tp_391/layout/styles/images/backgrounds/ico/h-ico.png') }}" data-icon="{{ asset('tp_391/layout/styles/images/blue/ico.png') }}" alt="twitter" /></a>-->
+<!--                        <a href="#"><img src="{{ asset('tp_391/layout/styles/images/backgrounds/ico/h-ico-02.png') }}" data-icon="{{ asset('tp_391/layout/styles/images/blue/ico-02.png') }}" alt="facebook" /></a>-->
+<!--                        <a href="#"><img src="{{ asset('tp_391/layout/styles/images/backgrounds/ico/h-ico-03.png') }}" data-icon="{{ asset('tp_391/layout/styles/images/blue/ico-03.png') }}" alt="StubleUpon" /></a>-->
+<!--                        <a href="#"><img src="{{ asset('tp_391/layout/styles/images/backgrounds/ico/h-ico-04.png') }}" data-icon="{{ asset('tp_391/layout/styles/images/blue/ico-04.png') }}" alt="digg" /></a>-->
+<!--                        <a href="#"><img src="{{ asset('tp_391/layout/styles/images/backgrounds/ico/h-ico-05.png') }}" data-icon="{{ asset('tp_391/layout/styles/images/blue/ico-05.png') }}" alt="vimeo" /></a>-->
+<!--                        <a href="#"><img src="{{ asset('tp_391/layout/styles/images/backgrounds/ico/h-ico-06.png') }}" data-icon="{{ asset('tp_391/layout/styles/images/blue/ico-06.png') }}" alt="youtube" /></a>-->
+<!--                    </div>-->
                 </div>
             </div>
         </div>
