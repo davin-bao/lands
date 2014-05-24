@@ -148,7 +148,7 @@
                     <div class="slogan">    </div>
                 </div>
                 <div class="tagline">
-                    地源网络，专业土地流转专家.
+                    致力打造中国最专业的土地交易电子商务平台
                 </div>
             </div>
             <!-- contact info -->
@@ -232,7 +232,7 @@
         <div class="container">
             <!-- copyrights -->
             <div class="one-third column copyrights">
-                <p>&copy; Copyright &copy; 2014.地源网络 All rights reserved.</p>
+                <p><a>&copy; 2014 版权所有 厦门地源网络科技有限公司</a><a target="_blank" href="http://www.miibeian.gov.cn" style="color:green">闽ICP备14007829号-2.</a></p>
             </div>
             <a href="#top" class="backtop" title="Page Up"><!-- Upper --></a>
         </div>
