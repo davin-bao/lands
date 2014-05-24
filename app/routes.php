@@ -36,6 +36,10 @@ Route::model('node', 'Node');
 Route::pattern('node', '[0-9]+');
 
 
+
+
+
+
 Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
 {
 
