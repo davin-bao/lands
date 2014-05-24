@@ -3,11 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-<<<<<<< HEAD
-    "hash": "08e89ee42fa302fa75368ad53dcc3fed",
-=======
     "hash": "df4b0ae2fe330b37a3d3aca6b5b92473",
->>>>>>> 5836d43d9e0e1f47184b47c0a791a22080c5cd1a
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -91,8 +87,6 @@
             "time": "2014-01-17 12:21:18"
         },
         {
-<<<<<<< HEAD
-=======
             "name": "davin-bao/statistics",
             "version": "dev-master",
             "source": {
@@ -141,18 +135,17 @@
             "time": "2014-05-14 07:58:07"
         },
         {
->>>>>>> 5836d43d9e0e1f47184b47c0a791a22080c5cd1a
             "name": "davin-bao/workflow",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/davin-bao/workflow.git",
-                "reference": "b844aa67721cd7ef15e4a51e41298c6ab942055b"
+                "reference": "0ae47387f7bf18a523003a133f2e3ade20e98124"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/davin-bao/workflow/zipball/b844aa67721cd7ef15e4a51e41298c6ab942055b",
-                "reference": "b844aa67721cd7ef15e4a51e41298c6ab942055b",
+                "url": "https://api.github.com/repos/davin-bao/workflow/zipball/0ae47387f7bf18a523003a133f2e3ade20e98124",
+                "reference": "0ae47387f7bf18a523003a133f2e3ade20e98124",
                 "shasum": ""
             },
             "require": {
@@ -187,7 +180,7 @@
                 "laravel",
                 "workflow"
             ],
-            "time": "2014-05-13 13:48:37"
+            "time": "2014-05-21 13:00:20"
         },
         {
             "name": "filp/whoops",
@@ -408,12 +401,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "c1d343a07169fc9f2b88320275100c48a6169580"
+                "reference": "7481b32fbfc6cdf17be193cdf79ebbf9288cb599"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/c1d343a07169fc9f2b88320275100c48a6169580",
-                "reference": "c1d343a07169fc9f2b88320275100c48a6169580",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/7481b32fbfc6cdf17be193cdf79ebbf9288cb599",
+                "reference": "7481b32fbfc6cdf17be193cdf79ebbf9288cb599",
                 "shasum": ""
             },
             "require": {
@@ -516,7 +509,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-05-11 17:20:27"
+            "time": "2014-05-20 13:22:03"
         },
         {
             "name": "laravelbook/ardent",
@@ -583,12 +576,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "467e30a9c9fa22395608cc515cd45a60ecc84c4e"
+                "reference": "3030d3da4d3abb18d3c1e3479259af0d88a92488"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/467e30a9c9fa22395608cc515cd45a60ecc84c4e",
-                "reference": "467e30a9c9fa22395608cc515cd45a60ecc84c4e",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/3030d3da4d3abb18d3c1e3479259af0d88a92488",
+                "reference": "3030d3da4d3abb18d3c1e3479259af0d88a92488",
                 "shasum": ""
             },
             "require": {
@@ -643,7 +636,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2014-05-01 15:55:56"
+            "time": "2014-05-19 16:18:53"
         },
         {
             "name": "nesbot/carbon",
@@ -793,12 +786,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "3a309d36edd85451cf51b63adcbc6899c5211ae2"
+                "reference": "7d2a3279c649485cdb0f532eecbc44dce0e46c38"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/3a309d36edd85451cf51b63adcbc6899c5211ae2",
-                "reference": "3a309d36edd85451cf51b63adcbc6899c5211ae2",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/7d2a3279c649485cdb0f532eecbc44dce0e46c38",
+                "reference": "7d2a3279c649485cdb0f532eecbc44dce0e46c38",
                 "shasum": ""
             },
             "require": {
@@ -882,7 +875,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2014-05-05 22:49:44"
+            "time": "2014-05-18 21:20:58"
         },
         {
             "name": "predis/predis",
@@ -980,12 +973,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/stackphp/builder.git",
-                "reference": "b4af43e7b7f3f7fac919ff475b29f7c5dc7b23b7"
+                "reference": "d760dccb15e8db668c52359f8eb0ce3ecd37ce82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stackphp/builder/zipball/b4af43e7b7f3f7fac919ff475b29f7c5dc7b23b7",
-                "reference": "b4af43e7b7f3f7fac919ff475b29f7c5dc7b23b7",
+                "url": "https://api.github.com/repos/stackphp/builder/zipball/d760dccb15e8db668c52359f8eb0ce3ecd37ce82",
+                "reference": "d760dccb15e8db668c52359f8eb0ce3ecd37ce82",
                 "shasum": ""
             },
             "require": {
@@ -1022,7 +1015,7 @@
             "keywords": [
                 "stack"
             ],
-            "time": "2014-01-28 19:42:24"
+            "time": "2014-05-19 00:39:19"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -1142,21 +1135,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Console.git",
-<<<<<<< HEAD
-                "reference": "53afaa7a2baa9d3c9b6346cea75fa9423c1ede38"
+                "reference": "24f723436e62598c9dddee2a8573d6992504dc5d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Console/zipball/53afaa7a2baa9d3c9b6346cea75fa9423c1ede38",
-                "reference": "53afaa7a2baa9d3c9b6346cea75fa9423c1ede38",
-=======
-                "reference": "af0d8ea914d77dcf60c13158a035755a10d5e54d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Console/zipball/af0d8ea914d77dcf60c13158a035755a10d5e54d",
-                "reference": "af0d8ea914d77dcf60c13158a035755a10d5e54d",
->>>>>>> 5836d43d9e0e1f47184b47c0a791a22080c5cd1a
+                "url": "https://api.github.com/repos/symfony/Console/zipball/24f723436e62598c9dddee2a8573d6992504dc5d",
+                "reference": "24f723436e62598c9dddee2a8573d6992504dc5d",
                 "shasum": ""
             },
             "require": {
@@ -1197,11 +1181,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "http://symfony.com",
-<<<<<<< HEAD
-            "time": "2014-05-13 08:58:07"
-=======
-            "time": "2014-05-14 06:53:52"
->>>>>>> 5836d43d9e0e1f47184b47c0a791a22080c5cd1a
+            "time": "2014-05-14 21:48:29"
         },
         {
             "name": "symfony/css-selector",
@@ -1320,12 +1300,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/DomCrawler.git",
-                "reference": "e94b29c7cac964e58c406408d238ceeaa3604e78"
+                "reference": "778356eb2e846327f25ec326d2ec6ff32f1e363b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/DomCrawler/zipball/e94b29c7cac964e58c406408d238ceeaa3604e78",
-                "reference": "e94b29c7cac964e58c406408d238ceeaa3604e78",
+                "url": "https://api.github.com/repos/symfony/DomCrawler/zipball/778356eb2e846327f25ec326d2ec6ff32f1e363b",
+                "reference": "778356eb2e846327f25ec326d2ec6ff32f1e363b",
                 "shasum": ""
             },
             "require": {
@@ -1366,7 +1346,7 @@
             ],
             "description": "Symfony DomCrawler Component",
             "homepage": "http://symfony.com",
-            "time": "2014-04-18 20:37:09"
+            "time": "2014-05-17 20:48:34"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -1532,12 +1512,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpFoundation.git",
-                "reference": "7d464f35b8404c20f1f5135b5ce87af53ef2cef9"
+                "reference": "473f988bf3684896608056a5c8c05ce67348a1e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/7d464f35b8404c20f1f5135b5ce87af53ef2cef9",
-                "reference": "7d464f35b8404c20f1f5135b5ce87af53ef2cef9",
+                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/473f988bf3684896608056a5c8c05ce67348a1e9",
+                "reference": "473f988bf3684896608056a5c8c05ce67348a1e9",
                 "shasum": ""
             },
             "require": {
@@ -1578,7 +1558,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "http://symfony.com",
-            "time": "2014-04-28 17:43:58"
+            "time": "2014-05-17 20:48:34"
         },
         {
             "name": "symfony/http-kernel",
@@ -1587,21 +1567,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpKernel.git",
-<<<<<<< HEAD
-                "reference": "10c0abfa5bdfba5a099ad4b7ab03750f40397467"
+                "reference": "eef7415f08fd9b34972013b441284771627364de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/10c0abfa5bdfba5a099ad4b7ab03750f40397467",
-                "reference": "10c0abfa5bdfba5a099ad4b7ab03750f40397467",
-=======
-                "reference": "2236d6007888efa1ac2dbb99dc038118dd88666a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/2236d6007888efa1ac2dbb99dc038118dd88666a",
-                "reference": "2236d6007888efa1ac2dbb99dc038118dd88666a",
->>>>>>> 5836d43d9e0e1f47184b47c0a791a22080c5cd1a
+                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/eef7415f08fd9b34972013b441284771627364de",
+                "reference": "eef7415f08fd9b34972013b441284771627364de",
                 "shasum": ""
             },
             "require": {
@@ -1617,6 +1588,7 @@
                 "symfony/config": "~2.0",
                 "symfony/console": "~2.2",
                 "symfony/dependency-injection": "~2.0",
+                "symfony/filesystem": "~2.4",
                 "symfony/finder": "~2.0",
                 "symfony/process": "~2.0",
                 "symfony/routing": "~2.2",
@@ -1629,6 +1601,7 @@
                 "symfony/config": "",
                 "symfony/console": "",
                 "symfony/dependency-injection": "",
+                "symfony/filesystem": "",
                 "symfony/finder": ""
             },
             "type": "library",
@@ -1660,11 +1633,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "http://symfony.com",
-<<<<<<< HEAD
-            "time": "2014-04-27 18:41:56"
-=======
-            "time": "2014-05-14 06:53:52"
->>>>>>> 5836d43d9e0e1f47184b47c0a791a22080c5cd1a
+            "time": "2014-05-18 15:36:48"
         },
         {
             "name": "symfony/process",
@@ -2047,12 +2016,8 @@
     "stability-flags": {
         "zizaco/confide": 20,
         "zizaco/entrust": 20,
-<<<<<<< HEAD
-        "davin-bao/workflow": 20
-=======
         "davin-bao/workflow": 20,
         "davin-bao/statistics": 20
->>>>>>> 5836d43d9e0e1f47184b47c0a791a22080c5cd1a
     },
     "platform": [
 
