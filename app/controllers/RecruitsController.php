@@ -25,7 +25,7 @@ class RecruitsController extends BaseController {
 
     public function getShow($recruit)
     {
-        $services = Business::getCompletedList()->where('freeze','=','0')->orderBy('order', 'DESC')->take(4)->get();
+        $services = Business::where('freeze','=','0')->orderBy('order', 'DESC')->take(4)->get();
         $setting = Setting::find(1);
         $infos = Info::getCompletedList()->where('freeze','=','0')->orderBy('updated_at', 'DESC')->paginate(5);
 
