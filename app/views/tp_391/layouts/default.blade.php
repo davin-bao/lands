@@ -122,7 +122,8 @@
             <a href="#header-upper" class="toggle-upper">Toggle Upper</a>
             <div class="container">
                 <div class="half-left">
-                    <a href="#">{{{ $setting->master_email }}}</a>
+                    
+                    本网站目前仍处于测试阶段，所有数据仅供测试使用
                 </div>
                 <div class="half-right">
                     @if (Auth::check())
