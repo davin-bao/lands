@@ -122,7 +122,7 @@
             <a href="#header-upper" class="toggle-upper">Toggle Upper</a>
             <div class="container">
                 <div class="half-left">
-                    <a href="{{{ $setting->master_email }}}">{{{ $setting->master_email }}}</a>
+                    <a href="#">{{{ $setting->master_email }}}</a>
                 </div>
                 <div class="half-right">
                     @if (Auth::check())
@@ -143,7 +143,7 @@
                 <!-- logo / tagline-->
                 <div class="two-thirds column">
                     <div class="logo-slogan">
-                        <div class="logo"><a href="index.html"><img src="{{ asset('tp_391/layout/styles/images/blue/logo.gif') }}" alt="" width="150" height="32" /></a></div>
+                        <div class="logo"><a href="#"><img src="{{ asset('tp_391/layout/styles/images/blue/logo.gif') }}" alt="" width="150" height="32" /></a></div>
                         <!-- text: <div class="logo font_gautami"><a href="index.html"><img src="layout/styles/images/blue/footer-logo.png" alt="BeautyMind"></a></div> -->
                         <div class="slogan">    </div>
                     </div>
