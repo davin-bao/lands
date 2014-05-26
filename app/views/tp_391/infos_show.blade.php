@@ -49,7 +49,9 @@
                 </div>
                 <div class="post-body">
 
+                    @if($info->image!="")
                     <div class="post-image"><a href="{{ URL::to('files/image?name=') }}{{{ $info->image }}}" class="fancybox post-preview"><img src="{{ URL::to('files/image?name=') }}{{{ $info->image }}}" alt="" class="width:549px;height:209px;" /> <span class="over-bg-portfolio"><!-- over --></span></a></div>
+                    @endif
                     <br/>
                     <p>
                         {{ $info->info_content }}
