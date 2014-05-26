@@ -122,8 +122,9 @@
             <a href="#header-upper" class="toggle-upper">Toggle Upper</a>
             <div class="container">
                 <div class="half-left">
-                    
-                    本网站目前仍处于测试阶段，所有数据仅供测试使用
+                    <a style="color: #ff0000;font-size: 15px;font-weight:bold">
+                        温馨提示:本网站目前仍处于测试阶段，所有数据仅供测试使用
+                    </a>
                 </div>
                 <div class="half-right">
                     @if (Auth::check())
