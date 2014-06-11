@@ -40,7 +40,7 @@
 
                     <div class="line-grey"></div>
                     <div class="post-categories">
-                        <div style="margin-left:30px; margin-top:18px;"><small>发布时间:</small> <br/><a href="#">{{{ $recruit->created_at->format('Y-M-d') }}}</a></div>	</div>
+                        <div style="margin-left:30px; margin-top:18px;"><small>更新时间:</small> <br/><a href="#">{{{ $recruit->updated_at->format('Y-M-d') }}}</a></div>	</div>
                 </div>
                 <div class="post-body">
                     <p><small>{{{ Lang::get('general.recruit_man') }}} {{ $recruit->recruit_count }} {{{ Lang::get('general.man') }}}</small></p>
