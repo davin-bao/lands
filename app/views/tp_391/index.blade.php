@@ -48,7 +48,7 @@
 
 <!-- Recent Projects -->
 <div class="full-width sub-title">
-    <h3>公司新闻</h3>
+    <h3>{{{ Lang::get('site/default.news') }}}</h3>
     <div id="recent-navi"></div>
 </div>
 <div class="separator2"></div>

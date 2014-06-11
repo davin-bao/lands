@@ -146,11 +146,11 @@
                 <!-- logo / tagline-->
                 <div class="two-thirds column">
                     <div class="logo-slogan">
-                        <div class="logo"><a href="#"><img src="{{ asset('tp_391/layout/styles/images/blue/logo.gif') }}" alt="" width="150" height="32" /></a></div>
+                        <div class="logo"><a href="#"><img src="{{ asset('tp_391/layout/styles/images/blue/logo.gif') }}" alt="" width="200" height="43" /></a></div>
                         <!-- text: <div class="logo font_gautami"><a href="index.html"><img src="layout/styles/images/blue/footer-logo.png" alt="BeautyMind"></a></div> -->
                         <div class="slogan">    </div>
                     </div>
-                    <div class="tagline">
+                    <div class="tagline" style="font-style: bold">
                         致力打造中国最专业的土地交易电子商务平台
                     </div>
                 </div>
@@ -181,6 +181,7 @@
 
 
                         <li><a href="{{{ URL::to('/') }}}"><i class="icon-home"></i> {{{ Lang::get('site/default.home') }}}</a></li>
+                        <li><a href="{{{ URL::to('introductions') }}}"><i class="icon-eye-open"></i> {{{ Lang::get('site/default.introductions') }}}</a></li>
                         <li><a href="#"><i class="icon-exclamation-sign"></i> {{{ Lang::get('site/default.businesses') }}}</a>
                             <ul>
                                 @foreach ($services as $service)
@@ -189,7 +190,6 @@
                             </ul>
                         </li>
                         <li><a href="{{{ URL::to('infos') }}}"><i class="icon-tags"></i> {{{ Lang::get('site/default.news') }}}</a></li>
-                        <li><a href="{{{ URL::to('introductions') }}}"><i class="icon-eye-open"></i> {{{ Lang::get('site/default.introductions') }}}</a></li>
                         <li><a href="{{{ URL::to('contact/show') }}}"><i class="icon-glass"></i> {{{ Lang::get('site/default.contact') }}}</a></li>
                         <li><a href="{{{ URL::to('recruits') }}}"><i class="icon-glass"></i> {{{ Lang::get('site/default.recruits') }}}</a></li>
                     </ul>

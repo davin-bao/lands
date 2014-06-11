@@ -81,13 +81,13 @@
                     </div>
                     <!-- ./ service_phone -->
                     <!-- mobile -->
-                    <div class="form-group {{{ $errors->has('mobile') ? 'has-error' : '' }}}">
-                        <label class="span2 control-label" for="mobile">{{{ Lang::get('admin/settings/table.mobile') }}}</label>
-                        <div class="span6">
-                            <input class="form-control" type="text" name="mobile" id="mobile" value="{{{ Input::old('mobile', isset($setting) ? $setting->mobile : null) }}}" />
-                            {{ $errors->first('mobile', '<label class="control-label" for="mobile"><i class="fa fa-times-circle-o"></i> :message</label>') }}
-                        </div>
-                    </div>
+<!--                    <div class="form-group {{{ $errors->has('mobile') ? 'has-error' : '' }}}">-->
+<!--                        <label class="span2 control-label" for="mobile">{{{ Lang::get('admin/settings/table.mobile') }}}</label>-->
+<!--                        <div class="span6">-->
+<!--                            <input class="form-control" type="text" name="mobile" id="mobile" value="{{{ Input::old('mobile', isset($setting) ? $setting->mobile : null) }}}" />-->
+<!--                            {{ $errors->first('mobile', '<label class="control-label" for="mobile"><i class="fa fa-times-circle-o"></i> :message</label>') }}-->
+<!--                        </div>-->
+<!--                    </div>-->
                     <!-- ./ mobile -->
 
                     <!-- company_instroductions -->
@@ -143,17 +143,14 @@
                     <div class="span6">
                       @if ($mode == 'create')
                       <select class="form-control" name="front_color" id="front_color">
-                        <option value="blue"{{{ (Input::old('front_color', 0) === 'blue' ? ' selected="selected"' : '') }}}>Blue</option>
-                        <option value="red"{{{ (Input::old('front_color', 0) === 'red' ? ' selected="selected"' : '') }}}>Red</option>
-                        <option value="orange"{{{ (Input::old('front_color', 0) === 'orange' ? ' selected="selected"' : '') }}}>Orange</option>
-                        <option value="grey"{{{ (Input::old('front_color', 0) === 'grey' ? ' selected="selected"' : '') }}}>Grey</option>
+                        <option value="blue"{{{ (Input::old('front_color', 0) === 'blue' ? ' selected="selected"' : '') }}}>蓝色</option>
+                        <option value="grey"{{{ (Input::old('front_color', 0) === 'grey' ? ' selected="selected"' : '') }}}>灰色</option>
                       </select>
                       @else
                       <select class="form-control" name="front_color" id="front_color">
-                        <option value="blue"{{{ ($setting->front_color === 'blue' ? ' selected="selected"' : '') }}}>Blue</option>
-                        <option value="red"{{{ ($setting->front_color === 'red' ? ' selected="selected"' : '') }}}>Red</option>
-                        <option value="orange"{{{ ($setting->front_color === 'orange' ? ' selected="selected"' : '') }}}>Orange</option>
-                        <option value="grey"{{{ ($setting->front_color === 'grey' ? ' selected="selected"' : '') }}}>Grey</option>
+                        <option value="blue"{{{ ($setting->front_color === 'blue' ? ' selected="selected"' : '') }}}>蓝色</option>
+
+                        <option value="grey"{{{ ($setting->front_color === 'grey' ? ' selected="selected"' : '') }}}>灰色</option>
                       </select>
                       @endif
                       {{ $errors->first('front_color', '<label class="control-label" for="front_color"><i class="fa fa-times-circle-o"></i> :message</label>') }}

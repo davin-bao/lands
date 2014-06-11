@@ -70,7 +70,6 @@ class AdminInfosController extends AdminController {
         {
             // Redirect to the new user page
             return Redirect::to('admin/infos/' . $this->info->id . '/binding');
-            //return Redirect::to('admin/infos/' . $this->info->id . '/edit')->with('success', Lang::get('admin/infos/messages.create.success'));
         }
         else
         {

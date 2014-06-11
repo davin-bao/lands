@@ -3,13 +3,13 @@
 
 @section('content_header')
 {{{ Lang::get('admin/menu.dashboard') }}}
-<small>{{{ Lang::get('admin/menu.dashborad_desc') }}}</small>
+
 @stop
 
 {{-- breadcrumb --}}
 @section('breadcrumb')
 <li><a href="#"><i class="fa fa-dashboard"></i> {{{ Lang::get('admin/menu.home') }}}</a></li>
-<li class="active">{{{ Lang::get('admin/menu.dashboard') }}}</li>
+
 @stop
 {{-- Content --}}
 @section('content')
@@ -18,7 +18,7 @@
   <div class="col-lg-3 col-xs-6">
     <!-- small box -->
     <div class="small-box bg-aqua">
-      <div class="inner">
+      <div class="inner"  @if (Auth::user()->can('manage_infos'))onclick="document.location=' {{{ URL::to('admin/infos') }}}'" @endif>
         <h3>
           {{{ Lang::get('admin/menu.infos') }}}
         </h3>
@@ -37,7 +37,7 @@
   <div class="col-lg-3 col-xs-6">
     <!-- small box -->
     <div class="small-box bg-green">
-      <div class="inner">
+      <div class="inner"  @if (Auth::user()->can('manage_settings'))onclick="document.location=' {{{ URL::to('admin/settings/1/edit') }}}'" @endif>
         <h3>
           {{{ Lang::get('admin/menu.settings') }}}
         </h3>
@@ -56,7 +56,7 @@
   <div class="col-lg-3 col-xs-6">
     <!-- small box -->
     <div class="small-box bg-yellow">
-      <div class="inner">
+      <div class="inner"  @if (Auth::user()->can('manage_recruits'))onclick="document.location=' {{{ URL::to('admin/recruits') }}}'" @endif>
         <h3>
           {{{ Lang::get('admin/menu.recruits') }}}
         </h3>
@@ -75,7 +75,7 @@
   <div class="col-lg-3 col-xs-6">
     <!-- small box -->
     <div class="small-box bg-red">
-      <div class="inner">
+      <div class="inner" @if (Auth::user()->can('manage_users'))onclick="document.location=' {{{ URL::to('admin/users') }}}'" @endif>
         <h3>
           {{{ Lang::get('admin/menu.title_users') }}}
         </h3>

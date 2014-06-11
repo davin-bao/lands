@@ -151,7 +151,9 @@ return array(
         'freeze'  => '冻结',
         'order'  => '排序',
         'created_at' => '创建时间',
-        'updated_at' => '更新时间'
+        'updated_at' => '更新时间',
+        'info_name' => '新闻标题',
+        'info_content' => '新闻内容'
     ),
 
 );

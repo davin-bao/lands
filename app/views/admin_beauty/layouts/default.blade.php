@@ -151,7 +151,7 @@
       <a href="{{{ URL::to('admin/settings/1/edit') }}}"><i class="fa fa-wrench"></i> {{{ Lang::get('admin/menu.settings') }}}</a>
       </li>
       @endif
-      <li class="treeview">
+      <li class="treeview active">
         <a href="#">
           <i class="fa fa-bar-chart-o"></i>
           <span>{{{ Lang::get('admin/menu.title_messages') }}}</span>
@@ -176,7 +176,7 @@
         </ul>
       </li>
     @if (Auth::user()->can('manage_users') || Auth::user()->can('manage_roles'))
-      <li class="treeview">
+      <li class="treeview active">
         <a href="#">
           <i class="fa fa-laptop"></i>
           <span>{{{ Lang::get('admin/menu.title_users') }}}</span>
