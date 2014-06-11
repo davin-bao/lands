@@ -16,7 +16,7 @@
 			<div class="container">
 				<div class="columns ten alpha title-inner">
 					<h1>{{{ Lang::get('site/default.contact') }}}</h1>
-					<p>{{ String::tidy(Str::limit(strip_tags($setting->contact, '<p><a>'), 80)) }} </p>
+					<p>{{ String::tidy(strip_tags($setting->contact, '<p><a>')) }} </p>
 				</div>
 				<div class="columns six omega icons">
 					<a href="index.html" class="ico-home"><span>Home</span></a><a href="contact.html" class="ico-contact"><span>Contact</span></a><a href="#" class="ico-sitemap"><span>Sitemap</span></a>
@@ -41,35 +41,11 @@
 				<h3 class="sub-title cont-title-aside">{{{ Lang::get('site/default.contact') }}}</h3>
 				<div class="separator2"></div>
 				<div class="address-line">{{{ $setting->address }}}</div>
-				<div class="phone-line">Phone: {{{ $setting->service_phone }}}</div>
-				<div class="fax-line">Mobile: {{{ $setting->mobile }}}</div>
-				<div class="email-line">E-mail: <a href="{{{ $setting->master_email }}}">{{{ $setting->master_email }}}</a></div>
-				<div class="website-line">Website: <a href="#">{{{ $setting->site_url }}}</a></div>
+				<div class="phone-line">联系号码: {{{ $setting->service_phone }}}</div>
+				<div class="email-line">联系邮箱: <a href="{{{ $setting->master_email }}}">{{{ $setting->master_email }}}</a></div>
+				<div class="website-line">网址: <a href="#">{{{ $setting->site_url }}}</a></div>
 			</div>
-			<div class="columns twelve send-mess">
-				<h3 class="sub-title">留言</h3>
-				<div class="separator2"></div>
-				<form action="#" method="post" class="contact-form" id="SendContact" />
-					<div class="columns four alpha">
-						<label class="required">姓名</label>
-						<input type="text" name="n-name" value="" class="required" />
-					</div>
-					<div class="columns four">
-						<label class="required">Email</label>
-						<input type="text" name="n-email" value="" class="required email" />
-					</div>
-					<div class="columns four omega">
-						<label>标题</label>
-						<input type="text" value="" name="n-subject" />
-					</div>
-					<div class="clear"></div>
 
-					<label class="required">内容</label>
-					<textarea cols="100" rows="10" class="required" name="n-mess"></textarea>
-
-					<input type="submit" value="Send message" class="submit-btn" />
-				</form>
-			</div>
 			 <div class="clear"></div>
 			<div class="separator28"></div>
 		</div>
