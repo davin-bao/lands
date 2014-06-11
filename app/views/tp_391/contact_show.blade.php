@@ -37,18 +37,23 @@
 		</div>
 		<div class="container">
 
-			<div class="columns four">
 				<h3 class="sub-title cont-title-aside">{{{ Lang::get('site/default.contact') }}}</h3>
 				<div class="separator2"></div>
-				<div class="address-line">{{{ $setting->address }}}</div>
-				<div class="phone-line">联系号码: {{{ $setting->service_phone }}}</div>
-				<div class="email-line">联系邮箱: <a href="{{{ $setting->master_email }}}">{{{ $setting->master_email }}}</a></div>
-				<div class="website-line">网址: <a href="#">{{{ $setting->site_url }}}</a></div>
-			</div>
+                <div class="part-left">
+                    <div class="address-line">{{{ $setting->address }}}</div>
+                    <div class="phone-line">联系电话: {{{ $setting->service_phone }}}</div>
+                </div>
+                <div class="part-right">
+                    <div class="email-line">联系邮箱: <a href="{{{ $setting->master_email }}}">{{{ $setting->master_email }}}</a></div>
+                    <div class="website-line">网址: <a href="#">{{{ $setting->site_url }}}</a></div>
+                </div>
 
 			 <div class="clear"></div>
 			<div class="separator28"></div>
 		</div>
+
 	</div>
+
+<div><br><br><br></div>
 
 @stop

@@ -90,27 +90,17 @@
                         <img src="{{ asset('tp_391/images/map-small.png') }}" width="220"/>
                     </div>
                 </div>
-                <div class="six  columns contact-datails">
+                <div class="ten  columns contact-datails">
                     <h3 class="font_dosis">{{{ Lang::get('site/default.contact') }}}</h3>
-                    <p class="bott-line">{{ String::tidy(Str::limit(strip_tags($setting->contact, '<p><a>'), 100)) }}</p>
-                    <div class="address-line">{{{ $setting->address }}}</div>
+                    <p class="bott-line">{{ String::tidy(strip_tags($setting->contact, '<p><a>')) }}</p>
                     <div class="part-left">
-                        <div class="phone-line">Phone: {{{ $setting->service_phone }}}</div>
-                        <div class="fax-line">Mobile: {{{ $setting->mobile }}}</div>
+                        <div class="address-line">{{{ $setting->address }}}</div>
+                        <div class="phone-line">联系电话: {{{ $setting->service_phone }}}</div>
                     </div>
                     <div class="part-right">
-                        <div class="email-line">E-mail: <a href="{{{ $setting->master_email }}}">{{{ $setting->master_email }}}</a></div>
-                        <div class="website-line">Website: <a href="#">{{{ $setting->site_url }}}</a></div>
+                        <div class="email-line">联系邮箱: <a href="{{{ $setting->master_email }}}">{{{ $setting->master_email }}}</a></div>
+                        <div class="website-line">网址: <a href="#">{{{ $setting->site_url }}}</a></div>
                     </div>
-                </div>
-                <div class="six  columns contact-upper-form">
-                    <h3>留言</h3>
-                    <form action="#" method="post" />
-                    <input type="text" value="" placeholder="Name*" />
-                    <input type="text" value="" placeholder="Email*" />
-                    <textarea cols="50" rows="3" placeholder="Message*"></textarea>
-                    <input type="submit" value="{{{ Lang::get('button.submit') }}}" class="submit-btn" />
-                    </form>
                 </div>
 
                 <a href="#header-upper" class="toggle-upper close">Toggle Upper</a>
