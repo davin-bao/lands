@@ -14,17 +14,13 @@
         <div class="left-arr"></div>
         <div class="right-arr"></div>
         <div class="container">
-            <div class="columns ten alpha title-inner">
+            <div class="alpha title-inner">
                 <div style="margin-left:30px;">
                     <h1>{{{ Lang::get('site/default.news') }}}</h1>
                     <p>地源网络公司最新新闻动态 </p>
                 </div>
             </div>
-            <div class="columns six omega icons">
-                <a href="{{{ URL::to('/') }}}" class="ico-home"><span>{{{ Lang::get('site/default.home') }}}</span></a>
-                <a href="{{{ URL::to('contact/show') }}}" class="ico-sitemap"><span>{{{ Lang::get('site/default.contact') }}}</span></a>
-                <a href="{{{ $setting->master_email }}}" class="ico-contact"><span>{{{ $setting->master_email }}}</span></a>
-            </div>
+
             <div class="clear"></div>
         </div>
     </div>

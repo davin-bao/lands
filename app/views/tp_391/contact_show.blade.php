@@ -14,13 +14,11 @@
 			<div class="left-arr"></div>
 			<div class="right-arr"></div>
 			<div class="container">
-				<div class="columns ten alpha title-inner">
+				<div class=" alpha title-inner">
 					<h1>{{{ Lang::get('site/default.contact') }}}</h1>
 					<p>{{ String::tidy(strip_tags($setting->contact, '<p><a>')) }} </p>
 				</div>
-				<div class="columns six omega icons">
-					<a href="index.html" class="ico-home"><span>Home</span></a><a href="contact.html" class="ico-contact"><span>Contact</span></a><a href="#" class="ico-sitemap"><span>Sitemap</span></a>
-				</div>
+
 				<div class="clear"></div>
 			</div>
 		</div>
