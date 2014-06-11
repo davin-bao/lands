@@ -83,7 +83,7 @@
             <div class="dbl-dott-wrapper"></div>
             <div class="separator11"></div>
 
-            <h3 class="sidebar-titles">最新内容</h3>
+            <h3 class="sidebar-titles">最新新闻</h3>
             <ul class="recent-posts-side">
                 @foreach ($infos as $info)
                 <li>
