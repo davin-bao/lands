@@ -61,7 +61,7 @@
                 <h5><a href="{{{ URL::to('/infos/'.$info->id.'/show') }}}">{{{ $info->info_name }}}</a></h5>
                 <div class="rec_fade_context">
                     <div class="rec_fade_context_arrow"></div>
-                    <p>{{ strip_tags(String::tidy(Str::limit($info->info_content, 100)), '') }}</p>
+                    <p>{{ strip_tags(String::tidy($info->info_content), '') }}</p>
                 </div>
             </li>
             @endforeach

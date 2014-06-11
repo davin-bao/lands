@@ -17,7 +17,7 @@
             <div class=" alpha title-inner">
                 <div style="margin-left:30px;">
                     <h1>{{{ Lang::get('site/default.recruits') }}}</h1>
-                    <p>{{ strip_tags(String::tidy(Str::limit($setting->recruits, 100)), '') }} </p>
+                    <p>{{ strip_tags(String::tidy($setting->recruits), '') }} </p>
                 </div>
             </div>
             <div class="clear"></div>
