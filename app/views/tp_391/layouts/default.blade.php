@@ -3,6 +3,8 @@
 <!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<html xmlns:wb="http://open.weibo.com/wb">
+
 <head>
 
     <!-- Beautiful - Responsive HTML5/CSS3 Template by WebVision -->
@@ -18,6 +20,7 @@
 
     <!-- Speaking of Google, don't forget to set your site up: http://google.com/webmasters -->
     <meta name="google-site-verification" content="">
+
 
     <!-- Dublin Core Metadata : http://dublincore.org/ -->
     <meta name="DC.title" content="Project Name">
@@ -49,6 +52,7 @@
 
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+
     <link rel="stylesheet" href="{{ asset('tp_391/layout/styles/ie7.css') }}" >
     <![endif]-->
 
@@ -68,6 +72,7 @@
     <!-- Modernizr -->
     <script type="text/javascript" src="{{ asset('tp_391/layout/scripts/lib/modernizr.js') }}"></script>
 
+    <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
 
 
     <script type="text/javascript" src="{{ asset('tp_391/layout/scripts/lib/jquery-latest.min.js') }}"></script>
@@ -151,14 +156,11 @@
                         <mark>{{{ $setting->service_phone }}}</mark>
                     </div>
 <!--                    <div class="social_links">-->
+                         <wb:follow-button uid="5133991909" type="red_2" ></wb:follow-button>
+
 <!--                        <!-- src ->  grey;-->
 <!--                             data-icon -> colored -->
-<!--                        <a href="#"><img src="{{ asset('tp_391/layout/styles/images/backgrounds/ico/h-ico.png') }}" data-icon="{{ asset('tp_391/layout/styles/images/blue/ico.png') }}" alt="twitter" /></a>-->
-<!--                        <a href="#"><img src="{{ asset('tp_391/layout/styles/images/backgrounds/ico/h-ico-02.png') }}" data-icon="{{ asset('tp_391/layout/styles/images/blue/ico-02.png') }}" alt="facebook" /></a>-->
-<!--                        <a href="#"><img src="{{ asset('tp_391/layout/styles/images/backgrounds/ico/h-ico-03.png') }}" data-icon="{{ asset('tp_391/layout/styles/images/blue/ico-03.png') }}" alt="StubleUpon" /></a>-->
-<!--                        <a href="#"><img src="{{ asset('tp_391/layout/styles/images/backgrounds/ico/h-ico-04.png') }}" data-icon="{{ asset('tp_391/layout/styles/images/blue/ico-04.png') }}" alt="digg" /></a>-->
-<!--                        <a href="#"><img src="{{ asset('tp_391/layout/styles/images/backgrounds/ico/h-ico-05.png') }}" data-icon="{{ asset('tp_391/layout/styles/images/blue/ico-05.png') }}" alt="vimeo" /></a>-->
-<!--                        <a href="#"><img src="{{ asset('tp_391/layout/styles/images/backgrounds/ico/h-ico-06.png') }}" data-icon="{{ asset('tp_391/layout/styles/images/blue/ico-06.png') }}" alt="youtube" /></a>-->
+                        <!--                        <a href="#"><img src="{{ asset('tp_391/layout/styles/images/backgrounds/ico/h-ico-06.png') }}" data-icon="{{ asset('tp_391/layout/styles/images/blue/ico-06.png') }}" alt="youtube" /></a>-->
 <!--                    </div>-->
                 </div>
             </div>
