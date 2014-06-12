@@ -61,13 +61,11 @@
         <div class="columns four blog-aside">
             <h3 class="sidebar-titles">网站栏目</h3>
             <ul class="list_type8 categories-list">
-                <li><a href="{{{ URL::to('infos') }}}"> {{{ Lang::get('site/default.news') }}}</a></li>
                 <li><a href="{{{ URL::to('introductions') }}}"> {{{ Lang::get('site/default.introductions') }}}</a></li>
+                <li><a href="{{{ URL::to('businesses') }}}"> {{{ Lang::get('site/default.businesses') }}}</a></li>
+                <li><a href="{{{ URL::to('infos') }}}"> {{{ Lang::get('site/default.news') }}}</a></li>
                 <li><a href="{{{ URL::to('contact/show') }}}"> {{{ Lang::get('site/default.contact') }}}</a></li>
                 <li><a href="{{{ URL::to('recruits') }}}"> {{{ Lang::get('site/default.recruits') }}}</a></li>
-@foreach ($services as $service)
-                <li><a href="{{{ URL::to('businesses/'.$service->id.'/show') }}}"> {{ $service->business_name }}</a></li>
-@endforeach
             </ul>
             <div class="dbl-dott-wrapper"></div>
             <div class="separator11"></div>

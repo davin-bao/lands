@@ -173,12 +173,12 @@
 
                         <li><a href="{{{ URL::to('/') }}}"><i class="icon-home"></i> {{{ Lang::get('site/default.home') }}}</a></li>
                         <li><a href="{{{ URL::to('introductions') }}}"><i class="icon-eye-open"></i> {{{ Lang::get('site/default.introductions') }}}</a></li>
-                        <li><a href="#"><i class="icon-exclamation-sign"></i> {{{ Lang::get('site/default.businesses') }}}</a>
-                            <ul>
-                                @foreach ($services as $service)
-                                <li><a href="{{{ URL::to('businesses/'.$service->id.'/show') }}}"> {{ $service->business_name }}</a></li>
-                                @endforeach
-                            </ul>
+                        <li><a href="{{{ URL::to('businesses') }}}"><i class="icon-exclamation-sign"></i> {{{ Lang::get('site/default.businesses') }}}</a>
+<!--                            <ul>-->
+<!--                                @foreach ($services as $service)-->
+<!--                                <li><a href="{{{ URL::to('businesses/'.$service->id.'/show') }}}"> {{ $service->business_name }}</a></li>-->
+<!--                                @endforeach-->
+<!--                            </ul>-->
                         </li>
                         <li><a href="{{{ URL::to('infos') }}}"><i class="icon-tags"></i> {{{ Lang::get('site/default.news') }}}</a></li>
                         <li><a href="{{{ URL::to('contact/show') }}}"><i class="icon-glass"></i> {{{ Lang::get('site/default.contact') }}}</a></li>
@@ -188,9 +188,9 @@
                         <option value="#" />跳转到
                         <option value="{{{ URL::to('/') }}}" />&nbsp;-&nbsp;{{{ Lang::get('site/default.home') }}}
                         <option value="{{{ URL::to('businesses') }}}" />&nbsp;-&nbsp;{{{ Lang::get('site/default.businesses') }}}
-                        @foreach ($services as $service)
-                        <option value="{{{ URL::to('businesses/'.$service->id.'/show') }}}" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;{{ $service->business_name }}
-                        @endforeach
+<!--                        @foreach ($services as $service)-->
+<!--                        <option value="{{{ URL::to('businesses/'.$service->id.'/show') }}}" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;{{ $service->business_name }}-->
+<!--                        @endforeach-->
 
                         <option value="{{{ URL::to('infos') }}}" />&nbsp;-&nbsp;{{{ Lang::get('site/default.news') }}}
 

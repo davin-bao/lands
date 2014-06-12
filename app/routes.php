@@ -155,6 +155,7 @@ Route::controller('recruits', 'RecruitsController');
 
 Route::get('businesses/{business}/show', 'BusinessesController@getShow');
 Route::get('businesses/{business}/show_ajax', 'BusinessesController@getShowAJAX');
+Route::controller('businesses', 'BusinessesController');
 
 Route::get('contact/show', 'ContactController@getShow');
 

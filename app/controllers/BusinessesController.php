@@ -13,10 +13,15 @@ class BusinessesController extends BaseController {
     $this->business = $business;
   }
 
-  public function getIndex()
-  {
-    //echo Config::get('app.front_template').'index';exit;
-  }
+    public function getIndex()
+    {
+        $services = Business::where('freeze','=','0')->orderBy('order', 'DESC')->get();
+        $setting = Setting::find(1);
+        $infos = Info::getCompletedList()->where('freeze','=','0')->orderBy('updated_at', 'DESC')->paginate(Config::get('app.pagenate_num'));
+
+        // Show the page
+        return View::make(Config::get('app.front_template').'/businesses_index', compact('services','setting','infos'));
+    }
 
     public function getShow($business)
     {
