@@ -202,8 +202,8 @@
                     </select>
                 </nav>
                 <div class="four columns omega">
-                    <form action="#" method="post" class="search_block" />
-                    <input type="text" value="搜索新闻 " onFocus="if(this.value=='搜索新闻 ')this.value='';" onBlur="if(this.value=='')this.value='搜索新闻 ';" />
+                    <form action="{{{ URL::to('infos/search') }}}" method="post" class="search_block" />
+                    <input type="text" name='search' value="搜索新闻 " onFocus="if(this.value=='搜索新闻 ')this.value='';" onBlur="if(this.value=='')this.value='搜索新闻 ';" />
                     <input type="submit" value="" />
                     </form>
                 </div>

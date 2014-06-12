@@ -23,6 +23,17 @@ class InfosController extends BaseController {
         return View::make(Config::get('app.front_template').'/infos_index', compact('services','setting','infos'));
     }
 
+    public function postSearch(){
+        $key = Input::get("search");
+        $services = Business::where('freeze','=','0')->orderBy('order', 'DESC')->take(4)->get();
+        $infos =Info::whereRaw("freeze = 0 and (info_name like '%".$key."%' or info_content like '%".$key."%')")
+           ->orderBy('updated_at', 'DESC')->paginate(Config::get('app.pagenate_num'));
+        $setting = Setting::find(1);
+
+        // Show the page
+        return View::make(Config::get('app.front_template').'/infos_index', compact('services','setting','infos'));
+    }
+
     public function getShow($info)
     {
         $services = Business::where('freeze','=','0')->orderBy('order', 'DESC')->take(4)->get();
