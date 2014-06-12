@@ -140,16 +140,19 @@
         <div id="header-middle">
             <div class="container">
                 <!-- logo / tagline-->
-                <div class="two-thirds column">
+                <div class="one-thirds column">
                     <div class="logo-slogan">
                         <div class="logo"><a href="#"><img src="{{ asset('tp_391/layout/styles/images/blue/logo.gif') }}" alt="" width="200" height="43" /></a></div>
                         <!-- text: <div class="logo font_gautami"><a href="index.html"><img src="layout/styles/images/blue/footer-logo.png" alt="BeautyMind"></a></div> -->
                         <div class="slogan">    </div>
                     </div>
-                    <div class="tagline" style="font-style: bold">
-                        致力打造中国最专业的土地交易电子商务平台
-                    </div>
                 </div>
+
+                <div class="one-third column" style="margin-top: 20px">
+
+                        <h4>致力打造中国最专业的土地交易电子商务平台</h4>
+
+                 </div>
                 <!-- contact info -->
                 <div class="one-third column info">
                     <div class="phone"><small>{{{ Lang::get('site/default.contact') }}}: </small>

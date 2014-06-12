@@ -90,8 +90,8 @@ class UploadHandler
             // Defines which files are handled as image files:
             'image_file_types' => '/\.(gif|jpe?g|png)$/i',
             // Image resolution restrictions:
-            'max_width' => null,
-            'max_height' => null,
+            'max_width' => 940,
+            'max_height' => 940,
             'min_width' => 1,
             'min_height' => 1,
             // Set the following option to false to enable resumable uploads:
@@ -709,7 +709,10 @@ class UploadHandler
             $new_height = $img_height * $scale;
             $dst_x = 0;
             $dst_y = 0;
+            $new_width<1?$new_width=1:$new_width=$new_width;
+            $new_height<1?$new_height=1:$new_height=$new_height;
             $new_img = imagecreatetruecolor($new_width, $new_height);
+
         } else {
             if (($img_width / $img_height) >= ($max_width / $max_height)) {
                 $new_width = $img_width / ($img_height / $max_height);

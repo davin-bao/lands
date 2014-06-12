@@ -73,35 +73,45 @@
 <!-- end Recent Projects -->
 
 <!-- Blog, Service, Testemonials -->
-<div class="eight columns">
+<div class="one-third column">
     <h3 class="sub-title">最新招聘岗位</h3>
     <div class="separator9"></div>
-    <ul class="recent_blog">
-        @foreach ($recruits as $recruit)
-        <li>
-            <h5><a href="{{{ URL::to('/recruits/'.$recruit->id.'/show') }}}">{{ $recruit->recruit_name }}</a></h5>
-            <div class="details">{{{ Lang::get('general.recruit_man') }}} {{ $recruit->recruit_count }} {{{ Lang::get('general.man') }}}</div>
-<!--            <p>{{ strip_tags(String::tidy(Str::limit($recruit->recruit_content, 100)), '<p><a>') }}</p>-->
-        </li>
-        @endforeach
-    </ul>
+    <div style="overflow-y:auto; width: auto; height: 250px;" class="box-body chat" id="chat-box">
+        <!-- chat item -->
+                @foreach ($recruits as $recruit)
+                <div class="item">
+                <li>
+                    <h5><a href="{{{ URL::to('/recruits/'.$recruit->id.'/show') }}}">{{ $recruit->recruit_name }}</a></h5>
+                    <div class="details">{{{ Lang::get('general.recruit_man') }}} {{ $recruit->recruit_count }} {{{ Lang::get('general.man') }}}</div>
+                    <!--            <p>{{ strip_tags(String::tidy(Str::limit($recruit->recruit_content, 100)), '<p><a>') }}</p>-->
+                </li>
+                </div>
+                @endforeach
+
+    </div>
+
 </div>
-<div class="four columns service-box">
-    <h3 class="sub-title">我们的服务</h3>
+<div class="one-third column ">
+    <h3 class="sub-title">业务介绍</h3>
     <div class="separator10"></div>
-    <ul class="service_list">
-        @foreach ($services as $service)
-        <li>
-            <h6><a href="{{{ URL::to('businesses/'.$service->id.'/show') }}}" class="toggle-link">{{ $service->business_name }}</a></h6>
-            <div class="sub-text" id="Web">
-                {{ strip_tags(String::tidy(Str::limit($service->service_content, 100)), '<p><a>') }}
+
+    <div style="overflow-y:auto; width: auto; height: 250px;" class="box-body chat" id="chat-box">
+        <!-- chat item -->
+                @foreach ($services as $service)
+                <div class="item">
+                <li>
+                    <h6><a href="{{{ URL::to('businesses/'.$service->id.'/show') }}}" >{{ $service->business_name }}</a></h6>
+                    <div class="sub-text" id="Web">
+                        {{ strip_tags(String::tidy(Str::limit($service->service_content, 100)), '<p><a>') }}
+                    </div>
+                </li>
             </div>
-        </li>
-        @endforeach
-    </ul>
+                @endforeach
+    </div>
+
 </div>
-<div class="four columns testim-box">
-    <h3 class="sub-title">公司简介 <span id="testim_navi"></span></h3>
+<div class="one-third column testim-box">
+    <h3 class="sub-title">品牌文化<span id="testim_navi"></span></h3>
     <div id="testimonials">
         <ul>
             <li>

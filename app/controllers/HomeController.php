@@ -20,8 +20,8 @@ class HomeController extends BaseController {
       //echo Config::get('app.front_template').'index';exit;
 
       $setting = Setting::find(1);
-      $carousels = Carousel::orderBy('order', 'DESC')->take(4)->get();
-      $services = Business::where('freeze','=','0')->orderBy('order', 'DESC')->take(4)->get();
+      $carousels = Carousel::orderBy('order', 'DESC')->get();
+      $services = Business::where('freeze','=','0')->orderBy('order', 'DESC')->get();
       $infos =  Info::getCompletedList()->where('freeze','=','0')->orderBy('updated_at', 'DESC')->take(10)->get();
       $recruits = Recruit::getCompletedList()->where('freeze','=','0')->orderBy('updated_at', 'DESC')->get();
       return View::make(Config::get('app.front_template').'index', compact('setting','carousels','services','infos','recruits'));
