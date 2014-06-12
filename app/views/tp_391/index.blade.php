@@ -81,7 +81,7 @@
         <li>
             <h5><a href="{{{ URL::to('/recruits/'.$recruit->id.'/show') }}}">{{ $recruit->recruit_name }}</a></h5>
             <div class="details">{{{ Lang::get('general.recruit_man') }}} {{ $recruit->recruit_count }} {{{ Lang::get('general.man') }}}</div>
-            <p>{{ strip_tags(String::tidy(Str::limit($recruit->recruit_content, 100)), '<p><a>') }}</p>
+<!--            <p>{{ strip_tags(String::tidy(Str::limit($recruit->recruit_content, 100)), '<p><a>') }}</p>-->
         </li>
         @endforeach
     </ul>
