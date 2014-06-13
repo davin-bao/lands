@@ -18,7 +18,7 @@
 <div class="box box-primary">
 
   {{-- Create Form --}}
-  <form method="post" action="@if (isset($info)){{ URL::to('admin/infos/' . $info->id . '/audit') }}@endif" autocomplete="off">
+  <form method="post" action="@if (isset($entry)){{ URL::to('admin/'.$entryName.'/' . $entry->id . '/audit') }}@endif" autocomplete="off">
           {{ Workflow::makeAuditFlowForm($entry, $nextAuditUsers,$currentNode) }}
   </form>
 </div>

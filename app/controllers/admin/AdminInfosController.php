@@ -49,10 +49,11 @@ class AdminInfosController extends AdminController {
     {
         // Title
         $title = Lang::get('admin/infos/title.create');
+        $entryName = $this->entryName;
         // Mode
         $mode = 'create';
         // Show the page
-        return View::make(Config::get('app.admin_template').'/infos/create_edit', compact('title', 'mode'));
+        return View::make(Config::get('app.admin_template').'/infos/create_edit', compact('title', 'entryName', 'mode'));
     }
 
     public function postCreate()
@@ -84,19 +85,19 @@ class AdminInfosController extends AdminController {
   /**
    * Show the form for editing the specified resource.
    *
-   * @param $user
    * @return Response
    */
-  public function getEdit($info)
+  public function getEdit($entry)
   {
-    if ( $info->id )
+    if($entry->id)
     {
       // Title
       //$title = Lang::get('admin/infos/title.update');
       // mode
       $mode = 'edit';
+      $entryName = $this->entryName;
 
-      return \View::make(\Config::get('app.admin_template').'/'.$this->entryName.'/create_edit', compact('info', 'mode'));
+      return \View::make(\Config::get('app.admin_template').'/'.$this->entryName.'/create_edit', compact('entry','entryName', 'mode'));
     }
     else
     {

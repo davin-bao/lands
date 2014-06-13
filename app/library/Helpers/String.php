@@ -28,7 +28,7 @@ class String {
             $tidy = new tidy();
             return  $tidy->repairString($value, array(
                 'show-body-only' => true,
-            ));
+            ),'utf8');
         } else { // No Tidy, Time for regex and possibly a broken DOM :(
             preg_match_all('#<(?!meta|img|br|hr|input\b)\b([a-z]+)(?: .*)?(?<![/|/ ])>#iU', $value, $result);
             $openedtags = $result[1];

@@ -38,4 +38,8 @@ class User extends ConfideUser {
     }
     return $roleIds;
   }
+    public function name(){
+        $name = $this->last_name.$this->first_name;
+        return $name == '' ? $this->username : $name;
+    }
 }

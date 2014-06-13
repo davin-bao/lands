@@ -18,12 +18,12 @@
 <div class="box box-primary">
 
     {{-- Create Form --}}
-    <form method="post" id="main-form" action="@if (isset($info)){{ URL::to('admin/infos/' . $info->id . '/edit') }}@endif" autocomplete="off">
+    <form method="post" id="main-form" action="@if (isset($entry)){{ URL::to('admin/infos/' . $entry->id . '/edit') }}@endif" autocomplete="off">
         <div class="box-body">
             <!-- Tabs -->
             <ul class="nav nav-tabs">
                 <li class="active"><a href="#tab-general" data-toggle="tab">{{{ Lang::get('admin/general.general_info') }}}</a></li>
-                @if (isset($info) && isset($info->isBinding))
+                @if (isset($entry) && isset($entry->isBinding))
                   <li><a href="#tab-audit" data-toggle="tab">{{{ Lang::get('workflow::workflow.audit_info') }}}</a></li>
                 @endif
             </ul>
@@ -41,7 +41,7 @@
                     <div class="form-group {{{ $errors->has('info_name') ? 'has-error' : '' }}}">
                         <label class="span2 control-label" for="info_name">{{{ Lang::get('admin/infos/table.info_name') }}}</label>
                         <div class="span6">
-                            <input class="form-control" type="text" name="info_name" id="info_name" value="{{{ Input::old('info_name', isset($info) ? $info->info_name : null) }}}" />
+                            <input class="form-control" type="text" name="info_name" id="info_name" value="{{{ Input::old('info_name', isset($entry) ? $entry->info_name : null) }}}" />
                             {{ $errors->first('info_name', '<label class="control-label" for="info_name"><i class="fa fa-times-circle-o"></i> :message</label>') }}
                         </div>
                     </div>
@@ -62,10 +62,10 @@
                                     <span>Delete</span>
                                 </button>
                                 <a href="#" class="thumbnail">
-                                    <img data-src="holder.js/80x80" alt="" src="{{ URL::to('files/image?name=') }}{{{ Input::old('image', isset($info) ? $info->image : null) }}}">
+                                    <img data-src="holder.js/80x80" alt="" src="{{ URL::to('files/image?name=') }}{{{ Input::old('image', isset($entry) ? $entry->image : null) }}}">
                                 </a>
                             </div>
-                            <input class="form-control" type="hidden" name="image" id="image" value="{{{ Input::old('image', isset($info) ? $info->image : null) }}}" />
+                            <input class="form-control" type="hidden" name="image" id="image" value="{{{ Input::old('image', isset($entry) ? $entry->image : null) }}}" />
                             {{ $errors->first('image', '<label class="control-label" for="image"><i class="fa fa-times-circle-o"></i> :message</label>') }}
                         </div>
                     </div>
@@ -76,7 +76,7 @@
                         <label class="span2 control-label" for="info_content">{{{ Lang::get('admin/infos/table.info_content') }}}</label>
                         <div class="span6">
                             <textarea class="form-control ckeditor" cols="80" id="info_content" name="info_content" rows="10">
-                                {{{ Input::old('info_content', isset($info) ? $info->info_content : null) }}}
+                                {{{ Input::old('info_content', isset($entry) ? $entry->info_content : null) }}}
                             </textarea>
                             {{ $errors->first('info_content', '<label class="control-label" for="info_content"><i class="fa fa-times-circle-o"></i> :message</label>') }}
                         </div>
@@ -95,8 +95,8 @@
                             </select>
                             @else
                             <select class="form-control" name="freeze" id="freeze">
-                                <option value="1"{{{ ($info->freeze ? ' selected="selected"' : '') }}}>{{{ Lang::get('general.yes') }}}</option>
-                                <option value="0"{{{ ( ! $info->freeze ? ' selected="selected"' : '') }}}>{{{ Lang::get('general.no') }}}</option>
+                                <option value="1"{{{ ($entry->freeze ? ' selected="selected"' : '') }}}>{{{ Lang::get('general.yes') }}}</option>
+                                <option value="0"{{{ ( ! $entry->freeze ? ' selected="selected"' : '') }}}>{{{ Lang::get('general.no') }}}</option>
                             </select>
                             @endif
                             {{ $errors->first('freeze', '<label class="control-label" for="freeze"><i class="fa fa-times-circle-o"></i> :message</label>') }}
@@ -107,9 +107,9 @@
                 </div>
                 <!-- ./ general tab -->
 
-                @if (isset($info) && isset($info->isBinding))
+                @if (isset($entry) && isset($entry->isBinding))
                 <!-- Audit tab -->
-                <div class="tab-pane" id="tab-audit">{{ Workflow::makeAuditDetail($info) }}</div>
+                <div class="tab-pane" id="tab-audit">{{ Workflow::makeAuditDetail($entry) }}</div>
                 <!-- ./ Audit tab -->
                 @endif
             </div>
@@ -118,7 +118,7 @@
             <!-- Form Actions -->
             <div class="form-group">
                 <div class="span6 offset2">
-                    @if (!isset($info) || !isset($info->isBinding) || (isset($info->isBinding) && $info->isMeAudit()))
+                    @if (!isset($entry) || !isset($entry->isBinding) || (isset($entry->isBinding) && $entry->isMeAudit()) || ($entry->isBindingFlow() && $entry->lastIsMe()))
                     <a type="reset" class="btn btn-default" href="{{{ URL::to('admin/infos') }}}">{{{ Lang::get('button.return') }}}</a>
                     <a name="preview" class="btn btn-success" value="preview">{{{ Lang::get('button.preview') }}}</a>
                     <button type="submit" class="btn btn-success" style="margin-left: 20px">{{{ Lang::get('button.submit') }}}</button>
@@ -204,7 +204,7 @@
 
         $('form button[type="submit"]').click(function(){
             $('form#main-form').attr('target', "_self");
-            $('form#main-form').attr("action",'@if (isset($info)){{ URL::to('admin/infos/' . $info->id . '/edit') }}@endif');
+            $('form#main-form').attr("action",'@if (isset($entry)){{ URL::to('admin/infos/' . $entry->id . '/edit') }}@endif');
             $('form#main-form').submit();
         });
 

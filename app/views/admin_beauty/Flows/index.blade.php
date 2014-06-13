@@ -45,7 +45,7 @@
           <th class="col-md-5">{{ Workflow::makeFlowGraph($flow, 0, 'unstart') }}</th>
           <th class="col-md-2">
             <a href="{{{ URL::to(sprintf('admin/flows/%d/edit', $flow->id)) }}}" class="iframe btn btn-xs btn-default"><i class="fa fa-edit"></i> {{{ Lang::get('button.edit') }}}</a>
-            <a href="#deleteModal" data-id="{{ $flow->id }}" data-toggle="modal" class="iframe btn btn-xs btn-danger"><i class="fa fa-trash-o"></i> {{{ Lang::get('button.delete') }}}</a>
+            <!--a href="#deleteModal" data-id="{{ $flow->id }}" data-toggle="modal" class="iframe btn btn-xs btn-danger"><i class="fa fa-trash-o"></i> {{{ Lang::get('button.delete') }}}</a-->
           </th>
         </tr>
         @endforeach

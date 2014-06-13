@@ -52,8 +52,9 @@ class AdminRecruitsController extends AdminController {
     $title = Lang::get('admin/recruits/title.create');
     // Mode
     $mode = 'create';
+    $entryName = $this->entryName;
     // Show the page
-    return View::make(Config::get('app.admin_template').'/recruits/create_edit', compact('title', 'mode'));
+    return View::make(Config::get('app.admin_template').'/recruits/create_edit', compact('title','entryName', 'mode'));
   }
 
   public function postCreate()
@@ -86,16 +87,17 @@ class AdminRecruitsController extends AdminController {
      * @param $user
      * @return Response
      */
-    public function getEdit($recruit)
+    public function getEdit($entry)
     {
-        if ( $recruit->id )
+        if ( $entry->id )
         {
             // Title
             $title = Lang::get('admin/recruits/title.update');
             // mode
             $mode = 'edit';
+            $entryName = $this->entryName;
 
-            return View::make(Config::get('app.admin_template').'/recruits/create_edit', compact('recruit', 'mode'));
+            return View::make(Config::get('app.admin_template').'/recruits/create_edit', compact('entry','entryName', 'mode'));
         }
         else
         {
