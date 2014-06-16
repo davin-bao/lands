@@ -35,7 +35,7 @@
             <div >
                 <h2><a href="{{{ URL::to('/recruits/'.$recruit->id.'/show') }}}">{{{ $recruit->recruit_name }}}</a></h2>
                 <div class="post-entry">
-                    <small>更新时间:<a href="#">{{{ $recruit->updated_at->format('Y-M-d') }}}</a></small>
+                    <small>更新时间:<a href="#">{{{ $recruit->updated_at->format('Y年m月d日') }}}</a></small>
 
                 <div >
                     <p><small>{{{ Lang::get('general.recruit_man') }}} {{ $recruit->recruit_count }} {{{ Lang::get('general.man') }}}</small></p>

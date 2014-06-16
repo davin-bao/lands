@@ -58,8 +58,15 @@ class AdminInfosController extends AdminController {
 
     public function postCreate()
     {
+        $image = Input::get( 'image' );
+        $imagearry = array('info1.jpg','info2.jpg');
+        if($image=="")
+        {
+            $a = array_rand($imagearry, 1);
+            $image = $imagearry[$a];
+        }
         $this->info->info_name = Input::get( 'info_name' );
-        $this->info->image = Input::get( 'image' );
+        $this->info->image = $image;
         $this->info->info_content = Input::get( 'info_content' );
         $this->info->freeze = Input::get( 'freeze' );
 
@@ -113,16 +120,21 @@ class AdminInfosController extends AdminController {
      */
     public function postEdit($info)
     {
-
+        $image = Input::get( 'image' );
         // Validate the inputs
         $validator = Validator::make(Input::all(), Info::$rules);
-
+        $imagearry = array('info1.jpg','info2.jpg');
+        if($image=="")
+        {
+            $a = array_rand($imagearry, 1);
+            $image = $imagearry[$a];
+        }
         // Check if the form validates with success
         if ($validator->passes())
         {
 
             $info->info_name = Input::get( 'info_name' );
-            $info->image = Input::get( 'image' );
+            $info->image = $image;
             $info->info_content = Input::get( 'info_content' );
             $info->freeze = Input::get( 'freeze' );
             // Was the role updated?

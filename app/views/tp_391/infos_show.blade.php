@@ -36,7 +36,7 @@
             <div >
                 <h2><a href="{{{ URL::to('/infos/'.$info->id.'/show') }}}">{{{ $info->info_name }}}</a></h2>
                 <div class="post-entry">
-                    <small>更新时间:<a href="#">{{{ $info->updated_at->format('Y-M-d') }}}</a></small>
+                    <small>更新时间:<a href="#">{{{ $info->updated_at->format('Y年m月d日') }}}</a></small>
 
                 <div>
 
