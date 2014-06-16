@@ -232,7 +232,7 @@
             <div class="container">
                 <!-- copyrights -->
                 <div style="margin-left: auto;margin-right: auto;text-align: center;">
-                    <a style=" color: #ffffff;"> 2014 版权所有&nbsp; &nbsp; &nbsp; &nbsp; 厦门地源网络科技有限公司</a><a target="_blank" href="http://www.miibeian.gov.cn" style="color:#fff;">闽ICP备14007829号-2.</a>
+                    <a style=" color: #ffffff;"> 2014 版权所有&nbsp; &nbsp; &nbsp;  厦门地源网络科技有限公司&nbsp; &nbsp; &nbsp;</a><a target="_blank" href="http://www.miibeian.gov.cn" style="color:#fff;">闽ICP备14007829号-2.</a>
                 </div>
                 <a href="#top" class="backtop" title="Page Up"><!-- Upper --></a>
             </div>
