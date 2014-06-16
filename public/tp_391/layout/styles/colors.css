@@ -1,6 +1,6 @@
 /* COlORS */
 
-body {color: #909091;}
+body {color: #000000;}
 h1, h2, h3, h4, h5, h6,
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a{color:#3c3c3c;
 	 text-decoration:none;}
@@ -41,7 +41,7 @@ ul.latest_blog a{color:#a6a6a6;}
 a.navi-to{color:#c7c8c8;}
 ul#main-menu li a,
 .post-entry h2,
-.post-entry h2 a{color:#3e3b3b;}
+.post-entry h2 a{color:#ffffff;}
 .work-by a{color:#909091;}
 .btn input,
 .post-info .post-date,
@@ -105,7 +105,7 @@ ul.our-work-scheeme li strong{color:#787878;}
 .post-details{color:#858585;}
 .rec_fade_context,
 .accordation-item-header a,
-.jToggle-item-header a{color:#878787;}
+.jToggle-item-header a{color:#024663;}
 .recent-posts-side a, .ipl-text{color:#8c8c8c;}
 .pricing-box-header h4{color:#8b8b8b;}
 ul.sevice-links li a,
@@ -130,7 +130,7 @@ select#main-menu-mobile,
 .info_text{color:#959595;}
 .details,
 .filtr-block,
-.filtr-block a{color:#a5a5a5;}
+.filtr-block a{color:#000000;}
 .sidebar-accordation p{color:#a6a6a6;}
 ul.our-team-list li span{color:#a8a8a8;}
 .cite-sign,

@@ -113,8 +113,8 @@ mark.dashed{padding-bottom:2px; padding-right:1px;
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 #footer-wrapper{
 	position:absolute;bottom:0;left:0;z-index:100;
-	background:url(images/backgrounds/body_bg.png) repeat center 0;}
-	
+	/*background:url(images/backgrounds/body_bg.png) repeat center 0;}*/
+}
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ top PART  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 #footer-top{
 	position:relative;z-index:101;padding:0 0 1px 0;width:100%;min-height:41px;

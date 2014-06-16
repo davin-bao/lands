@@ -171,7 +171,7 @@
 
         <!-- middle part: logo / tagline / contact info / menu -->
         <div id="header-bottom" class="container">
-            <div class="header-bottom-wrapper">
+            <div class="header-bottom-wrapper" style="background-color:#009fdc;">
                 <nav class="twelve columns alpha" id="main-menu-wrapper">
                     <ul id="main-menu">
 
@@ -204,7 +204,7 @@
                         <option value="{{{ URL::to('recruits') }}}" />&nbsp;-&nbsp;{{{ Lang::get('site/default.recruits') }}}
                     </select>
                 </nav>
-                <div class="four columns omega">
+                <div class="four columns omega" style="margin-left: 0px;">
                     <form action="{{{ URL::to('infos/search') }}}" method="post" class="search_block" />
                     <input type="text" name='search' value="搜索新闻 " onFocus="if(this.value=='搜索新闻 ')this.value='';" onBlur="if(this.value=='')this.value='搜索新闻 ';" />
                     <input type="submit" value="" />
@@ -222,16 +222,17 @@
     <!-- ./ content -->
 
     <!-- FOOTER -->
-    <footer id="footer-wrapper">
+    <footer id="footer-wrapper" style="background-color: #ffffff;">
         <!-- bottom part  -->
-        <div id="footer-bottom">
+        <div id="footer-bottom" style="background-color: #009fdc;">
+            >
             <!--
                 <div id="footer-bottom-arr"></div>
                 -->
             <div class="container">
                 <!-- copyrights -->
-                <div class="two-third column copyrights">
-                    <a>&copy; 2014 版权所有 厦门地源网络科技有限公司</a><a target="_blank" href="http://www.miibeian.gov.cn" style="color:green">闽ICP备14007829号-2.</a>
+                <div class="two-third column copyrights" style="margin-left: auto;margin-right: auto;">
+                    <a style=" color: #ffffff;"> 2014 版权所有 厦门地源网络科技有限公司</a><a target="_blank" href="http://www.miibeian.gov.cn" style="color:#fff;">闽ICP备14007829号-2.</a>
                 </div>
                 <a href="#top" class="backtop" title="Page Up"><!-- Upper --></a>
             </div>
