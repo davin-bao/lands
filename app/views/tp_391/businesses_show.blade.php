@@ -33,22 +33,35 @@
         <div class="columns twelve">
 
             <!-- Blog Item -->
-            <div class="post-entry">
+<!--            <div class="post-entry">-->
+<!--                <h2><a href="{{{ URL::to('/businesses/'.$business->id.'/show') }}}">{{{ $business->business_name }}}</a></h2>-->
+<!--                <div class="post-info">-->
+<!--                    <div class="post-date">&nbsp;&nbsp;<strong>{{{ $business->id }}}</strong></div>-->
+<!--                    <div class="post-comments">&nbsp;&nbsp;</div>-->
+<!---->
+<!--                    <div class="line-grey"></div>-->
+<!--                    <div class="post-categories">-->
+<!--                        <div style="margin-left:30px; margin-top:18px;"><small>更新时间:</small> <br/><a href="#">{{{ $business->updated_at->format('Y-M-d') }}}</a></div>	</div>-->
+<!--                </div>-->
+<!--                <div class="post-body">-->
+<!--                    <p>-->
+<!--                        {{ $business->business_content }}-->
+<!--                    </p>-->
+<!---->
+<!--                </div>-->
+<!--            </div>-->
+            <div >
                 <h2><a href="{{{ URL::to('/businesses/'.$business->id.'/show') }}}">{{{ $business->business_name }}}</a></h2>
-                <div class="post-info">
-                    <div class="post-date">&nbsp;&nbsp;<strong>{{{ $business->id }}}</strong></div>
-                    <div class="post-comments">&nbsp;&nbsp;</div>
+                <div class="post-entry">
+                <small>更新时间:<a href="#">{{{ $business->updated_at->format('Y-M-d') }}}</a></small>
 
-                    <div class="line-grey"></div>
-                    <div class="post-categories">
-                        <div style="margin-left:30px; margin-top:18px;"><small>更新时间:</small> <br/><a href="#">{{{ $business->updated_at->format('Y-M-d') }}}</a></div>	</div>
-                </div>
-                <div class="post-body">
+                <div >
                     <p>
                         {{ $business->business_content }}
                     </p>
 
                 </div>
+                    </div>
             </div>
             <!-- /Blog Item -->
 

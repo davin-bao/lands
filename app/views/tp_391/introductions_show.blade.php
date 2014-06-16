@@ -33,22 +33,17 @@
         <div class="columns twelve">
 
             <!-- Blog Item -->
-            <div class="post-entry">
+            <div>
                 <h2><a href="{{{ URL::to('/introductions') }}}">{{{ Lang::get('site/default.introductions') }}}</a></h2>
-                <div class="post-info">
-                    <div class="post-date">&nbsp;&nbsp;<strong>1</strong></div>
-                    <div class="post-comments">&nbsp;&nbsp;</div>
-
-                    <div class="line-grey"></div>
-                    <div class="post-categories">
-                        <div style="margin-left:30px; margin-top:18px;">&nbsp;</div>	</div>
-                </div>
-                <div class="post-body">
+                <div class="post-entry">
+                    <small>更新时间:<a href="#">{{{ $setting->updated_at->format('Y-M-d') }}}</a></small>
+                <div>
                     <p>
                         {{ $setting->company_instroductions }}
                     </p>
 
                 </div>
+                    </div>
             </div>
             <!-- /Blog Item -->
 

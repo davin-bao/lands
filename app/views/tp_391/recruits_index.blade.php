@@ -33,17 +33,12 @@
         <div class="columns twelve">
             @foreach ($recruits as $recruit)
             <!-- Blog Item -->
-            <div class="post-entry">
+            <div >
                 <h2><a href="{{{ URL::to('/recruits/'.$recruit->id.'/show') }}}">{{{ $recruit->recruit_name }}}</a></h2>
-                <div class="post-info">
-                    <div class="post-date">&nbsp;&nbsp;<strong>{{{ $recruit->id }}}</strong></div>
-                    <div class="post-comments">&nbsp;&nbsp;</div>
+                <div class="post-entry">
+                <small>更新时间:<a href="#">{{{ $recruit->updated_at->format('Y-M-d') }}}</a></small>
 
-                    <div class="line-grey"></div>
-                    <div class="post-categories">
-                        <div style="margin-left:30px; margin-top:18px;"><small>更新时间:</small> <br/><a href="#">{{{ $recruit->updated_at->format('Y-M-d') }}}</a></div>	</div>
-                </div>
-                <div class="post-body">
+                <div>
 
                     <p><small>{{{ Lang::get('general.recruit_man') }}} {{ $recruit->recruit_count }} {{{ Lang::get('general.man') }}}</small></p>
                     <br/>
@@ -53,6 +48,7 @@
                     <a href="{{{ URL::to('/recruits/'.$recruit->id.'/show') }}}" class="read-more">查看详细</a>
 
                 </div>
+                    </div>
             </div>
             <!-- /Blog Item -->
             @endforeach

@@ -33,23 +33,38 @@
         <div class="columns twelve">
             @foreach ($services as $service)
             <!-- Blog Item -->
-            <div class="post-entry">
+<!--            <div class="post-entry">-->
+<!--                <h2><a href="{{{ URL::to('/businesses/'.$service->id.'/show') }}}">{{{ $service->business_name }}}</a></h2>-->
+<!--                <div class="post-info">-->
+<!--                    <div class="post-date">&nbsp;&nbsp;<strong>{{{ $service->id }}}</strong></div>-->
+<!--                    <div class="post-comments">&nbsp;&nbsp;</div>-->
+<!---->
+<!--                    <div class="line-grey"></div>-->
+<!--                    <div class="post-categories">-->
+<!--                        <div style="margin-left:30px; margin-top:18px;"><small>更新时间:</small> <br/><a href="#">{{{ $service->updated_at->format('Y-M-d') }}}</a></div>	</div>-->
+<!--                </div>-->
+<!--                <div class="post-body">-->
+<!---->
+<!--                    <p>-->
+<!--                        {{ strip_tags(String::tidy(Str::limit($service->business_content, 300)), '<p><a>') }}-->
+<!--                    </p>-->
+<!--                    <a href="{{{ URL::to('/businesses/'.$service->id.'/show') }}}" class="read-more">查看详细</a>-->
+<!---->
+<!--                </div>-->
+<!--            </div>-->
+            <div>
                 <h2><a href="{{{ URL::to('/businesses/'.$service->id.'/show') }}}">{{{ $service->business_name }}}</a></h2>
-                <div class="post-info">
-                    <div class="post-date">&nbsp;&nbsp;<strong>{{{ $service->id }}}</strong></div>
-                    <div class="post-comments">&nbsp;&nbsp;</div>
+                <div class="post-entry">
+                <small>更新时间:<a href="#">{{{ $service->updated_at->format('Y-M-d') }}}</a></small>
 
-                    <div class="line-grey"></div>
-                    <div class="post-categories">
-                        <div style="margin-left:30px; margin-top:18px;"><small>更新时间:</small> <br/><a href="#">{{{ $service->updated_at->format('Y-M-d') }}}</a></div>	</div>
-                </div>
-                <div class="post-body">
+                <div>
 
                     <p>
                         {{ strip_tags(String::tidy(Str::limit($service->business_content, 300)), '<p><a>') }}
                     </p>
                     <a href="{{{ URL::to('/businesses/'.$service->id.'/show') }}}" class="read-more">查看详细</a>
 
+                </div>
                 </div>
             </div>
             <!-- /Blog Item -->
