@@ -14,7 +14,7 @@ sans-serif;
 	font-size:27px;
 	text-transform:uppercase;}
 .title p{
-	font:11px/18px  "Droid Sans",
+	font:12px/18px  "Droid Sans",
 Arial,
 sans-serif;}
 
@@ -37,7 +37,7 @@ sans-serif;}
 sans-serif;text-transform:uppercase;} 
 
 .contact-datails{
-	font-size:11px;}
+	font-size:12px;}
 .contact-datails h3,
 .contact-upper-form h3{
 	font:700 14px "Dosis",
@@ -48,7 +48,7 @@ input[type="password"],
 input[type="email"],
 textarea,
 select {
-		font:11px "Arial",
+		font:12px "Arial",
 sans-serif;}
 
 	/* Droid */
@@ -86,7 +86,7 @@ table.def-table td{
 sans-serif;}
 
 .inner-page-content h4{
-	font:700 11px/17px "Open Sans",arial,
+	font:700 12px/17px "Open Sans",arial,
 sans-serif;}
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Header ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 	/* style */
@@ -177,7 +177,7 @@ ul.latest-list a,
 .details,
 .read-more,
 .link-detail{
-	font-size:9px;}
+	font-size:12px;}
 .fs10,
 .latest_news li,
 .latest_news .time,
@@ -209,7 +209,7 @@ ul.latest-list a,
 .tag-link,
 .desc-container-box,
 .post-categories a{
-	font-size:11px;}
+	font-size:12px;}
 .fs12,
 .contact-datails p,
 .tagline,
@@ -294,7 +294,7 @@ ul.our-work-scheeme li span{
 	line-height:10px;}
 .read-more,
 .details{
-	line-height:11px;}
+	line-height:12px;}
 .lh13,
 .slogan{
 	line-height:13px;}
@@ -614,7 +614,7 @@ ul.our-work-scheeme li strong{
 		#header-middle .info{
 			text-align:center;}
 	
-		#footer-bottom{font-size:11px;}	
+		#footer-bottom{font-size:12px;}
 		.copyrights{text-align:left;}
 		
 		ul#main-menu li a{

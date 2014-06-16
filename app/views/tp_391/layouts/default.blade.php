@@ -225,14 +225,14 @@
     <footer id="footer-wrapper" style="background-color: #ffffff;">
         <!-- bottom part  -->
         <div id="footer-bottom" style="background-color: #009fdc;">
-            >
+
             <!--
                 <div id="footer-bottom-arr"></div>
                 -->
             <div class="container">
                 <!-- copyrights -->
-                <div class="two-third column copyrights" style="margin-left: auto;margin-right: auto;">
-                    <a style=" color: #ffffff;"> 2014 版权所有 厦门地源网络科技有限公司</a><a target="_blank" href="http://www.miibeian.gov.cn" style="color:#fff;">闽ICP备14007829号-2.</a>
+                <div style="margin-left: auto;margin-right: auto;text-align: center;">
+                    <a style=" color: #ffffff;"> 2014 版权所有&nbsp; &nbsp; &nbsp; &nbsp; 厦门地源网络科技有限公司</a><a target="_blank" href="http://www.miibeian.gov.cn" style="color:#fff;">闽ICP备14007829号-2.</a>
                 </div>
                 <a href="#top" class="backtop" title="Page Up"><!-- Upper --></a>
             </div>

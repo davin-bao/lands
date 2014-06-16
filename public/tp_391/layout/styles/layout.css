@@ -252,7 +252,8 @@ a.backtop:hover{background-position:0 0;}
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ BOTTOM PART  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 #footer-bottom{
 	position:relative;padding:6px 0 1px 0;
-	background:url(images/backgrounds/footer-bg.png) repeat 0 bottom;border-top:#3a3938 1px solid;z-index:101;}
+	/*background:url(images/backgrounds/footer-bg.png) repeat 0 bottom;*/
+    border-top:#009fdc 1px solid;z-index:101;}
 #footer-bottom-arr{
 	position:absolute;left:50%; top:-7px;width:9px;height:7px;margin-left:-4px;
 	background:url(images/backgrounds/footer-bottom-arr.png);}
