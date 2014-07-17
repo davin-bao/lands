@@ -104,7 +104,7 @@
                     </div>
 
                     <div class="part-right">
-                        <div class="email-line">联系邮箱: <a href="{{{ $setting->master_email }}}">{{{ $setting->master_email }}}</a></div>
+                        <div class="email-line">联系邮箱: <a href="mailto:{{{ $setting->master_email }}}">{{{ $setting->master_email }}}</a></div>
                         <div class="website-line">网址: <a href="#">{{{ $setting->site_url }}}</a></div>
                     </div>
                 </div>
