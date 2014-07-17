@@ -118,10 +118,10 @@
             <a href="#header-upper" class="toggle-upper">Toggle Upper</a>
             <div class="container">
                 <div class="half-left">
-                    <a style="color: #ff0000;font-size: 15px;font-weight:bold">
+                    <!--a style="color: #ff0000;font-size: 15px;font-weight:bold">
                         温馨提示：本网站目前仍然处于测试阶段，所有数据仅作为测试使用，不代表本站任何观点。
                         若有疑义请联系E-mail：master@landsource.com.cn，我们将及时处理。
-                    </a>
+                    </a-->
                 </div>
                 <div class="half-right">
                     @if (Auth::check())
