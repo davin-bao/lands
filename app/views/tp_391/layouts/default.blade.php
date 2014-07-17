@@ -332,16 +332,16 @@
 @yield('scripts')
 
 <script>
-    $(document).ready(function(){
-        $("#main-menu li a").removeClass('active');
-
-        $("#main-menu li a").each(function() {
-            var href = window.location.href;
-            if(href == $(this).attr('href')){
-                $(this).addClass('active');
-            }
-        });
-    });
+//    $(document).ready(function(){
+//        $("#main-menu li a").removeClass('active');
+//
+//        $("#main-menu li a").each(function() {
+//            var href = window.location.href;
+//            if(href == $(this).attr('href')){
+//                $(this).addClass('active');
+//            }
+//        });
+//    });
 </script>
 </body>
 </html>
