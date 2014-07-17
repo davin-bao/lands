@@ -33,17 +33,12 @@
         <div class="columns twelve">
 
             <!-- Blog Item -->
-            <div class="post-entry">
+            <div >
                 <h2><a href="{{{ URL::to('/infos/'.$info->id.'/show') }}}">{{{ $info->info_name }}}</a></h2>
-                <div class="post-info">
-                    <div class="post-date">&nbsp;&nbsp;<strong>{{{ $info->id }}}</strong></div>
-                    <div class="post-comments">&nbsp;&nbsp;</div>
+                <div class="post-entry">
+                    <small>更新时间:<a href="#">{{{ $info->updated_at->format('Y年m月d日') }}}</a></small>
 
-                    <div class="line-grey"></div>
-                    <div class="post-categories">
-                        <div style="margin-left:30px; margin-top:18px;"><small>更新时间:</small> <br/><a href="#">{{{ $info->updated_at->format('Y-M-d') }}}</a></div>	</div>
-                </div>
-                <div class="post-body">
+                <div>
 
                     @if($info->image!="")
                     <div class="post-image"><a href="{{ URL::to('files/image?name=') }}{{{ $info->image }}}" class="fancybox post-preview"><img src="{{ URL::to('files/image?name=') }}{{{ $info->image }}}" alt="" class="width:549px;height:209px;" /> <span class="over-bg-portfolio"><!-- over --></span></a></div>
@@ -53,6 +48,7 @@
                         {{ $info->info_content }}
                     </p>
 
+                </div>
                 </div>
 
             </div>

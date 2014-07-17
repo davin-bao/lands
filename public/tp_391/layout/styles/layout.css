@@ -113,8 +113,8 @@ mark.dashed{padding-bottom:2px; padding-right:1px;
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 #footer-wrapper{
 	position:absolute;bottom:0;left:0;z-index:100;
-	background:url(images/backgrounds/body_bg.png) repeat center 0;}
-	
+	/*background:url(images/backgrounds/body_bg.png) repeat center 0;}*/
+}
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ top PART  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 #footer-top{
 	position:relative;z-index:101;padding:0 0 1px 0;width:100%;min-height:41px;
@@ -252,7 +252,8 @@ a.backtop:hover{background-position:0 0;}
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ BOTTOM PART  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 #footer-bottom{
 	position:relative;padding:6px 0 1px 0;
-	background:url(images/backgrounds/footer-bg.png) repeat 0 bottom;border-top:#3a3938 1px solid;z-index:101;}
+	/*background:url(images/backgrounds/footer-bg.png) repeat 0 bottom;*/
+    border-top:#009fdc 1px solid;z-index:101;}
 #footer-bottom-arr{
 	position:absolute;left:50%; top:-7px;width:9px;height:7px;margin-left:-4px;
 	background:url(images/backgrounds/footer-bottom-arr.png);}
@@ -1372,7 +1373,7 @@ ul.block-filtered-items li a.fancybox-media{
 		background:url(images/backgrounds/op80-round.png) no-repeat;height:49px;width:58px;margin:0 auto;
 		text-align:center;padding:9px 0 0 0;}
 		.post-info .post-date strong{
-			display:block;margin:-4px 0 0 0;font-size:1.2em; line-height:;}
+			display:block;margin:-4px 0 0 0;font-size:1.2em; line-height:17px;}
 	
 	.post-info .post-comments{width:26px;	height:35px;padding:23px 0 0 32px;margin:-14px auto 12px auto;
 		background:url(images/backgrounds/comments.png) no-repeat 0 0;}
