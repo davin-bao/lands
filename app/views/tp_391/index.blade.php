@@ -57,12 +57,14 @@
         <ul class="list_recent">
             @foreach ($infos as $info)
             <li>
+                <a href="{{{ URL::to('/infos/'.$info->id.'/show') }}}">
                 <div class="rec_img"> <img src="{{ URL::to('files/image?name=') }}{{{ $info->image }}}" style="width:300px;height:114px;" alt="" /> </div>
-                <h5><a href="{{{ URL::to('/infos/'.$info->id.'/show') }}}">{{{ $info->info_name }}}</a></h5>
+                <h5>{{{ $info->info_name }}}</h5>
                 <div class="rec_fade_context">
                     <div class="rec_fade_context_arrow"></div>
                     <p>{{ strip_tags(String::tidy($info->info_content), '') }}</p>
                 </div>
+                </a>
             </li>
             @endforeach
         </ul>
