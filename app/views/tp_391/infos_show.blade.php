@@ -91,7 +91,7 @@
                 <li>
                     <a href="{{ URL::to('files/image?name=') }}{{{ $info->image }}}" class="fancybox left-image"><img src="{{ URL::to('files/image?name=') }}{{{ $info->image }}}" style="width:60px; height:32px" alt="" /> <span class="over-bg-portfolio"></span></a>
                     <a href="{{{ URL::to('/infos/'.$info->id.'/show') }}}">{{{ $info->info_name }}}</a>
-                    <em>{{{ $info->created_at->format('Y-M-d') }}}</em>
+                    <em>{{{ $info->created_at->format('Y年m月d日') }}}</em>
                 </li>
 @endforeach
             </ul>
